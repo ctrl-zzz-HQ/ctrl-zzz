@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const handlePasswordChange = function(e) {
+    if (e.target.value === 'ctrl+zzz') {
+      console.log('got password');
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App d-flex flex-column outer-container">
+      <div className="d-flex flex-column password-container">
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password" onChange={handlePasswordChange}/>
+      </div>
     </div>
   );
 }
