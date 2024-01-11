@@ -1,6 +1,6 @@
-import './App.css';
+import './Splash.css';
 
-function App() {
+export default function Spash() {
 
   const handlePasswordChange = function(e) {
     if (e.target.value === 'ctrl+zzz') {
@@ -9,7 +9,7 @@ function App() {
   }
 
   return (
-    <div className="App d-flex flex-column outer-container">
+    <div className="d-flex flex-column page-container">
       <div className="d-flex flex-column password-container">
         <label htmlFor="password">Password</label>
         <input type="password" id="password" onChange={handlePasswordChange}/>
@@ -17,5 +17,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
