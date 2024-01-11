@@ -4,16 +4,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './reset.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Splash from "./pages/Splash";
+import Splash from "./layouts/Splash";
 import Home from "./pages/Home";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Splash />}>
           <Route index element={<Home />} />
-          <Route path="splash" element={<Splash />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>

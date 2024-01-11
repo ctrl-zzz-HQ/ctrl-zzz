@@ -31,6 +31,10 @@ body::after {
   pointer-events: none;
 }
 
+.d-none {
+  display: none !important;
+}
+
 .d-flex {
   display: flex;
 }
