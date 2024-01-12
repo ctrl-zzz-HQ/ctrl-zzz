@@ -1,13 +1,15 @@
+@font-face {
+  font-family: 'VGA';
+  src: local('VGA'), url(./resources/Perfect DOS VGA 437.ttf) format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--dark-bg-color);
   color: var(--text-color);
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'VGA', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   background-image: radial-gradient(rgb(0 132 150 / 37%), black 120%);
   text-shadow: 0 0 5px var(--border-color);
