@@ -1,0 +1,10 @@
+:root {
+  --border-color: #46b2fc;
+  --text-color: #e5e5ff;
+  --hover-text-color: grey;
+  --medium-bg-color: #363636;
+  --dark-bg-color: #282c34;
+  --hover-bg-color: red;
+  --solid-border: 1px solid var(--border-color);
+  --dashed-border: 1px dashed var(--border-color);
+}

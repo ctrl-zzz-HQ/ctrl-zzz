@@ -5,12 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34;
-  color: #e5e5ff;
+  background-color: var(--dark-bg-color);
+  color: var(--text-color);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   background-image: radial-gradient(rgb(0 132 150 / 37%), black 120%);
-  text-shadow: 0 0 5px #46b2fc;
+  text-shadow: 0 0 5px var(--border-color);
 }
 
 /* Terminal styling adapted from: https://css-tricks.com/old-timey-terminal-styling/ */
@@ -43,9 +43,8 @@ body::after {
   flex-direction: column;
 }
 
-.page-container {
-  width: 100vw;
-  height: 100vh;
+a {
+  color: var(--text-color);
 }
 
 label {
@@ -54,11 +53,11 @@ label {
 
 input[type="password"] {
   font-size: 1.5rem;
-  background-color: #363636;
-  border: 1px solid #46b2fc;
+  background-color: var(--medium-bg-color);
+  border: var(--solid-border);
   outline: none;
-  color: #e5e5ff;
+  color: var(--text-color);
   margin: .2rem 0;
   padding: .5rem;
-  text-shadow: 0 0 5px #46b2fc;
+  text-shadow: 0 0 5px var(--border-color);
 }

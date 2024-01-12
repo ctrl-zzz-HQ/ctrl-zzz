@@ -15,7 +15,7 @@ export default function Splash() {
 
   return (
     cookies[cookieName] ? <Outlet /> :
-    <div className="d-flex flex-column page-container">
+    <div className="d-flex flex-column splash page-container">
       <div className="d-flex flex-column password-container">
         <label htmlFor="password">Password</label>
         <input type="password" id="password" onChange={handlePasswordChange}/>

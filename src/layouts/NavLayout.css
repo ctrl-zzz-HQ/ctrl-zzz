@@ -1,0 +1,29 @@
+.nav-layout.page-container {
+  height: 100vh;
+}
+
+.left-menu {
+  border: var(--solid-border);
+  padding: 1rem;
+}
+
+.menu-group {
+  border: var(--dashed-border);
+  padding: .5rem;
+}
+
+.menu-group-header {
+  font-weight: bold;
+  display: block;
+  padding: .5rem;
+}
+
+.menu-group-item {
+  padding: .5rem 2rem;
+  display: block;
+}
+
+a:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
+}
