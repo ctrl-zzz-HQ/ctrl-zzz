@@ -7,30 +7,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--dark-bg-color);
-  color: var(--text-color);
-  font-family: 'VGA', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  background-image: radial-gradient(rgb(0 132 150 / 37%), black 120%);
-  text-shadow: 0 0 5px var(--border-color);
-}
-
-/* Terminal styling adapted from: https://css-tricks.com/old-timey-terminal-styling/ */
-body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  pointer-events: none;
 }
 
 .d-none {
@@ -43,23 +19,4 @@ body::after {
 
 .flex-column {
   flex-direction: column;
-}
-
-a {
-  color: var(--text-color);
-}
-
-label {
-  font-size: .75rem;
-}
-
-input[type="password"] {
-  font-size: 1.5rem;
-  background-color: var(--medium-bg-color);
-  border: var(--solid-border);
-  outline: none;
-  color: var(--text-color);
-  margin: .2rem 0;
-  padding: .5rem;
-  text-shadow: 0 0 5px var(--border-color);
 }

@@ -1,10 +1,80 @@
 :root {
-  --border-color: #46b2fc;
-  --text-color: #e5e5ff;
-  --hover-text-color: grey;
-  --medium-bg-color: #363636;
-  --dark-bg-color: #282c34;
-  --hover-bg-color: red;
-  --solid-border: 1px solid var(--border-color);
-  --dashed-border: 1px dashed var(--border-color);
+  --blue-color: #191978;
+  --gray-color: #ADAAAD;
+  --red-color: #C12A44;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+}
+
+@font-face {
+  font-family: 'VGA';
+  src: local('VGA'), url(./resources/Perfect DOS VGA 437.ttf) format('truetype');
+}
+
+body {
+  font-family: 'VGA';
+  font-size: 16px;
+}
+
+.primary {
+  background: var(--blue-color);
+  color: var(--gray-color);
+}
+
+.secondary {
+  background: var(--gray-color);
+  color: var(--blue-color);
+}
+
+.dialog {
+  width: 30vw;
+  min-width: 350px;
+  padding: 1rem;
+  box-shadow: 15px 20px 0 var(--black-color);
+}
+
+@media only screen and (max-width: 400px) {
+  .dialog {
+    width: 95%;
+    min-width: unset;
+  }
+}
+
+.box-border, .box-border.primary {
+  position: relative;
+  padding: 1rem;
+  border-top: 2px solid var(--gray-color);
+  border-right: 4px solid var(--gray-color);
+  border-bottom: 2px solid var(--gray-color);
+  border-left: 4px solid var(--gray-color);
+  background: var(--blue-color)
+}
+
+.box-border.secondary {
+  border-top: 2px solid var(--blue-color);
+  border-right: 4px solid var(--blue-color);
+  border-bottom: 2px solid var(--blue-color);
+  border-left: 4px solid var(--blue-color);
+  background: var(--gray-color)
+}
+
+.box-border > .header {
+  position: absolute;
+  top: -8px;
+  background: inherit;
+  padding: 0 1rem;
+}
+
+h1 {
+  color: var(--white-color);
+}
+
+input {
+  font-size: 16px;
+  outline: none;
+  padding: .5rem;
+}
+
+input.primary {
+  color: var(--white-color);
 }
