@@ -17,22 +17,36 @@ export default function NavLayout() {
                 <div className="left-menu">
                   <div className="menu-group">
                     <span className="menu-group-header">MISSIONS</span>
-                    <Link to="/" className="menu-group-item">&gt; Mission I</Link>
+                    {
+                      missions.map(mission =>
+                        <Link to={`/mission/${mission.code}`} className="menu-group-item" key={mission.code}>
+                          &gt; {mission.code} [{mission.status}]
+                        </Link>
+                      )
+                    }
                   </div>
                   <div className="menu-group">
                     <span className="menu-group-header">AGENTS</span>
-                    <Link to="/" className="menu-group-item">&gt; I [xxx]</Link>
-                    <Link to="/" className="menu-group-item">&gt; II [xxx]</Link>
-                    <Link to="/" className="menu-group-item">&gt; III [xxx]</Link>
+                    {
+                      agents.map(agent =>
+                        <Link to={`/member/${agent.code}`} className="menu-group-item" key={agent.code}>
+                          &gt; {agent.code} [{agent.alias}]
+                        </Link>
+                      )
+                    }
                   </div>
                   <div className="menu-group">
                     <span className="menu-group-header">TARGETS</span>
-                    <Link to="/" className="menu-group-item">&gt; I [xxx]</Link>
-                    <Link to="/" className="menu-group-item">&gt; II [xxx]</Link>
-                    <Link to="/" className="menu-group-item">&gt; III [xxx]</Link>
+                    {
+                      targets.map(target =>
+                        <Link to={`/member/${target.code}`} className="menu-group-item" key={target.code}>
+                          &gt; {target.code} [{target.alias}]
+                        </Link>
+                      )
+                    }
                   </div>
                   <div className="menu-group">
-                    <Link to="/" className="menu-group-header">DREAM LOG</Link>
+                    <Link to="/dream-log" className="menu-group-header">DREAM LOG</Link>
                   </div>
                 </div>
               </td>
