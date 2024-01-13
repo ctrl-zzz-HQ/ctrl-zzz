@@ -1,22 +1,29 @@
 .nav-layout.page-container {
+  width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.left-menu {
+.nav-layout .left-menu {
   padding: 1rem;
 }
 
-.menu-group {
+.nav-layout .menu-group {
   padding: .5rem;
 }
 
-.menu-group-header {
-  font-weight: bold;
+.nav-layout .menu-group-header {
   display: block;
-  padding: .5rem;
+  padding: .1rem;
 }
 
-.menu-group-item {
-  padding: .5rem 2rem;
+.nav-layout .menu-group-item {
+  padding: .1rem 2rem;
   display: block;
+}
+
+.nav-layout .page-content {
+  flex-grow: 1;
 }

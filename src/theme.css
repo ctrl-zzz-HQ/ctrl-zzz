@@ -65,8 +65,18 @@ body {
   padding: 0 1rem;
 }
 
-h1 {
+h1, h2 {
   color: var(--white-color);
+}
+
+a {
+  color: inherit;
+}
+
+a:hover, a:focus-visible {
+  background: var(--red-color);
+  color: var(--white-color);
+  outline: none;
 }
 
 input {

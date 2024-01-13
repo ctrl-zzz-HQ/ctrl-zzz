@@ -9,14 +9,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .d-none {
   display: none !important;
 }
 
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-column {
-  flex-direction: column;
+  flex-direction: column !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.w-100 {
+  width: 100% !important;
 }
