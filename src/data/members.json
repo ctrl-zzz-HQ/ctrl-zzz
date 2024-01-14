@@ -1,0 +1,62 @@
+[
+  {
+    "code": "I",
+    "alias": "NekoNat",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "II",
+    "alias": "Lyn 文文",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "III",
+    "alias": "Yan",
+    "status": "ACTIVE"
+  },
+  {
+    "code": "IV",
+    "alias": "Aida",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "V",
+    "alias": "Naya",
+    "status": "ACTIVE"
+  },
+  {
+    "code": "VI",
+    "alias": "Atel",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "VII",
+    "alias": "Lilp",
+    "status": "ACTIVE"
+  },
+  {
+    "code": "VIII",
+    "alias": "peach",
+    "status": "ACTIVE"
+  },
+  {
+    "code": "IX",
+    "alias": "Nezu",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "X",
+    "alias": "yenii",
+    "status": "ACTIVE"
+  },
+  {
+    "code": "XI",
+    "alias": "Joy",
+    "status": "PROSPECTIVE"
+  },
+  {
+    "code": "XII",
+    "alias": "Ash",
+    "status": "ACTIVE"
+  }
+]

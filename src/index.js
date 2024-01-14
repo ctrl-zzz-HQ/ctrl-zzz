@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './reset.css';
 import './theme.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Splash from "./layouts/Splash";
 import NavLayout from "./layouts/NavLayout";
-import Home from "./pages/Home";
+import MissionLayout from "./layouts/MissionLayout";
+import MemberLayout from "./layouts/MemberLayout";
+import DreamLogLayout from "./layouts/DreamLogLayout";
+import Mission from "./pages/Mission";
+import Member from "./pages/Member";
+import DreamLog from "./pages/DreamLog";
+import missions from './data/missions.json';
+import members from './data/members.json';
+import dreamLogs from './data/dream-logs.json';
 
 export default function App() {
   return (
@@ -15,7 +23,31 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Splash />}>
           <Route path="/" element={<NavLayout />}>
-            <Route index element={<Home />} />
+            <Route index element={<Navigate to="/missions" />}/>
+            <Route path="/missions" element={<MissionLayout />}>
+              <Route index element={<Navigate to={`${missions.length - 1}`} />}/>
+              {
+                missions.map((mission, index) =>
+                  <Route key={index} path={`${index}`} element={<Mission index={index} />}/>
+                )
+              }
+            </Route>
+            <Route path="/members" element={<MemberLayout />}>
+              <Route index element={<Member index={-1} />}/>
+              {
+                members.map((member, index) =>
+                  <Route key={index} path={`${index}`} element={<Member index={index} />}/>
+                )
+              }
+            </Route>
+            <Route path="/dream-logs" element={<DreamLogLayout />}>
+              <Route index element={<Navigate to={`${dreamLogs.length - 1}`} />}/>
+              {
+                dreamLogs.map((dreamLog, index) =>
+                  <Route key={index} path={`${index}`} element={<DreamLog index={index} />}/>
+                )
+              }
+            </Route>
           </Route>
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
