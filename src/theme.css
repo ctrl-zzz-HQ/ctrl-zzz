@@ -6,18 +6,18 @@
   --black-color: #000000;
 }
 
-@font-face {
+/*@font-face {
   font-family: 'BestTen-CRT';
   src: local('BestTen-CRT'), url(./assets/fonts/BestTen-CRT.otf) format('opentype');
 }
-
+*/
 @font-face {
   font-family: 'VGA';
   src: local('VGA'), url(./assets/fonts/Perfect DOS VGA 437.ttf) format('truetype');
 }
 
 body {
-  font-family: 'VGA', 'BestTen-CRT', monospace, serif,
+  font-family: 'VGA', monospace, serif,
     /* Defaults */
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
