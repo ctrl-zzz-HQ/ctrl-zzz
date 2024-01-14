@@ -6,13 +6,8 @@
   --black-color: #000000;
 }
 
-@font-face {
-  font-family: 'VGA';
-  src: local('VGA'), url(./assets/fonts/Perfect DOS VGA 437.ttf) format('truetype');
-}
-
 body {
-  font-family: 'VGA', monospace, serif,
+  font-family: 'IBM VGA 9x16', monospace, serif,
     /* Defaults */
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
