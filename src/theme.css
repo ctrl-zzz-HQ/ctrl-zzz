@@ -11,16 +11,17 @@
   src: local('VGA'), url(./assets/fonts/Perfect DOS VGA 437.ttf) format('truetype');
 }
 
+/* Required for power button (I/O symbol) */
 @font-face {
-  font-family: 'Fira Sans';
-  src: local('Fira Sans'), url(./assets/fonts/FiraSans-Regular.ttf) format('truetype');
+  font-family: 'Fira Sans SemiBold';
+  src: local('Fira Sans SemiBold'), url(./assets/fonts/FiraSans-SemiBold.ttf) format('truetype');
 }
 
 body {
-  font-family: 'VGA', 'Fira Sans', monospace, serif,
+  font-family: 'VGA', 'Fira Sans SemiBold', monospace, serif,
     /* Defaults */
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 16px;
 }
