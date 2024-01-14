@@ -7,34 +7,16 @@
   padding: 1rem;
 }
 
-.nav-layout .left-menu {
+.nav-layout.top-menu {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-direction: row;
+  width: 100%;
+  max-width: 300px;
 }
 
-.nav-layout .menu-group-header, .nav-layout .menu-group-item {
-  display: block;
-}
-
-.nav-layout .page-content {
+.nav-layout.top-menu a {
+  text-decoration: none;
+  text-align: center;
+  margin: .5rem 0;
   flex-grow: 1;
-}
-
-.nav-layout .table-container {
-  padding: 2px;
-  border: 1px solid var(--gray-color);
-}
-
-.nav-layout tbody td:nth-child(1) {
-  width: 1%;
-  white-space: nowrap;
-}
-
-.nav-layout table, .nav-layout td {
-  border: 1px solid var(--gray-color);
-}
-
-.nav-layout td {
-  padding: 1rem;
 }
