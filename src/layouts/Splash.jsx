@@ -2,17 +2,37 @@ import './Splash.css';
 import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
 import lottie from 'lottie-web';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import bootupText from '../data/bootup_text.js';
+
+const cookieName = 'splashed';
 
 export default function Splash() {
 
-  const cookieName = 'splashed';
   const [cookies, setCookie,] = useCookies([cookieName]);
-  const logoAnimationRef = useRef(null);
   const [logoAnimation, setLogoAnimation] = useState(null);
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(null);
+
+  const setSplashedCookie = useCallback((value) => {
+    setCookie(cookieName, value, { sameSite: 'strict' });
+  }, [setCookie]);
+
+  const logoAnimationRef = useCallback((node) => {
+    if (node) {
+      const newLogoAnimation = lottie.loadAnimation({
+        container: node,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: '/lottie/logo/data.json',
+      });
+      setLogoAnimation(prevLogoAnimation => {
+        if (prevLogoAnimation) prevLogoAnimation.destroy();
+        return newLogoAnimation;
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
@@ -22,30 +42,20 @@ export default function Splash() {
   }, [startTime, bootupPos, setBootupPos]);
 
   useEffect(() => {
-    if (logoAnimationRef.current) {
-      const newLogoAnimation = lottie.loadAnimation({
-        container: logoAnimationRef.current,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: '/lottie/logo/data.json',
-      });
-      setLogoAnimation(newLogoAnimation);
-      return () => newLogoAnimation.destroy();
-    }
-  }, [setLogoAnimation, logoAnimationRef.current]);
-
-  useEffect(() => {
     if (bootupPos >= bootupText.length) {
-      logoAnimation.play();
-      logoAnimation.addEventListener('complete', () => setCookie(cookieName, true));
+      if (logoAnimation) {
+        logoAnimation.play();
+        logoAnimation.addEventListener('complete', () => setSplashedCookie(true));
+      } else {
+        setSplashedCookie(true);
+      }
     }
-  }, [logoAnimation, bootupPos, setCookie]);
+  }, [logoAnimation, bootupPos, setSplashedCookie]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        setCookie(cookieName, true);
+        setSplashedCookie(true);
       }
     }
 
@@ -53,10 +63,10 @@ export default function Splash() {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
-  }, [cookies, setCookie]);
+  }, [cookies, setSplashedCookie]);
 
   const skipBootupSequence = function(e) {
-    setCookie(cookieName, true);
+    setSplashedCookie(true);
   }
 
   const powerOn = function(e) {
@@ -66,7 +76,7 @@ export default function Splash() {
 
   const powerOff = function(e) {
     setBootupPos(0);
-    setCookie(cookieName, false);
+    setSplashedCookie(false);
   }
 
   return (
