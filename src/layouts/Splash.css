@@ -1,8 +1,6 @@
 .splash.page-container {
   width: 100vw;
   height: 100vh;
-  background: var(--black-color);
-  color: var(--gray-color);
 }
 
 .splash .skip-button {
@@ -39,8 +37,9 @@
   position: absolute;
   bottom: 0;
   min-height: 100%;
-  text-shadow: 1px 1px 0 rgba(255, 0, 0, .5),
-    -1px -1px 0 rgba(0, 255, 255, .7),
+  color: var(--gray-color);
+  text-shadow: 1px 0 0 rgba(255, 0, 0, .5),
+    -1px 0 0 rgba(0, 255, 255, .7),
     0 0 2px var(--white-color);
 }
 
@@ -62,4 +61,5 @@
 
 .splash .logo-animation {
   max-width: 250px;
+  filter: brightness(1.5);
 }

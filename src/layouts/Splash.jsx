@@ -64,7 +64,7 @@ export default function Splash() {
 
   return (
     cookies[cookieName] ? <Outlet /> :
-    <div className="splash page-container">
+    <div className="splash page-container primary">
       <button className="skip-button" onClick={skipBootupSequence}>Click here or 'Esc' to skip.</button>
       {bootupPos <= 0 &&
       <div className="button-wrapper">

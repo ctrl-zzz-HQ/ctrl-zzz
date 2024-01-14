@@ -1,6 +1,7 @@
 :root {
   --blue-color: #191978;
   --gray-color: #ADAAAD;
+  --dark-gray-color: #333333;
   --red-color: #C12A44;
   --white-color: #FFFFFF;
   --black-color: #000000;
@@ -16,8 +17,8 @@ body {
 }
 
 .primary {
-  background: var(--blue-color);
-  color: var(--gray-color);
+  background: radial-gradient(var(--dark-gray-color), var(--black-color));
+  color: var(--white-color);
 }
 
 .secondary {
