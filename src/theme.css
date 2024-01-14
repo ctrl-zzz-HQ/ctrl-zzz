@@ -87,10 +87,12 @@ a {
   color: inherit;
 }
 
-a:hover, a:focus-visible {
-  background: var(--red-color);
-  color: var(--white-color);
-  outline: none;
+@media (hover: hover) {
+  a:hover, a:focus-visible {
+    background: var(--red-color);
+    color: var(--white-color);
+    outline: none;
+  }
 }
 
 a.active {
