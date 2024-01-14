@@ -38,7 +38,7 @@ export default function MemberLayout() {
               </td>
             </tr>
             <tr className="mobile">
-              <td colSpan="2" className="h-0">
+              <td colSpan="2" className="fit-height">
                 <div className="d-flex flex-row justify-space-between">
                   <Link to={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; previous</Link>
                   <Link to={`${currIndex + 1}`} className={currIndex >= members.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
