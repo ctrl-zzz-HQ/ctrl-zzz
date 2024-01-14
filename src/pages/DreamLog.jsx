@@ -1,7 +1,7 @@
 import dreamLogs from '../data/dream-logs.json';
 import { useState } from 'react';
 
-export default function Member({ index }) {
+export default function DreamLog({ index }) {
 
   const [dreamLog,] = useState(dreamLogs[index]);
 

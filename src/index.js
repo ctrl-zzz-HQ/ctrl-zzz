@@ -8,13 +8,13 @@ import reportWebVitals from './reportWebVitals';
 import Splash from "./layouts/Splash";
 import NavLayout from "./layouts/NavLayout";
 import MissionLayout from "./layouts/MissionLayout";
-import MemberLayout from "./layouts/MemberLayout";
+import AgentLayout from "./layouts/AgentLayout";
 import DreamLogLayout from "./layouts/DreamLogLayout";
 import Mission from "./pages/Mission";
-import Member from "./pages/Member";
+import Agent from "./pages/Agent";
 import DreamLog from "./pages/DreamLog";
 import missions from './data/missions.json';
-import members from './data/members.json';
+import agents from './data/agents.json';
 import dreamLogs from './data/dream-logs.json';
 
 export default function App() {
@@ -32,11 +32,11 @@ export default function App() {
                 )
               }
             </Route>
-            <Route path="/members" element={<MemberLayout />}>
-              <Route index element={<Member index={-1} />}/>
+            <Route path="/agents" element={<AgentLayout />}>
+              <Route index element={<Agent index={-1} />}/>
               {
-                members.map((member, index) =>
-                  <Route key={index} path={`${index}`} element={<Member index={index} />}/>
+                agents.map((agent, index) =>
+                  <Route key={index} path={`${index}`} element={<Agent index={index} />}/>
                 )
               }
             </Route>

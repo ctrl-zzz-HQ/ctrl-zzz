@@ -11,8 +11,8 @@ export default function NavLayout() {
       label: 'Missions',
     },
     {
-      path: '/members',
-      label: 'Members',
+      path: '/agents',
+      label: 'Agents',
     },
     {
       path: '/dream-logs',

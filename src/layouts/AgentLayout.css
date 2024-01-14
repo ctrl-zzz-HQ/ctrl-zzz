@@ -1,27 +1,27 @@
-.member-layout.page-container {
+.agent-layout.page-container {
   width: 100%;
   height: 100%;
 }
 
-.member-layout.table-container {
+.agent-layout.table-container {
   border: 1px solid var(--white-color);
   padding: 4px;
   width: 100%;
   height: 100%;
 }
 
-table.member-layout {
+table.agent-layout {
   width: 100%;
   height: 100%;
   border: 1px solid var(--white-color);
 }
 
-table.member-layout td {
+table.agent-layout td {
   border: 1px solid var(--white-color);
   padding: 1rem;
 }
 
-table.member-layout .menu-group-item {
+table.agent-layout .menu-group-item {
   display: block;
   margin-bottom: .25rem;
 }
