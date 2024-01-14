@@ -6,11 +6,6 @@
   --black-color: #000000;
 }
 
-/*@font-face {
-  font-family: 'BestTen-CRT';
-  src: local('BestTen-CRT'), url(./assets/fonts/BestTen-CRT.otf) format('opentype');
-}
-*/
 @font-face {
   font-family: 'VGA';
   src: local('VGA'), url(./assets/fonts/Perfect DOS VGA 437.ttf) format('truetype');
