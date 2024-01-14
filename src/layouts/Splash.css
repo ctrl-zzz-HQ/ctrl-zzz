@@ -5,6 +5,16 @@
   color: var(--gray-color);
 }
 
+.splash .skip-button {
+  color: var(--white-color);
+  background: var(--black-color);
+  border: 1px solid var(--gray-color);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
 .splash .power-button {
   font-size: 10rem;
   border: none;

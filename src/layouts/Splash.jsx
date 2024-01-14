@@ -35,6 +35,23 @@ export default function Splash() {
     }
   }, [bootupPos, logoAnimationRef, setCookie]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setCookie(cookieName, true);
+      }
+    }
+
+    if (!cookies[cookieName]) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [cookies, setCookie]);
+
+  const skipBootupSequence = function(e) {
+    setCookie(cookieName, true);
+  }
+
   const powerOn = function(e) {
     setStartTime(new Date().getTime());
     setBootupPos(1);
@@ -43,6 +60,7 @@ export default function Splash() {
   return (
     cookies[cookieName] ? <Outlet /> :
     <div className="splash page-container">
+      <button className="skip-button" onClick={skipBootupSequence}>Click here or 'Esc' to skip.</button>
       {bootupPos <= 0 &&
       <div className="button-wrapper">
         <button className="power-button" onClick={powerOn}>⏻</button>
