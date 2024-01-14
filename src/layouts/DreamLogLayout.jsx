@@ -17,7 +17,7 @@ export default function DreamLogLayout() {
         <table className="dream-log-layout">
           <tbody>
             <tr>
-              <td>
+              <td className="desktop">
                 {
                   dreamLogs.map((dreamLog, index) =>
                     <Link to={`${index}`} className={`menu-group-item ${isActive(index) ? 'active' : ''}`} key={index}>

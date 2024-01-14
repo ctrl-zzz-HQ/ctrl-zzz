@@ -7,7 +7,12 @@ export default function Member({ index }) {
 
   return (
     <>
-      <h2>DREAM LOG {dreamLog.code} [timestamp: {dreamLog.timestamp}]</h2>
+      <h2>
+        <span className="desktop">DREAM </span>
+        LOG {dreamLog.code} [
+        <span className="desktop">timestamp: </span>
+        {dreamLog.timestamp}]
+      </h2>
     </>
   );
 }

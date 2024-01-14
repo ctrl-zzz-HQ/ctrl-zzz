@@ -21,7 +21,7 @@ table.dream-log-layout td {
   padding: 1rem;
 }
 
-table.dream-log-layout td:nth-child(1) {
+table.dream-log-layout tr:nth-child(1) td:nth-child(1) {
   width: 0;
   white-space: nowrap;
 }

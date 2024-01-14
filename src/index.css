@@ -16,12 +16,20 @@ body {
   display: flex !important;
 }
 
+.v-hidden {
+  visibility: hidden !important;
+}
+
 .flex-column {
   flex-direction: column !important;
 }
 
 .flex-row {
   flex-direction: row !important;
+}
+
+.justify-space-between {
+  justify-content: space-between !important;
 }
 
 .w-100 {
@@ -34,4 +42,16 @@ body {
 
 .h-0 {
   height: 0 !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .desktop {
+    display: none !important;
+  }
 }

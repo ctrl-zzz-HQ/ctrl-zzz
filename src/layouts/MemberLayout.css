@@ -21,7 +21,7 @@ table.member-layout td {
   padding: 1rem;
 }
 
-table.member-layout td:nth-child(1) {
+table.member-layout tr:nth-child(1) td:nth-child(1) {
   width: 0;
   white-space: nowrap;
 }

@@ -17,7 +17,7 @@ export default function MissionLayout() {
         <table className="mission-layout">
           <tbody>
             <tr>
-              <td>
+              <td className="desktop">
                 <div className="left-menu">
                   <div className="menu-group">
                     {

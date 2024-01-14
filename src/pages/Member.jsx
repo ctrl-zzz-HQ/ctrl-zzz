@@ -19,8 +19,13 @@ export default function Member({ index }) {
   }, [index, navigate]);
 
   return (
+    member &&
     <>
-      <h2>MEMBER {member?.code} [alias: {member?.alias}]</h2>
+      <h2>
+        MEMBER {member.code} [
+        <span className="desktop">alias: </span>
+        {member.alias}]
+      </h2>
     </>
   );
 }
