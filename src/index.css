@@ -40,8 +40,13 @@ body {
   height: 100% !important;
 }
 
-.h-0 {
-  height: 0 !important;
+td.fit-height {
+  height: 1px !important;
+}
+
+td.fit-width {
+  width: 1px !important;
+  white-space: nowrap;
 }
 
 @media only screen and (min-width: 600px) {

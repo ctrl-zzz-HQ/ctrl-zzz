@@ -22,7 +22,7 @@ export default function MemberLayout() {
         <table className="member-layout">
           <tbody>
             <tr>
-              <td className="desktop">
+              <td className="desktop fit-width">
                 {
                   members.map((member, index) =>
                     <Link to={`${index}`} className={`menu-group-item ${index === currIndex ? 'active' : ''}`} key={index}>
@@ -46,7 +46,7 @@ export default function MemberLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="h-0"><Footer/></td>
+              <td colSpan="2" className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

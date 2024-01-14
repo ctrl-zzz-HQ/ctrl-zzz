@@ -17,7 +17,7 @@ export default function MissionLayout() {
         <table className="mission-layout">
           <tbody>
             <tr>
-              <td className="desktop">
+              <td className="desktop fit-width">
                 <div className="left-menu">
                   <div className="menu-group">
                     {
@@ -37,7 +37,7 @@ export default function MissionLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="h-0"><Footer/></td>
+              <td colSpan="2" className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

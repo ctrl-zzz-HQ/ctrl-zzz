@@ -21,11 +21,6 @@ table.mission-layout td {
   padding: 1rem;
 }
 
-table.mission-layout tr:nth-child(1) td:nth-child(1) {
-  width: 0;
-  white-space: nowrap;
-}
-
 table.mission-layout .menu-group-item {
   display: block;
   margin-bottom: .25rem;

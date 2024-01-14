@@ -17,7 +17,7 @@ export default function DreamLogLayout() {
         <table className="dream-log-layout">
           <tbody>
             <tr>
-              <td className="desktop">
+              <td className="desktop fit-width">
                 {
                   dreamLogs.map((dreamLog, index) =>
                     <Link to={`${index}`} className={`menu-group-item ${isActive(index) ? 'active' : ''}`} key={index}>
@@ -33,7 +33,7 @@ export default function DreamLogLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="h-0"><Footer/></td>
+              <td colSpan="2" className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

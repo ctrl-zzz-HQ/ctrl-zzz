@@ -21,11 +21,6 @@ table.dream-log-layout td {
   padding: 1rem;
 }
 
-table.dream-log-layout tr:nth-child(1) td:nth-child(1) {
-  width: 0;
-  white-space: nowrap;
-}
-
 table.dream-log-layout .menu-group-item {
   display: block;
   margin-bottom: .25rem;
