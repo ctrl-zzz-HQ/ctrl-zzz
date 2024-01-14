@@ -21,7 +21,6 @@
   background: transparent;
   color: var(--gray-color);
   transition: color 1s, text-shadow .5s;
-  font-family: monospace;
 }
 
 .splash .power-button:hover {
