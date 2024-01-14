@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'VGA';
+  font-family: 'VGA', monospace, serif, system-ui;
   font-size: 16px;
 }
 

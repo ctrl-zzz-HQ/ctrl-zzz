@@ -1,28 +1,62 @@
 import './Splash.css';
 import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
+import lottie from 'lottie-web';
+import { useState, useRef, useEffect } from 'react';
+import bootupText from '../data/bootup_text.js';
 
 export default function Splash() {
 
   const cookieName = 'splashed';
   const [cookies, setCookie,] = useCookies([cookieName]);
+  const logoAnimationRef = useRef(null);
+  const [bootupPos, setBootupPos] = useState(0);
+  const [startTime, setStartTime] = useState(null);
 
-  const handlePasswordChange = function(e) {
-    if (e.target.value === 'ctrl+zzz') {
-      setCookie(cookieName, true);
+  useEffect(() => {
+    if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
+      const intervalId = setInterval(() => setBootupPos(new Date().getTime() - startTime), 1);
+      return () => clearInterval(intervalId);
     }
+  }, [startTime, bootupPos, setBootupPos]);
+
+  useEffect(() => {
+    if (bootupPos >= bootupText.length) {
+      const logoAnimation = lottie.loadAnimation({
+        container: logoAnimationRef.current,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: '/lottie/logo/data.json',
+      });
+      setTimeout(() => logoAnimation.play(), 500);
+      logoAnimation.addEventListener('complete', () => setCookie(cookieName, true));
+      return () => logoAnimation.destroy();
+    }
+  }, [bootupPos, logoAnimationRef, setCookie]);
+
+  const powerOn = function(e) {
+    setStartTime(new Date().getTime());
+    setBootupPos(1);
   }
 
   return (
     cookies[cookieName] ? <Outlet /> :
-    <div className="splash page-container primary">
-      <div className="dialog secondary">
-        <div className="d-flex flex-column secondary box-border">
-          <h1 className="header">CTRL+ZZZ HQ</h1>
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" className="primary" onChange={handlePasswordChange}/>
+    <div className="splash page-container">
+      {bootupPos <= 0 &&
+      <div className="button-wrapper">
+        <button className="power-button" onClick={powerOn}>⏻</button>
+      </div>}
+      {bootupPos > 0 && bootupPos < bootupText.length &&
+      <div className="bootup-wrapper">
+        <div className={`bootup-text ${bootupPos >= bootupText.length / 2 ? 'monospace' : ''}`}>
+          {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
         </div>
-      </div>
+      </div>}
+      {bootupPos > 0 && bootupPos >= bootupText.length &&
+      <div className="logo-wrapper">
+        <div className="logo-animation" ref={logoAnimationRef}></div>
+      </div>}
     </div>
   );
 }
