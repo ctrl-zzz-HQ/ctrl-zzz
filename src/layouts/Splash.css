@@ -9,24 +9,22 @@
   color: var(--white-color);
   background: var(--black-color);
   border: 1px solid var(--gray-color);
-  width: 100%;
-  position: absolute;
-  top: 0;
+  position: relative;
   z-index: 1;
 }
 
 .splash .power-button {
-  font-size: 10rem;
+  max-width: 200px;
   border: none;
   background: transparent;
   color: var(--gray-color);
-  transition: color 1s, text-shadow .5s;
+  transition: color 1s, filter .5s;
 }
 
 .splash .power-button:hover {
   color: var(--white-color);
-  text-shadow: 0 0 20px var(--white-color);
-  transition: color .5s, text-shadow 1s;
+  filter: drop-shadow(0px 0px 10px var(--white-color));
+  transition: color .5s, filter 1s;
 }
 
 .splash .bootup-wrapper {
