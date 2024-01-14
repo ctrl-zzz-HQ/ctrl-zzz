@@ -8,7 +8,12 @@
 
 @font-face {
   font-family: 'VGA';
-  src: local('VGA'), url(./resources/Perfect DOS VGA 437.ttf) format('truetype');
+  src: local('VGA'), url(./assets/fonts/Perfect DOS VGA 437.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: local('Fira Sans'), url(./assets/fonts/FiraSans-Regular.ttf) format('truetype');
 }
 
 body {
