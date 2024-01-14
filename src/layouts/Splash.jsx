@@ -22,6 +22,7 @@ export default function Splash() {
 
   useEffect(() => {
     if (bootupPos >= bootupText.length) {
+      console.log('loading animation');
       const logoAnimation = lottie.loadAnimation({
         container: logoAnimationRef.current,
         renderer: 'svg',
