@@ -22,7 +22,7 @@ table.mission-layout td {
 }
 
 table.mission-layout td:nth-child(1) {
-  width: 1%;
+  width: 0;
   white-space: nowrap;
 }
 

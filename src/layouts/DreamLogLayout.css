@@ -22,7 +22,7 @@ table.dream-log-layout td {
 }
 
 table.dream-log-layout td:nth-child(1) {
-  width: 1%;
+  width: 0;
   white-space: nowrap;
 }
 

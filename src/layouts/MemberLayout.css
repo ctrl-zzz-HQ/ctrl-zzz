@@ -22,7 +22,7 @@ table.member-layout td {
 }
 
 table.member-layout td:nth-child(1) {
-  width: 1%;
+  width: 0;
   white-space: nowrap;
 }
 

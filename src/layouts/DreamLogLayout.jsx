@@ -1,6 +1,7 @@
 import './DreamLogLayout.css';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import dreamLogs from '../data/dream-logs.json';
+import Footer from './Footer';
 
 export default function DreamLogLayout() {
 
@@ -32,7 +33,7 @@ export default function DreamLogLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2">Footer</td>
+              <td colSpan="2" className="h-0"><Footer/></td>
             </tr>
           </tbody>
         </table>
