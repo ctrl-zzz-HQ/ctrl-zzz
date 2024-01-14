@@ -60,3 +60,7 @@ td.fit-width {
     display: none !important;
   }
 }
+
+button {
+  cursor: pointer;
+}

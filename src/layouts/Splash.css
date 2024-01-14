@@ -13,15 +13,31 @@
   z-index: 1;
 }
 
-.splash .power-button {
+.splash.power-off-button {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: .85rem;
+  color: var(--white-color);
+  filter: drop-shadow(0px 0px 1px var(--gray-color))
+    drop-shadow(0px 0px 2px var(--white-color));
+}
+
+.splash.power-on-button {
   max-width: 200px;
-  border: none;
-  background: transparent;
   color: var(--gray-color);
   transition: color 1s, filter .5s;
 }
 
-.splash .power-button:hover {
+.splash.power-off-button, .splash.power-on-button {
+  background: transparent;
+  border: none;
+}
+
+.splash.power-on-button:hover {
   color: var(--white-color);
   filter: drop-shadow(0px 0px 10px var(--white-color));
   transition: color .5s, filter 1s;
