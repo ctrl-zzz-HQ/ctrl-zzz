@@ -1,6 +1,9 @@
+import './Agent.css';
 import agents from '../data/agents.json';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+const assetPath = "/character art/";
 
 export default function Agent({ index }) {
 
@@ -26,6 +29,10 @@ export default function Agent({ index }) {
         <span className="desktop">alias: </span>
         {agent.alias}]
       </h2>
+      <div className="agent image-container">
+        {agent.art.map(image =>
+          <img src={assetPath + image.path} width="200" key={image.path} alt={`${agent.alias} art`}/>)}
+      </div>
     </>
   );
 }
