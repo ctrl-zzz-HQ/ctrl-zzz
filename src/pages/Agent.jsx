@@ -3,7 +3,7 @@ import agents from '../data/agents.json';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const assetPath = "/character art/";
+const assetPath = "/character art/LQ/";
 
 export default function Agent({ index }) {
 
