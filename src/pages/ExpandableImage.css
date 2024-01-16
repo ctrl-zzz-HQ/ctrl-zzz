@@ -1,0 +1,48 @@
+.expandable-image.image-button {
+  width: 200px;
+  max-width: 50%;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.expandable-image.image-button img {
+  display: block;
+}
+
+.expandable-image.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.expandable-image.image-container {
+  flex: 1;
+  position: relative;
+}
+
+.expandable-image.dialog img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  position: absolute;
+}
+
+.expandable-image.close-button {
+  padding: .5rem .75rem;
+  margin: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--black-color);
+}
+
+.expandable-image.credit:not(:last-child) {
+  margin-bottom: .25rem;
+}

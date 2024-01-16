@@ -1,19 +1,11 @@
-import './Agent.css';
 import agents from '../data/agents.json';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-
-const assetPath = "/character art/LQ/";
+import { useState, useEffect, useCallback } from 'react';
+import ExpandableImage from './ExpandableImage.tsx';
 
 export default function Agent({ index }) {
 
-  const getAgent = function(index) {
-    if (index < 0) {
-      return null;
-    }
-    return agents[index];
-  }
-
+  const getAgent = useCallback((index) => index < 0 ? null : agents[index], []);
   const [agent,] = useState(getAgent(index));
   const navigate = useNavigate();
 
@@ -31,7 +23,7 @@ export default function Agent({ index }) {
       </h2>
       <div className="agent image-container">
         {agent.art.map(image =>
-          <img src={assetPath + image.path} width="200" key={image.path} alt={`${agent.alias} art`}/>)}
+          <ExpandableImage image={image} key={image.path}/>)}
       </div>
     </>
   );

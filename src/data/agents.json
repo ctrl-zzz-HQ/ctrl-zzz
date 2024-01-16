@@ -4,25 +4,37 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "bust/Neko.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
+    ]]
   }, {
     "path": "full/neko r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }, {
     "path": "misc/Promotional-Nat-Sprite.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 2600,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "II",
@@ -30,20 +42,28 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "bust/Lyn.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }, {
     "path": "full/lyn r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }]
 }, {
   "code": "III",
@@ -51,9 +71,13 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Yan.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "IV",
@@ -61,20 +85,28 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "full/aida r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }, {
     "path": "bust/Aida.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "V",
@@ -82,9 +114,13 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Naya.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "VI",
@@ -92,20 +128,28 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "bust/Atel.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }, {
     "path": "full/atel r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }]
 }, {
   "code": "VII",
@@ -113,9 +157,13 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Lilp_Nemo.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "VIII",
@@ -123,9 +171,13 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Peach.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "IX",
@@ -133,20 +185,28 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "bust/Nezu.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }, {
     "path": "full/nezu r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }]
 }, {
   "code": "X",
@@ -154,9 +214,13 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Yenii.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }, {
   "code": "XI",
@@ -164,20 +228,28 @@
   "status": "PROSPECTIVE",
   "art": [{
     "path": "bust/Joy.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }, {
     "path": "full/joy r1.png",
-    "credits": [{
-      "sketch": "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
-    }, {
-      "line": "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
-    }, {
-      "base colour": "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
-    }, {
-      "colour": "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
-    }]
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
   }]
 }, {
   "code": "XII",
@@ -185,8 +257,12 @@
   "status": "ACTIVE",
   "art": [{
     "path": "bust/Ash.png",
-    "credits": [{
-      "art": "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    }]
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
+    ]]
   }]
 }]
