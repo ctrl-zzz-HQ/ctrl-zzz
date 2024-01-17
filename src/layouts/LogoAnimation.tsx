@@ -4,8 +4,8 @@ import logoAnimationMp4 from '../assets/Logo 500x500.mp4';
 
 export default function LogoAnimation({ play, onEnded }: LogoAnimationProps) {
 
-  const [playLogoAnimation, setPlayLogoAnimation] = useState(true);
-  const logoAnimationRef = useRef(null);
+  const [playLogoAnimation, setPlayLogoAnimation] = useState<boolean>(true);
+  const logoAnimationRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (play) {
