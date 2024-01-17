@@ -1,8 +1,9 @@
 import './Splash.css';
 import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
-import lottie from 'lottie-web';
-import { useState, useEffect, useCallback } from 'react';
+import logoAnimationWebm from '../assets/Logo 500x500.webm';
+import logoAnimationMp4 from '../assets/Logo 500x500.mp4';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import bootupText from '../data/bootup_text.js';
 
 const cookieName = 'splashed';
@@ -10,29 +11,14 @@ const cookieName = 'splashed';
 export default function Splash() {
 
   const [cookies, setCookie,] = useCookies([cookieName]);
-  const [logoAnimation, setLogoAnimation] = useState(null);
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(null);
+  const [playLogoAnimation, setPlayLogoAnimation] = useState(true);
+  const logoAnimationRef = useRef(null);
 
   const setSplashedCookie = useCallback((value) => {
     setCookie(cookieName, value, { sameSite: 'strict' });
   }, [setCookie]);
-
-  const logoAnimationRef = useCallback((node) => {
-    if (node) {
-      const newLogoAnimation = lottie.loadAnimation({
-        container: node,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: '/lottie/logo/data.json',
-      });
-      setLogoAnimation(prevLogoAnimation => {
-        if (prevLogoAnimation) prevLogoAnimation.destroy();
-        return newLogoAnimation;
-      });
-    }
-  }, []);
 
   useEffect(() => {
     if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
@@ -43,14 +29,14 @@ export default function Splash() {
 
   useEffect(() => {
     if (bootupPos >= bootupText.length) {
-      if (logoAnimation) {
-        logoAnimation.play();
-        logoAnimation.addEventListener('complete', () => setSplashedCookie(true));
+      if (logoAnimationRef.current && playLogoAnimation) {
+        logoAnimationRef.current.addEventListener('ended', () => setSplashedCookie(true));
+        logoAnimationRef.current.play();
       } else {
         setSplashedCookie(true);
       }
     }
-  }, [logoAnimation, bootupPos, setSplashedCookie]);
+  }, [bootupPos, setSplashedCookie, logoAnimationRef, playLogoAnimation]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -107,7 +93,10 @@ export default function Splash() {
         </div>
       </div>}
       <div className={`logo-wrapper ${(bootupPos > 0 && bootupPos >= bootupText.length) ? '' : 'd-none'}`}>
-        <div className="logo-animation" ref={logoAnimationRef}></div>
+        <video playsInline muted className="logo-animation" ref={logoAnimationRef}>
+          <source src={logoAnimationWebm} type="video/webm"/>
+          <source src={logoAnimationMp4} type="video/mp4" onError={() => setPlayLogoAnimation(false)}/>
+        </video>
       </div>
       <button className="skip-button" onClick={skipBootupSequence}>Click here or 'Esc' to skip.</button>
     </div>
