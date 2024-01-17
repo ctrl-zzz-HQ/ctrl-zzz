@@ -3,19 +3,29 @@ import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import bootupText from '../data/bootup_text.js';
-import LogoAnimation from './LogoAnimation.tsx';
+import LogoAnimation from './LogoAnimation';
 
 const cookieName = 'splashed';
 
 export default function Splash() {
 
   const [cookies, setCookie,] = useCookies([cookieName]);
-  const [bootupPos, setBootupPos] = useState(0);
-  const [startTime, setStartTime] = useState(null);
+  const [bootupPos, setBootupPos] = useState<number>(0);
+  const [startTime, setStartTime] = useState<number>(0);
 
-  const setSplashedCookie = useCallback((value) => {
+  const setSplashedCookie = useCallback((value: boolean) => {
     setCookie(cookieName, value, { sameSite: 'strict' });
   }, [setCookie]);
+
+  const powerOn = useCallback(() => {
+    setStartTime(new Date().getTime());
+    setBootupPos(1);
+  }, [setStartTime, setBootupPos]);
+
+  const powerOff = useCallback(() => {
+    setBootupPos(0);
+    setSplashedCookie(false);
+  }, [setBootupPos, setSplashedCookie]);
 
   useEffect(() => {
     if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
@@ -25,7 +35,7 @@ export default function Splash() {
   }, [startTime, bootupPos, setBootupPos]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setSplashedCookie(true);
       }
@@ -36,16 +46,6 @@ export default function Splash() {
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
   }, [cookies, setSplashedCookie]);
-
-  const powerOn = function(e) {
-    setStartTime(new Date().getTime());
-    setBootupPos(1);
-  }
-
-  const powerOff = function(e) {
-    setBootupPos(0);
-    setSplashedCookie(false);
-  }
 
   return (
     cookies[cookieName] ?
