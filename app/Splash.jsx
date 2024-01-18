@@ -10,7 +10,7 @@ const cookieName = 'splashed';
 export default function Splash({ initialSplashed, children }) {
 
   const [cookies, setCookie, removeCookie] = useCookies([cookieName]);
-  const [splashed, setSplashedCookie] = useState(initialSplashed);
+  const [splashed, setSplashed] = useState(initialSplashed);
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(0);
 
@@ -29,8 +29,8 @@ export default function Splash({ initialSplashed, children }) {
 
   const powerOff = useCallback(() => {
     setBootupPos(0);
-    setSplashedCookie(false);
-  }, [setBootupPos, setSplashedCookie]);
+    setSplashed(false);
+  }, [setBootupPos, setSplashed]);
 
   useEffect(() => {
     if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
@@ -42,7 +42,7 @@ export default function Splash({ initialSplashed, children }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        setSplashedCookie(true);
+        setSplashed(true);
       }
     }
 
@@ -50,7 +50,7 @@ export default function Splash({ initialSplashed, children }) {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
-  }, [cookies, setSplashedCookie]);
+  }, [cookies, setSplashed]);
 
   return (
     splashed ?
@@ -79,8 +79,8 @@ export default function Splash({ initialSplashed, children }) {
           {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
         </div>
       </div>}
-      <LogoAnimation play={bootupPos > 0 && bootupPos >= bootupText.length} onEnded={() => setSplashedCookie(true)} />
-      <button className="skip-button" onClick={() => setSplashedCookie(true)}>Click here or 'Esc' to skip.</button>
+      <LogoAnimation play={bootupPos > 0 && bootupPos >= bootupText.length} onEnded={() => setSplashed(true)} />
+      <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>
   );
 }
