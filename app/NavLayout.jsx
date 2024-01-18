@@ -1,10 +1,12 @@
+'use client'
 import './NavLayout.css';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-export default function NavLayout() {
+export default function NavLayout({ children }) {
 
-  const location = useLocation();
+  const pathname = usePathname();
   const [links,] = useState([
     {
       path: '/missions',
@@ -21,7 +23,7 @@ export default function NavLayout() {
   ]);
 
   const isActive = function(link) {
-    return location.pathname && location.pathname.includes(link.path);
+    return pathname && pathname.includes(link.path);
   }
 
   return (
@@ -30,13 +32,13 @@ export default function NavLayout() {
       <div className="nav-layout top-menu">
         {
           links.map(link =>
-            <Link className={isActive(link) ? 'active' : ''} to={link.path} key={link.path}>
+            <Link className={isActive(link) ? 'active' : ''} href={link.path} key={link.path}>
               {link.label}
             </Link>
           )
         }
       </div>
-      <Outlet />
+      {children}
     </div>
   );
 }
