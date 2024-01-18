@@ -1,7 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import Video from 'next-video';
-import logoAnimationWebm from '/videos/Logo 500x500.webm';
-import logoAnimationMp4 from '/videos/Logo 500x500.mp4';
 
 export default function LogoAnimation({ play, onEnded }: LogoAnimationProps) {
 
@@ -20,7 +17,10 @@ export default function LogoAnimation({ play, onEnded }: LogoAnimationProps) {
 
   return (
     <div className={`logo-wrapper ${play ? '' : 'd-none'}`}>
-      <Video src={logoAnimationWebm} playsInline muted className="logo-animation" ref={logoAnimationRef} onEnded={onEnded} />
+      <video playsInline muted className="logo-animation" ref={logoAnimationRef} onEnded={onEnded}>
+        <source src={require('/public/videos/Logo 500x500.webm')} type="video/webm"/>
+        <source src={require('/public/videos/Logo 500x500.mp4')} type="video/mp4" onError={() => setPlayLogoAnimation(false)}/>
+      </video>
     </div>
   );
 }
