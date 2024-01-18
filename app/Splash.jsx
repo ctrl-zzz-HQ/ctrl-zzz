@@ -46,11 +46,11 @@ export default function Splash({ initialSplashed, children }) {
       }
     }
 
-    if (!cookies[cookieName]) {
+    if (!splashed) {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
-  }, [cookies, setSplashed]);
+  }, [splashed, setSplashed]);
 
   return (
     splashed ?
