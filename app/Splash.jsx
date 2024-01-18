@@ -7,19 +7,20 @@ import LogoAnimation from './LogoAnimation.tsx';
 
 const cookieName = 'splashed';
 
-export default function Splash({ children }) {
+export default function Splash({ initialSplashed, children }) {
 
   const [cookies, setCookie, removeCookie] = useCookies([cookieName]);
+  const [splashed, setSplashedCookie] = useState(initialSplashed);
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(0);
 
-  const setSplashedCookie = useCallback((value) => {
-    if (value) {
-      setCookie(cookieName, value, { sameSite: 'strict' });
+  useEffect(() => {
+    if (splashed) {
+      setCookie(cookieName, splashed, { sameSite: 'strict' });
     } else {
       removeCookie(cookieName);
     }
-  }, [setCookie]);
+  }, [splashed]);
 
   const powerOn = useCallback(() => {
     setStartTime(new Date().getTime());
@@ -52,7 +53,7 @@ export default function Splash({ children }) {
   }, [cookies, setSplashedCookie]);
 
   return (
-    cookies[cookieName] ?
+    splashed ?
     <>
       {children}
       <button className="splash power-off-button" onClick={powerOff}>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './reset.css';
 import './globals.css';
 import './theme.css';
-import Splash from './Splash.jsx';
+import CookieHandler from './CookieHandler.jsx';
 import NavLayout from './NavLayout.jsx';
 import localFont from 'next/font/local'
 
@@ -21,11 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={vgaFont.className}>
-        <Splash>
+        <CookieHandler>
           <NavLayout>
             {children}
           </NavLayout>
-        </Splash>
+        </CookieHandler>
       </body>
     </html>
   )
