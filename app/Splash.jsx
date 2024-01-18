@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import { useState, useEffect, useCallback } from 'react';
 import bootupText from '/public/data/bootup-text.ts';
 import LogoAnimation from './LogoAnimation.tsx';
+import BootupAnimation from './BootupAnimation';
 
 const cookieName = 'splashed';
 
@@ -11,8 +12,8 @@ export default function Splash({ initialSplashed, children }) {
 
   const [cookies, setCookie, removeCookie] = useCookies([cookieName]);
   const [splashed, setSplashed] = useState(initialSplashed);
-  const [bootupPos, setBootupPos] = useState(0);
-  const [startTime, setStartTime] = useState(0);
+  const [playBootup, setPlayBootup] = useState(false);
+  const [playLogo, setPlayLogo] = useState(false);
 
   useEffect(() => {
     if (splashed) {
@@ -22,22 +23,13 @@ export default function Splash({ initialSplashed, children }) {
     }
   }, [splashed]);
 
-  const powerOn = useCallback(() => {
-    setStartTime(new Date().getTime());
-    setBootupPos(1);
-  }, [setStartTime, setBootupPos]);
+  const powerOn = useCallback(() => setPlayBootup(true), [setPlayBootup]);
 
   const powerOff = useCallback(() => {
-    setBootupPos(0);
+    setPlayBootup(false);
+    setPlayLogo(false);
     setSplashed(false);
-  }, [setBootupPos, setSplashed]);
-
-  useEffect(() => {
-    if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
-      const intervalId = setInterval(() => setBootupPos(new Date().getTime() - startTime), 1);
-      return () => clearInterval(intervalId);
-    }
-  }, [startTime, bootupPos, setBootupPos]);
+  }, [setPlayBootup, setPlayLogo, setSplashed]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -64,7 +56,7 @@ export default function Splash({ initialSplashed, children }) {
       </button>
     </> :
     <div className="splash page-container primary">
-      {bootupPos <= 0 &&
+      {!playBootup && !playLogo &&
       <div className="button-wrapper">
         <button className="splash power-on-button" onClick={powerOn}>
           {/* Adapted from: https://commons.wikimedia.org/wiki/File:Power.svg */}
@@ -73,13 +65,8 @@ export default function Splash({ initialSplashed, children }) {
           </svg>
         </button>
       </div>}
-      {bootupPos > 0 && bootupPos < bootupText.length &&
-      <div className="bootup-wrapper">
-        <div className={`bootup-text ${bootupPos >= bootupText.length / 2 ? 'monospace' : ''}`}>
-          {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
-        </div>
-      </div>}
-      <LogoAnimation play={bootupPos > 0 && bootupPos >= bootupText.length} onEnded={() => setSplashed(true)} />
+      <BootupAnimation play={playBootup} onEnded={() => setPlayLogo(true)}/>
+      <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
       <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>
   );
