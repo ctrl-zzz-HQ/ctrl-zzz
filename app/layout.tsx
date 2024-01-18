@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import './reset.css';
+import './globals.css';
+import './theme.css';
 import Splash from './Splash.jsx';
 import NavLayout from './NavLayout.jsx';
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ['latin'] })
+const vgaFont = localFont({ src: '../public/fonts/Web437_IBM_VGA_9x16.woff' })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={vgaFont.className}>
         <Splash>
           <NavLayout>
             {children}
