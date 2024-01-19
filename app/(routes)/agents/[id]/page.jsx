@@ -1,31 +1,7 @@
-'use client'
-import agents from '../data/agents.json';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
-import ExpandableImage from './ExpandableImage.tsx';
+import AgentPage from '/app/_components/AgentPage';
 
-export default function Agent({ index }) {
-
-  const getAgent = useCallback((index) => index < 0 ? null : agents[index], []);
-  const [agent,] = useState(getAgent(index));
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (index < 0) navigate(`${Math.floor(Math.random() * agents.length)}`);
-  }, [index, navigate]);
-
+export default function Agent({ params: { id } }) {
   return (
-    agent &&
-    <>
-      <h2>
-        AGENT {agent.code} [
-        <span className="desktop">alias: </span>
-        {agent.alias}]
-      </h2>
-      <div className="agent image-container">
-        {agent.art.map(image =>
-          <ExpandableImage image={image} key={image.path}/>)}
-      </div>
-    </>
+    <AgentPage id={id}/>
   );
 }

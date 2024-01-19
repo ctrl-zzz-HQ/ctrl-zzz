@@ -1,6 +1,7 @@
 'use client'
 import './ExpandableImage.css';
 import { useState, useCallback } from 'react';
+import Image from 'next/image'
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
@@ -15,11 +16,11 @@ export default function ExpandableImage({ image }: ExpandableImageProps) {
   return (
     <>
       <button className="expandable-image image-button" onClick={open}>
-        <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Low quality (click for high quality)" />
+        <Image className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Low quality (click for high quality)" />
       </button>
       {expanded && <div className="expandable-image primary dialog">
         <div className="expandable-image image-container">
-          <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="High quality" />
+          <Image width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="High quality" />
         </div>
         {image.credits.map((credit, index) =>
           <p className="expandable-image credit" key={index}>
