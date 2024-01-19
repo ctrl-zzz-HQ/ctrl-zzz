@@ -2,7 +2,7 @@
 import missions from '/public/data/missions.json';
 import { useState } from 'react';
 
-export default function Mission({ params: { id } }) {
+export default function Mission({ id }) {
 
   const [mission,] = useState(missions[id]);
 

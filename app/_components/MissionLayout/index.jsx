@@ -3,7 +3,7 @@ import './MissionLayout.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import missions from '/public/data/missions.json';
-import Footer from '/app/Footer';
+import Footer from '/app/_components/Footer';
 
 export default function MissionLayout({ children }) {
 

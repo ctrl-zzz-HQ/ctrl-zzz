@@ -1,16 +1,16 @@
 import { cookies } from 'next/headers';
-import Splash from './Splash';
+import SplashContentLayout from './SplashContentLayout';
 
 const cookieName = 'splashed';
 
-export default function CookieHandler({ children }) {
+export default function SplashLayout({ children }) {
 
   const cookieStore = cookies();
   const splashed = cookieStore.get(cookieName);
 
   return (
-    <Splash initialSplashed={splashed}>
+    <SplashContentLayout initialSplashed={splashed}>
       {children}
-    </Splash>
+    </SplashContentLayout>
   );
 }
