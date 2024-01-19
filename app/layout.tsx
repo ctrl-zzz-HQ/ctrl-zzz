@@ -3,7 +3,7 @@ import './reset.css';
 import './globals.css';
 import './theme.css';
 import CookieHandler from './CookieHandler.jsx';
-import NavLayout from './NavLayout.jsx';
+import NavLayout from './NavLayout';
 import localFont from 'next/font/local'
 
 const vgaFont = localFont({ src: '../public/fonts/Web437_IBM_VGA_9x16.woff' })

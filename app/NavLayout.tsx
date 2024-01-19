@@ -1,28 +1,30 @@
 'use client'
+import { ReactNode } from 'react';
 import './NavLayout.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-export default function NavLayout({ children }) {
+const links: NavLayoutLink[] = [
+  {
+    path: '/missions',
+    label: 'Missions',
+  },
+  {
+    path: '/agents',
+    label: 'Agents',
+  },
+  {
+    path: '/dream-logs',
+    label: 'Dream Log',
+  },
+];
+
+export default function NavLayout({ children }: { children: ReactNode }) {
 
   const pathname = usePathname();
-  const [links,] = useState([
-    {
-      path: '/missions',
-      label: 'Missions',
-    },
-    {
-      path: '/agents',
-      label: 'Agents',
-    },
-    {
-      path: '/dream-logs',
-      label: 'Dream Log',
-    },
-  ]);
 
-  const isActive = function(link) {
+  const isActive = function(link: NavLayoutLink) {
     return pathname && pathname.includes(link.path);
   }
 
@@ -41,4 +43,9 @@ export default function NavLayout({ children }) {
       {children}
     </div>
   );
+}
+
+interface NavLayoutLink {
+  path: string;
+  label: string;
 }
