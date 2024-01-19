@@ -1,7 +1,10 @@
+'use client' // avoid caching on server and recalculate random agent each time
 import agents from '/public/data/agents.json';
 import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function AgentsPage() {
-  redirect(`/agents/${agents.length - 1}`);
-  return;
+  useEffect(() => {
+    redirect(`/agents/${Math.floor(Math.random() * agents.length)}`);
+  }, []);
 }

@@ -1,17 +1,10 @@
-'use client'
 import agents from '/public/data/agents.json';
 import { redirect } from 'next/navigation';
-import { useState, useEffect, useCallback } from 'react';
 import ExpandableImage from '/app/_components/ExpandableImage';
 
 export default function Agent({ id }) {
 
-  const getAgent = useCallback((id) => id < 0 ? null : agents[id], []);
-  const [agent,] = useState(getAgent(id));
-
-  useEffect(() => {
-    if (id < 0) redirect(`/agents/${Math.floor(Math.random() * agents.length)}`);
-  }, [id]);
+  const agent = agents[id];
 
   return (
     agent &&
