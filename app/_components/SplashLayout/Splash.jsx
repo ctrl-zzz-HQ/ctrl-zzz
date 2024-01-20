@@ -21,7 +21,7 @@ export default function Splash({ initialSplashed }) {
     } else {
       removeCookie(cookieName);
     }
-  }, [splashed]);
+  }, [splashed, setCookie, removeCookie]);
 
   const powerOn = useCallback(() => setPlayBootup(true), [setPlayBootup]);
 
@@ -66,7 +66,7 @@ export default function Splash({ initialSplashed }) {
       </div>}
       <BootupAnimation play={playBootup} onEnded={() => setPlayLogo(true)}/>
       <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
-      <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
+      <button className="skip-button" onClick={() => setSplashed(true)}>Click here or &apos;Esc&apos; to skip.</button>
     </div>
   );
 }

@@ -28,7 +28,7 @@ export default function BootupAnimation({ play, onEnded }) {
 
   useEffect(() => {
     ended && onEnded();
-  }, [ended]);
+  }, [ended, onEnded]);
 
   return (
     play && !ended &&
