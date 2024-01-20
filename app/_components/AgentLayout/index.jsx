@@ -2,9 +2,11 @@ import './AgentLayout.css';
 import Link from 'next/link';
 import agents from '/public/data/agents.json';
 import Footer from '/app/_components/Footer';
-import { MobileAgentLinks, DesktopAgentLinks } from './AgentLinks';
+import { MobileLinks, DesktopLinks } from '/app/_components/PageLinks';
 
 export default function AgentLayout({ children }) {
+
+  agents.forEach(agent => agent.label = `${agent.code} [${agent.alias}]`)
 
   return (
     <div className="agent-layout page-container">
@@ -13,7 +15,7 @@ export default function AgentLayout({ children }) {
           <tbody>
             <tr>
               <td className="desktop fit-width">
-                <DesktopAgentLinks />
+                <DesktopLinks data={agents} />
               </td>
               <td>
                 <div className="page-content">
@@ -24,7 +26,7 @@ export default function AgentLayout({ children }) {
             <tr className="mobile">
               <td colSpan="2" className="fit-height">
                 <div className="d-flex flex-row justify-space-between">
-                  <MobileAgentLinks />
+                  <MobileLinks data={agents} />
                 </div>
               </td>
             </tr>

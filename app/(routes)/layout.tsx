@@ -4,9 +4,7 @@ import '/app/globals.css';
 import '/app/theme.css';
 import SplashLayout from '@components/SplashLayout';
 import NavigationLayout from '@components/NavigationLayout';
-import localFont from 'next/font/local'
-
-const vgaFont = localFont({ src: '../../public/fonts/Web437_IBM_VGA_9x16.woff' })
+import font from './font';
 
 export const metadata: Metadata = {
   title: 'ctrl+zzz',
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={vgaFont.className}>
+      <body className={font.className}>
         <SplashLayout>
           <NavigationLayout>
             {children}

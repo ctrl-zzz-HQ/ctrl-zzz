@@ -2,9 +2,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
-import agents from '/public/data/agents.json';
 
-export function MobileAgentLinks() {
+export function MobileLinks({ data }) {
 
   const pathname = usePathname();
 
@@ -20,12 +19,12 @@ export function MobileAgentLinks() {
   return (
     <>
       <Link href={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; previous</Link>
-      <Link href={`${currIndex + 1}`} className={currIndex >= agents.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
+      <Link href={`${currIndex + 1}`} className={currIndex >= data.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
     </>
   );
 }
 
-export function DesktopAgentLinks() {
+export function DesktopLinks({ data }) {
 
   const pathname = usePathname();
 
@@ -40,9 +39,9 @@ export function DesktopAgentLinks() {
 
   return (
     <>
-      {agents.map((agent, index) =>
+      {data.map((item, index) =>
         <Link href={`${index}`} className={`menu-group-item ${index === currIndex ? 'active' : ''}`} key={index}>
-          &gt; {agent.code} [{agent.alias}]
+          &gt; {item.label}
         </Link>
       )}
     </>

@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import missions from '/public/data/missions.json';
 import Footer from '/app/_components/Footer';
-import { DesktopMissionLinks } from './MissionLinks';
+import { DesktopLinks } from '/app/_components/PageLinks';
 
 export default function MissionLayout({ children }) {
+
+  missions.forEach(mission => mission.label = `${mission.code} [${mission.status}]`)
 
   return (
     <div className="mission-layout page-container">
@@ -16,7 +18,7 @@ export default function MissionLayout({ children }) {
               <td className="desktop fit-width">
                 <div className="left-menu">
                   <div className="menu-group">
-                    <DesktopMissionLinks />
+                    <DesktopLinks data={missions} />
                   </div>
                 </div>
               </td>
