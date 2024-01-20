@@ -1,15 +1,11 @@
 import './DreamLogLayout.css';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import dreamLogs from '../data/dream-logs.json';
-import Footer from './Footer';
+import dreamLogs from '/public/data/dream-logs.json';
+import Footer from '/app/_components/Footer';
+import { DesktopLinks } from '/app/_components/PageLinks';
 
-export default function DreamLogLayout() {
+export default function DreamLogLayout({ children }) {
 
-  const location = useLocation();
-
-  const isActive = function(index) {
-    return location.pathname && location.pathname.endsWith(`/${index}`);
-  }
+  dreamLogs.forEach(dreamLog => dreamLog.label = `${dreamLog.code} [${dreamLog.timestamp}]`);
 
   return (
     <div className="dream-log-layout page-container">
@@ -18,17 +14,11 @@ export default function DreamLogLayout() {
           <tbody>
             <tr>
               <td className="desktop fit-width">
-                {
-                  dreamLogs.map((dreamLog, index) =>
-                    <Link to={`${index}`} className={`menu-group-item ${isActive(index) ? 'active' : ''}`} key={index}>
-                      &gt; {dreamLog.code} [{dreamLog.timestamp}]
-                    </Link>
-                  )
-                }
+                <DesktopLinks data={dreamLogs} />
               </td>
               <td>
                 <div className="page-content">
-                  <Outlet key={location.pathname}/>
+                  {children}
                 </div>
               </td>
             </tr>

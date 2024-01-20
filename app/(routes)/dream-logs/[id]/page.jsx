@@ -1,10 +1,8 @@
-'use client'
-import dreamLogs from '../data/dream-logs.json';
-import { useState } from 'react';
+import dreamLogs from '/public/data/dream-logs.json';
 
-export default function DreamLog({ index }) {
+export default function DreamLog({ params: { id } }) {
 
-  const [dreamLog,] = useState(dreamLogs[index]);
+  const dreamLog = dreamLogs[id];
 
   return (
     <>
