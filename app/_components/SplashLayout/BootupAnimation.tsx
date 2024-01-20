@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
-import bootupText from '/public/data/bootup-text.ts';
+import bootupText from '@data/bootup-text';
 
-export default function BootupAnimation({ play, onEnded }) {
+export default function BootupAnimation({ play, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(0);
@@ -31,11 +31,16 @@ export default function BootupAnimation({ play, onEnded }) {
   }, [ended, onEnded]);
 
   return (
-    play && !ended &&
+    (!play || ended) ? null :
     <div className="bootup-wrapper">
       <div className={`bootup-text ${bootupPos >= bootupText.length / 2 ? 'monospace' : ''}`}>
         {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
       </div>
     </div>
   );
+}
+
+interface Props {
+  play: boolean;
+  onEnded: () => void;
 }

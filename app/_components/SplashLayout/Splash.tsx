@@ -2,13 +2,12 @@
 import './Splash.css';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect, useCallback } from 'react';
-import bootupText from '/public/data/bootup-text.ts';
-import LogoAnimation from './LogoAnimation.tsx';
+import LogoAnimation from './LogoAnimation';
 import BootupAnimation from './BootupAnimation';
 
 const cookieName = 'splashed';
 
-export default function Splash({ initialSplashed }) {
+export default function Splash({ initialSplashed }: Props) {
 
   const [cookies, setCookie, removeCookie] = useCookies([cookieName]);
   const [splashed, setSplashed] = useState(initialSplashed);
@@ -32,7 +31,7 @@ export default function Splash({ initialSplashed }) {
   }, [setPlayBootup, setPlayLogo, setSplashed]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setSplashed(true);
       }
@@ -69,4 +68,8 @@ export default function Splash({ initialSplashed }) {
       <button className="skip-button" onClick={() => setSplashed(true)}>Click here or &apos;Esc&apos; to skip.</button>
     </div>
   );
+}
+
+interface Props {
+  initialSplashed: boolean;
 }

@@ -1,5 +1,5 @@
 'use client' // avoid caching on server and recalculate random agent each time
-import agents from '/public/data/agents.json';
+import agents from '@data/agents.json';
 import { redirect } from 'next/navigation';
 import { useEffect } from 'react';
 

@@ -11,4 +11,28 @@ declare global {
     url: string;
     label?: string;
   }
+
+  interface Agent {
+    code: string;
+    alias: string;
+    status: string;
+    art: JsonImage[];
+    label?: string;
+  }
+
+  interface Mission {
+    code: string;
+    status: string;
+    brief: string;
+    label?: string;
+  }
+
+  interface JsonImage {
+    path: string;
+    credits: string[][];
+    dimensions: {
+      width: number,
+      height: number,
+    }
+  }
 }

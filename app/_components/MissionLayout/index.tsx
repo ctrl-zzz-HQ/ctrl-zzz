@@ -1,13 +1,14 @@
 import './MissionLayout.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import missions from '/public/data/missions.json';
-import Footer from '/app/_components/Footer';
-import { DesktopLinks } from '/app/_components/PageLinks';
+import missionsData from '@data/missions.json';
+import Footer from '@components/Footer';
+import { DesktopLinks } from '@components/PageLinks';
 
-export default function MissionLayout({ children }) {
+export default function MissionLayout({ children }: LayoutProps) {
 
-  missions.forEach(mission => mission.label = `${mission.code} [${mission.status}]`)
+  const missions: Mission[] = missionsData;
+  missions.forEach((mission: Mission) => mission.label = `${mission.code} [${mission.status}]`)
 
   return (
     <div className="mission-layout page-container">
@@ -29,7 +30,7 @@ export default function MissionLayout({ children }) {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="fit-height"><Footer/></td>
+              <td colSpan={2} className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

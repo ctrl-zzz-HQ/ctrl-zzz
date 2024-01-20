@@ -1,4 +1,4 @@
-import missions from '/public/data/missions.json';
+import missions from '@data/missions.json';
 import { redirect } from 'next/navigation';
 
 export default function MissionsPage() {

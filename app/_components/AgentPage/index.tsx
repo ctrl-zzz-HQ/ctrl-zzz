@@ -1,7 +1,7 @@
-import agents from '/public/data/agents.json';
-import ExpandableImage from '/app/_components/ExpandableImage';
+import agents from '@data/agents.json';
+import ExpandableImage from '@components/ExpandableImage';
 
-export default function Agent({ id }) {
+export default function Agent({ id }: Props) {
 
   const agent = agents[id];
 
@@ -19,4 +19,8 @@ export default function Agent({ id }) {
       </div>
     </>
   );
+}
+
+interface Props {
+  id: number;
 }

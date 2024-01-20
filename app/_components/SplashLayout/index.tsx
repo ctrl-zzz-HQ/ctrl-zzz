@@ -3,10 +3,10 @@ import Splash from './Splash';
 
 const cookieName = 'splashed';
 
-export default function SplashLayout({ children }) {
+export default function SplashLayout({ children }: LayoutProps) {
 
   const cookieStore = cookies();
-  const splashed = cookieStore.get(cookieName);
+  const splashed = !!cookieStore.get(cookieName)?.value;
 
   return (
     <>

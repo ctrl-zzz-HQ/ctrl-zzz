@@ -1,6 +1,6 @@
-import missions from '/public/data/missions.json';
+import missions from '@data/missions.json';
 
-export default function Mission({ id }) {
+export default function Mission({ id }: Props) {
 
   const mission = missions[id];
 
@@ -17,4 +17,8 @@ export default function Mission({ id }) {
       </div>
     </>
   );
+}
+
+interface Props {
+  id: number;
 }

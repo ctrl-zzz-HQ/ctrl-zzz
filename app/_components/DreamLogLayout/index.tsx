@@ -1,11 +1,12 @@
 import './DreamLogLayout.css';
 import { ReactNode } from 'react';
-import dreamLogs from '@public/data/dream-logs.json';
+import dreamLogsData from '@data/dream-logs.json';
 import Footer from '@components/Footer';
 import { DesktopLinks } from '@components/PageLinks';
 
 export default function DreamLogLayout({ children }: LayoutProps) {
 
+  const dreamLogs: DreamLog[] = dreamLogsData;
   dreamLogs.forEach((dreamLog: DreamLog) => dreamLog.label = `${dreamLog.code} [${dreamLog.timestamp}]`);
 
   return (

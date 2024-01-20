@@ -1,4 +1,4 @@
-import dreamLogs from '@public/data/dream-logs.json';
+import dreamLogs from '@data/dream-logs.json';
 
 export default function DreamLog({ id }: Props) {
 
