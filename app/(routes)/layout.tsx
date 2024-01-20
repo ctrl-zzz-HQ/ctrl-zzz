@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import '/app/reset.css';
 import '/app/globals.css';
 import '/app/theme.css';
-import SplashLayout from '/app/_components/SplashLayout';
-import NavigationLayout from '/app/_components/NavigationLayout';
+import SplashLayout from '@components/SplashLayout';
+import NavigationLayout from '@components/NavigationLayout';
 import localFont from 'next/font/local'
 
 const vgaFont = localFont({ src: '../../public/fonts/Web437_IBM_VGA_9x16.woff' })
