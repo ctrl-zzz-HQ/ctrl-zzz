@@ -1,6 +1,9 @@
 .splash.page-container {
   width: 100vw;
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .splash .skip-button {
@@ -12,7 +15,7 @@
 .splash.power-off-button {
   width: 28px;
   height: 28px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 6px;

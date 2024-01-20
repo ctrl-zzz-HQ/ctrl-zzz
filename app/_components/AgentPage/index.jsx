@@ -1,5 +1,4 @@
 import agents from '/public/data/agents.json';
-import { redirect } from 'next/navigation';
 import ExpandableImage from '/app/_components/ExpandableImage';
 
 export default function Agent({ id }) {
