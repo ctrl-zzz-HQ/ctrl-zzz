@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import Splash from './SplashContentLayout';
+import Splash from './Splash';
 
 const cookieName = 'splashed';
 
