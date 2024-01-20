@@ -1,17 +1,7 @@
-import dreamLogs from '/public/data/dream-logs.json';
+import DreamLogPage from '/app/_components/DreamLogPage';
 
 export default function DreamLog({ params: { id } }) {
-
-  const dreamLog = dreamLogs[id];
-
   return (
-    <>
-      <h2>
-        <span className="desktop">DREAM </span>
-        LOG {dreamLog.code} [
-        <span className="desktop">timestamp: </span>
-        {dreamLog.timestamp}]
-      </h2>
-    </>
+    <DreamLogPage id={id} />
   );
 }
