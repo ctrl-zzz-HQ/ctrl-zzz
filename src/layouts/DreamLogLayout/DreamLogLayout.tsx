@@ -1,11 +1,13 @@
 import './DreamLogLayout.css';
 import { Outlet } from 'react-router-dom';
-import dreamLogs from '../../data/dream-logs.json';
+import dreamLogsJson from '../../data/dream-logs.json';
 import Footer from '../../components/Footer';
 import { DesktopLinks } from '../../components/PageLinks';
+import { DreamLog } from '../../types/types.ts';
 
 export default function DreamLogLayout() {
 
+  const dreamLogs: DreamLog[] = dreamLogsJson;
   dreamLogs.forEach(dreamLog => dreamLog.label = `${dreamLog.code} [${dreamLog.timestamp}]`);
 
   return (
@@ -24,7 +26,7 @@ export default function DreamLogLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="fit-height"><Footer/></td>
+              <td colSpan={2} className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

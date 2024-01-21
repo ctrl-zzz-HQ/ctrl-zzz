@@ -1,11 +1,13 @@
 import './AgentLayout.css';
 import { Outlet } from 'react-router-dom';
-import agents from '../../data/agents.json';
+import agentsJson from '../../data/agents.json';
 import Footer from '../../components/Footer';
 import { MobileLinks, DesktopLinks } from '../../components/PageLinks';
+import { Agent } from '../../types/types.ts';
 
 export default function AgentLayout() {
 
+  const agents: Agent[] = agentsJson;
   agents.forEach(agent => agent.label = `${agent.code} [${agent.alias}]`)
 
   return (
@@ -24,14 +26,14 @@ export default function AgentLayout() {
               </td>
             </tr>
             <tr className="mobile">
-              <td colSpan="2" className="fit-height">
+              <td colSpan={2} className="fit-height">
                 <div className="d-flex flex-row justify-space-between">
                   <MobileLinks data={agents} />
                 </div>
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="fit-height"><Footer/></td>
+              <td colSpan={2} className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>

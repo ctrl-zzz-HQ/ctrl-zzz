@@ -1,5 +1,6 @@
 import './ExpandableImage.css';
 import { useState, useCallback } from 'react';
+import { JsonImage } from '../../types/types.ts';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
@@ -28,15 +29,6 @@ export default function ExpandableImage({ image }: Props) {
       </div>}
     </>
   );
-}
-
-interface JsonImage {
-  path: string;
-  credits: string[][];
-  dimensions: {
-    width: number,
-    height: number,
-  }
 }
 
 interface Props {

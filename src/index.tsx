@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/missions" element={<MissionLayout />}>
               <Route index element={<Navigate to={`${missions.length - 1}`} />}/>
               {
-                missions.map((mission, index) =>
+                missions.map((_mission, index) =>
                   <Route key={index} path={`${index}`} element={<MissionPage index={index} />}/>
                 )
               }
@@ -30,7 +30,7 @@ export default function App() {
             <Route path="/agents" element={<AgentLayout />}>
               <Route index element={<AgentPage index={-1} />}/>
               {
-                agents.map((agent, index) =>
+                agents.map((_agent, index) =>
                   <Route key={index} path={`${index}`} element={<AgentPage index={index} />}/>
                 )
               }
@@ -38,7 +38,7 @@ export default function App() {
             <Route path="/dream-logs" element={<DreamLogLayout />}>
               <Route index element={<Navigate to={`${dreamLogs.length - 1}`} />}/>
               {
-                dreamLogs.map((dreamLog, index) =>
+                dreamLogs.map((_dreamLog, index) =>
                   <Route key={index} path={`${index}`} element={<DreamLogPage index={index} />}/>
                 )
               }
@@ -51,7 +51,7 @@ export default function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
     <App />

@@ -1,26 +1,26 @@
 import './NavigationLayout.css';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+
+const links: JsonLink[] = [
+  {
+    path: '/missions',
+    label: 'Missions',
+  },
+  {
+    path: '/agents',
+    label: 'Agents',
+  },
+  {
+    path: '/dream-logs',
+    label: 'Dream Log',
+  },
+];
 
 export default function NavLayout() {
 
   const location = useLocation();
-  const [links,] = useState([
-    {
-      path: '/missions',
-      label: 'Missions',
-    },
-    {
-      path: '/agents',
-      label: 'Agents',
-    },
-    {
-      path: '/dream-logs',
-      label: 'Dream Log',
-    },
-  ]);
 
-  const isActive = function(link) {
+  const isActive = function(link: JsonLink) {
     return location.pathname && location.pathname.includes(link.path);
   }
 
@@ -39,4 +39,9 @@ export default function NavLayout() {
       <Outlet />
     </div>
   );
+}
+
+interface JsonLink {
+  path: string;
+  label: string;
 }

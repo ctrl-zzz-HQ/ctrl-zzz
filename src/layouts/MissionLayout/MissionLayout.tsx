@@ -1,11 +1,13 @@
 import './MissionLayout.css';
 import { Outlet } from 'react-router-dom';
-import missions from '../../data/missions.json';
+import missionsJson from '../../data/missions.json';
 import Footer from '../../components/Footer';
 import { DesktopLinks } from '../../components/PageLinks';
+import { Mission } from '../../types/types.ts';
 
 export default function MissionLayout() {
 
+  const missions: Mission[] = missionsJson;
   missions.forEach(mission => mission.label = `${mission.code} [${mission.status}]`);
 
   return (
@@ -28,7 +30,7 @@ export default function MissionLayout() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" className="fit-height"><Footer/></td>
+              <td colSpan={2} className="fit-height"><Footer/></td>
             </tr>
           </tbody>
         </table>
