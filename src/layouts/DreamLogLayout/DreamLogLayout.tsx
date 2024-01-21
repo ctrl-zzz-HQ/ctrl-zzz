@@ -1,6 +1,6 @@
 import './DreamLogLayout.css';
 import { Outlet } from 'react-router-dom';
-import dreamLogsJson from '@data/dream-logs.json';
+import dreamLogsJson from '@data/dream-logs';
 import Footer from '@components/Footer';
 import { DesktopLinks } from '@components/PageLinks';
 import { DreamLog } from '@types';
@@ -20,7 +20,7 @@ export default function DreamLogLayout() {
                 <DesktopLinks data={dreamLogs} />
               </td>
               <td>
-                <div className="page-content">
+                <div className="scrollable page-content">
                   <Outlet />
                 </div>
               </td>

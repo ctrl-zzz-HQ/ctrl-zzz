@@ -8,7 +8,7 @@ import { NavigationLayout, MissionLayout, AgentLayout, DreamLogLayout, SplashLay
 import { AgentPage, DreamLogPage, MissionPage } from "@/pages";
 import missions from '@data/missions.json';
 import agents from '@data/agents.json';
-import dreamLogs from '@data/dream-logs.json';
+import dreamLogs from '@data/dream-logs';
 
 export default function App() {
   return (

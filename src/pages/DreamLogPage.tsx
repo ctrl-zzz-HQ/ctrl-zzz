@@ -1,4 +1,4 @@
-import dreamLogs from '../data/dream-logs.json';
+import dreamLogs from '../data/dream-logs';
 import { useMemo } from 'react';
 
 export default function DreamLog({ index }: Props) {
@@ -13,6 +13,14 @@ export default function DreamLog({ index }: Props) {
         <span className="desktop">timestamp: </span>
         {dreamLog.timestamp}]
       </h2>
+      {dreamLog.text.split('\n').map(line => {
+        if (line.trim().length === 0) {
+          return <br></br>;
+        } else {
+          return <p>{line}</p>;
+        }
+      })}
+      <a href={dreamLog.url}>&gt; READ MORE</a>
     </>
   );
 }
