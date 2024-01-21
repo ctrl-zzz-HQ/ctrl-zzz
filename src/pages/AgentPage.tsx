@@ -1,12 +1,12 @@
 import agents from '../data/agents.json';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
+import { useMemo, useEffect, useCallback } from 'react';
 import ExpandableImage from '../components/ExpandableImage';
 
-export default function Agent({ index }) {
+export default function Agent({ index }: Props) {
 
-  const getAgent = useCallback((index) => index < 0 ? null : agents[index], []);
-  const [agent,] = useState(getAgent(index));
+  const getAgent = useCallback((index: number) => index < 0 ? null : agents[index], []);
+  const agent = useMemo(() => getAgent(index), [index]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,4 +27,8 @@ export default function Agent({ index }) {
       </div>
     </>
   );
+}
+
+interface Props {
+  index: number;
 }

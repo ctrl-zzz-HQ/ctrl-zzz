@@ -1,9 +1,9 @@
 import dreamLogs from '../data/dream-logs.json';
-import { useState } from 'react';
+import { useMemo } from 'react';
 
-export default function DreamLog({ index }) {
+export default function DreamLog({ index }: Props) {
 
-  const [dreamLog,] = useState(dreamLogs[index]);
+  const dreamLog = useMemo(() => dreamLogs[index], [index]);
 
   return (
     <>
@@ -15,4 +15,8 @@ export default function DreamLog({ index }) {
       </h2>
     </>
   );
+}
+
+interface Props {
+  index: number;
 }

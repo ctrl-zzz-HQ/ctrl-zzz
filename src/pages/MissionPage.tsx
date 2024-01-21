@@ -1,9 +1,9 @@
 import missions from '../data/missions.json';
-import { useState } from 'react';
+import { useMemo } from 'react';
 
-export default function Mission({ index }) {
+export default function Mission({ index }: Props) {
 
-  const [mission,] = useState(missions[index]);
+  const mission = useMemo(() => missions[index], [index]);
 
   return (
     <>
@@ -18,4 +18,8 @@ export default function Mission({ index }) {
       </div>
     </>
   );
+}
+
+interface Props {
+  index: number;
 }

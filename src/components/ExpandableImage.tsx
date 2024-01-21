@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
 
-export default function ExpandableImage({ image }: ExpandableImageProps) {
+export default function ExpandableImage({ image }: Props) {
 
   const [expanded, setExpanded] = useState(false);
 
@@ -30,15 +30,15 @@ export default function ExpandableImage({ image }: ExpandableImageProps) {
   );
 }
 
-interface CtrlZzzImage {
+interface JsonImage {
   path: string;
-  credits: Array<[string, string]>;
+  credits: string[][];
   dimensions: {
     width: number,
     height: number,
   }
 }
 
-interface ExpandableImageProps {
-  image: CtrlZzzImage;
+interface Props {
+  image: JsonImage;
 }
