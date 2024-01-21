@@ -18,7 +18,7 @@ export function MobileLinks({ data }: Props) {
   const currIndex = useMemo<number|undefined>(() => getLastNumberInPath(pathname), [pathname]);
 
   return (
-    !currIndex ? null :
+    currIndex === undefined ? null :
     <>
       <Link href={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; previous</Link>
       <Link href={`${currIndex + 1}`} className={currIndex >= data.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
@@ -32,7 +32,7 @@ export function DesktopLinks({ data }: Props) {
   const currIndex = useMemo<number|undefined>(() => getLastNumberInPath(pathname), [pathname]);
 
   return (
-    !currIndex ? null :
+    currIndex === undefined ? null :
     <>
       {data.map((item, index) =>
         <Link href={`${index}`} className={`menu-group-item ${index === currIndex ? 'active' : ''}`} key={index}>
