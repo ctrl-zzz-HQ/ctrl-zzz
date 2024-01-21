@@ -1,8 +1,8 @@
-import './Splash.css';
+import './SplashLayout.css';
 import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import bootupText from '../data/bootup_text';
+import bootupText from '../../data/bootup_text';
 import LogoAnimation from './LogoAnimation';
 
 const cookieName = 'splashed';

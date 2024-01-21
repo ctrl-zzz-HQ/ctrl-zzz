@@ -1,7 +1,7 @@
 import './DreamLogLayout.css';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import dreamLogs from '../data/dream-logs.json';
-import Footer from './Footer';
+import dreamLogs from '../../data/dream-logs.json';
+import Footer from '../../components/Footer';
 
 export default function DreamLogLayout() {
 

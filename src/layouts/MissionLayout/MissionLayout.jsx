@@ -1,7 +1,7 @@
 import './MissionLayout.css';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import missions from '../data/missions.json';
-import Footer from './Footer';
+import missions from '../../data/missions.json';
+import Footer from '../../components/Footer';
 
 export default function MissionLayout() {
 

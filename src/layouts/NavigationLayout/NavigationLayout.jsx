@@ -1,4 +1,4 @@
-import './NavLayout.css';
+import './NavigationLayout.css';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 

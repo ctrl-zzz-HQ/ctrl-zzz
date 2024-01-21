@@ -1,7 +1,7 @@
 import agents from '../data/agents.json';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import ExpandableImage from './ExpandableImage.tsx';
+import ExpandableImage from '../components/ExpandableImage';
 
 export default function Agent({ index }) {
 

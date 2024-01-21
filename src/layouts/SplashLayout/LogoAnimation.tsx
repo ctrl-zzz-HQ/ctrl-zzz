@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import logoAnimationWebm from '../assets/Logo 500x500.webm';
-import logoAnimationMp4 from '../assets/Logo 500x500.mp4';
+import logoAnimationWebm from '../../assets/Logo 500x500.webm';
+import logoAnimationMp4 from '../../assets/Logo 500x500.mp4';
 
 export default function LogoAnimation({ play, onEnded }: LogoAnimationProps) {
 

@@ -1,8 +1,8 @@
 import './AgentLayout.css';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
-import agents from '../data/agents.json';
-import Footer from './Footer';
+import agents from '../../data/agents.json';
+import Footer from '../../components/Footer';
 
 export default function AgentLayout() {
 

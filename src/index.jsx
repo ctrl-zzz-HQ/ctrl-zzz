@@ -4,14 +4,14 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './reset.css';
 import './theme.css';
 import './index.css';
-import Splash from "./layouts/Splash";
-import NavLayout from "./layouts/NavLayout";
+import SplashLayout from "./layouts/SplashLayout";
+import NavigationLayout from "./layouts/NavigationLayout";
 import MissionLayout from "./layouts/MissionLayout";
 import AgentLayout from "./layouts/AgentLayout";
 import DreamLogLayout from "./layouts/DreamLogLayout";
-import Mission from "./pages/Mission";
-import Agent from "./pages/Agent";
-import DreamLog from "./pages/DreamLog";
+import MissionPage from "./pages/MissionPage";
+import AgentPage from "./pages/AgentPage";
+import DreamLogPage from "./pages/DreamLogPage";
 import missions from './data/missions.json';
 import agents from './data/agents.json';
 import dreamLogs from './data/dream-logs.json';
@@ -20,22 +20,22 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Splash />}>
-          <Route path="/" element={<NavLayout />}>
+        <Route path="/" element={<SplashLayout />}>
+          <Route path="/" element={<NavigationLayout />}>
             <Route index element={<Navigate to="/missions" />}/>
             <Route path="/missions" element={<MissionLayout />}>
               <Route index element={<Navigate to={`${missions.length - 1}`} />}/>
               {
                 missions.map((mission, index) =>
-                  <Route key={index} path={`${index}`} element={<Mission index={index} />}/>
+                  <Route key={index} path={`${index}`} element={<MissionPage index={index} />}/>
                 )
               }
             </Route>
             <Route path="/agents" element={<AgentLayout />}>
-              <Route index element={<Agent index={-1} />}/>
+              <Route index element={<AgentPage index={-1} />}/>
               {
                 agents.map((agent, index) =>
-                  <Route key={index} path={`${index}`} element={<Agent index={index} />}/>
+                  <Route key={index} path={`${index}`} element={<AgentPage index={index} />}/>
                 )
               }
             </Route>
@@ -43,7 +43,7 @@ export default function App() {
               <Route index element={<Navigate to={`${dreamLogs.length - 1}`} />}/>
               {
                 dreamLogs.map((dreamLog, index) =>
-                  <Route key={index} path={`${index}`} element={<DreamLog index={index} />}/>
+                  <Route key={index} path={`${index}`} element={<DreamLogPage index={index} />}/>
                 )
               }
             </Route>
