@@ -1,15 +1,12 @@
 import './MissionLayout.css';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import missions from '../../data/missions.json';
 import Footer from '../../components/Footer';
+import { DesktopLinks } from '../../components/PageLinks';
 
 export default function MissionLayout() {
 
-  const location = useLocation();
-
-  const isActive = function(index) {
-    return location.pathname && location.pathname.endsWith(`/${index}`);
-  }
+  missions.forEach(mission => mission.label = `${mission.code} [${mission.status}]`);
 
   return (
     <div className="mission-layout page-container">
@@ -20,19 +17,13 @@ export default function MissionLayout() {
               <td className="desktop fit-width">
                 <div className="left-menu">
                   <div className="menu-group">
-                    {
-                      missions.map((mission, index) =>
-                        <Link to={`${index}`} className={`menu-group-item ${isActive(index) ? 'active' : ''}`} key={index}>
-                          &gt; {mission.code} [{mission.status}]
-                        </Link>
-                      )
-                    }
+                    <DesktopLinks data={missions} />
                   </div>
                 </div>
               </td>
               <td>
                 <div className="page-content">
-                  <Outlet key={location.pathname} />
+                  <Outlet />
                 </div>
               </td>
             </tr>
