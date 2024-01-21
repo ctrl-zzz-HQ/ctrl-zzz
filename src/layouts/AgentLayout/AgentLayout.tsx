@@ -1,9 +1,9 @@
 import './AgentLayout.css';
 import { Outlet } from 'react-router-dom';
-import agentsJson from '../../data/agents.json';
-import Footer from '../../components/Footer';
-import { MobileLinks, DesktopLinks } from '../../components/PageLinks';
-import { Agent } from '../../types/types.ts';
+import agentsJson from '@data/agents.json';
+import Footer from '@components/Footer';
+import { MobileLinks, DesktopLinks } from '@components/PageLinks';
+import { Agent } from '@types';
 
 export default function AgentLayout() {
 

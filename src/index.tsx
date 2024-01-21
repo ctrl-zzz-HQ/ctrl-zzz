@@ -4,13 +4,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './reset.css';
 import './theme.css';
 import './index.css';
-import { NavigationLayout, MissionLayout, AgentLayout, DreamLogLayout, SplashLayout } from "./layouts";
-import MissionPage from "./pages/MissionPage";
-import AgentPage from "./pages/AgentPage";
-import DreamLogPage from "./pages/DreamLogPage";
-import missions from './data/missions.json';
-import agents from './data/agents.json';
-import dreamLogs from './data/dream-logs.json';
+import { NavigationLayout, MissionLayout, AgentLayout, DreamLogLayout, SplashLayout } from "@/layouts";
+import { AgentPage, DreamLogPage, MissionPage } from "@/pages";
+import missions from '@data/missions.json';
+import agents from '@data/agents.json';
+import dreamLogs from '@data/dream-logs.json';
 
 export default function App() {
   return (

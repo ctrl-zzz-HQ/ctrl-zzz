@@ -1,6 +1,6 @@
 import './ExpandableImage.css';
 import { useState, useCallback } from 'react';
-import { JsonImage } from '../../types/types.ts';
+import { JsonImage } from '@types';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';

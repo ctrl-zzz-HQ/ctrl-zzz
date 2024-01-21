@@ -1,9 +1,9 @@
 import './DreamLogLayout.css';
 import { Outlet } from 'react-router-dom';
-import dreamLogsJson from '../../data/dream-logs.json';
-import Footer from '../../components/Footer';
-import { DesktopLinks } from '../../components/PageLinks';
-import { DreamLog } from '../../types/types.ts';
+import dreamLogsJson from '@data/dream-logs.json';
+import Footer from '@components/Footer';
+import { DesktopLinks } from '@components/PageLinks';
+import { DreamLog } from '@types';
 
 export default function DreamLogLayout() {
 

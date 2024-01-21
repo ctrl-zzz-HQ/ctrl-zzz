@@ -1,9 +1,9 @@
 import './MissionLayout.css';
 import { Outlet } from 'react-router-dom';
-import missionsJson from '../../data/missions.json';
-import Footer from '../../components/Footer';
-import { DesktopLinks } from '../../components/PageLinks';
-import { Mission } from '../../types/types.ts';
+import missionsJson from '@data/missions.json';
+import Footer from '@components/Footer';
+import { DesktopLinks } from '@components/PageLinks';
+import { Mission } from '@types';
 
 export default function MissionLayout() {
 
