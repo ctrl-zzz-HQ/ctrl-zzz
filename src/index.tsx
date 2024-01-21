@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './reset.css';
 import './theme.css';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 import Splash from "./layouts/Splash";
 import NavLayout from "./layouts/NavLayout";
 import MissionLayout from "./layouts/MissionLayout";
