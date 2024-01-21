@@ -2,53 +2,49 @@ import './SplashLayout.css';
 import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import bootupText from '@data/bootup_text';
 import LogoAnimation from './LogoAnimation';
+import BootupAnimation from './BootupAnimation';
 
-const cookieName = 'splashed';
+const cookieName = 'booted';
 
 export default function Splash() {
 
-  const [cookies, setCookie,] = useCookies([cookieName]);
-  const [bootupPos, setBootupPos] = useState<number>(0);
-  const [startTime, setStartTime] = useState<number>(0);
+  const [cookies, setCookie, deleteCookie] = useCookies([cookieName]);
+  const [splashed, setSplashed] = useState<boolean>(cookies[cookieName]);
+  const [playBootup, setPlayBootup] = useState(false);
+  const [playLogo, setPlayLogo] = useState(false);
 
-  const setSplashedCookie = useCallback((value: boolean) => {
-    setCookie(cookieName, value, { sameSite: 'strict' });
-  }, [setCookie]);
-
-  const powerOn = useCallback(() => {
-    setStartTime(new Date().getTime());
-    setBootupPos(1);
-  }, [setStartTime, setBootupPos]);
+  const powerOn = useCallback(() => setPlayBootup(true), [setPlayBootup]);
 
   const powerOff = useCallback(() => {
-    setBootupPos(0);
-    setSplashedCookie(false);
-  }, [setBootupPos, setSplashedCookie]);
+    setPlayBootup(false);
+    setPlayLogo(false);
+    setSplashed(false);
+  }, [setPlayBootup, setPlayLogo, setSplashed]);
 
   useEffect(() => {
-    if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
-      const intervalId = setInterval(() => setBootupPos(new Date().getTime() - startTime), 1);
-      return () => clearInterval(intervalId);
+    if (splashed) {
+      setCookie(cookieName, true, { sameSite: 'strict', path: '/' });
+    } else {
+      deleteCookie(cookieName, { sameSite: 'strict', path: '/' });
     }
-  }, [startTime, bootupPos, setBootupPos]);
+  }, [splashed, setCookie, deleteCookie]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setSplashedCookie(true);
+        setSplashed(true);
       }
     }
 
-    if (!cookies[cookieName]) {
+    if (!splashed) {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
-  }, [cookies, setSplashedCookie]);
+  }, [splashed]);
 
   return (
-    cookies[cookieName] ?
+    splashed ?
     <>
       <Outlet />
       <button className="splash power-off-button" onClick={powerOff}>
@@ -59,7 +55,7 @@ export default function Splash() {
       </button>
     </> :
     <div className="splash page-container primary">
-      {bootupPos <= 0 &&
+      {!playBootup && !playLogo &&
       <div className="button-wrapper">
         <button className="splash power-on-button" onClick={powerOn}>
           {/* Adapted from: https://commons.wikimedia.org/wiki/File:Power.svg */}
@@ -68,14 +64,9 @@ export default function Splash() {
           </svg>
         </button>
       </div>}
-      {bootupPos > 0 && bootupPos < bootupText.length &&
-      <div className="bootup-wrapper">
-        <div className={`bootup-text ${bootupPos >= bootupText.length / 2 ? 'monospace' : ''}`}>
-          {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
-        </div>
-      </div>}
-      <LogoAnimation play={bootupPos > 0 && bootupPos >= bootupText.length} onEnded={() => setSplashedCookie(true)} />
-      <button className="skip-button" onClick={() => setSplashedCookie(true)}>Click here or 'Esc' to skip.</button>
+      <BootupAnimation play={playBootup} onEnded={() => setPlayLogo(true)}/>
+      <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
+      <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>
   );
 }
