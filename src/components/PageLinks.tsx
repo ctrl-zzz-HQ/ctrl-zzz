@@ -33,7 +33,7 @@ export function DesktopLinks({ data }: Props) {
     currIndex === undefined ? null :
     <>
       {data.map((item, index) =>
-        <Link to={`${index}`} className={`menu-group-item ${index === currIndex ? 'active' : ''}`} key={index}>
+        <Link to={`${index}`} className={index === currIndex ? 'active' : ''} style={{marginBottom: '.25rem'}} key={index}>
           &gt; {item.label}
         </Link>
       )}

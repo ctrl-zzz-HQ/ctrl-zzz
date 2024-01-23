@@ -13,14 +13,16 @@ export default function DreamLog({ index }: Props) {
         <span className="desktop">timestamp: </span>
         {dreamLog.timestamp}]
       </h2>
-      {dreamLog.text.split('\n').map(line => {
-        if (line.trim().length === 0) {
-          return <br></br>;
-        } else {
-          return <p>{line}</p>;
-        }
-      })}
-      <a href={dreamLog.url}>&gt; READ MORE</a>
+      <div className="scrollable">
+        {dreamLog.text.split('\n').map((line, index) => {
+          if (line.trim().length === 0) {
+            return <br key={index}></br>;
+          } else {
+            return <p key={index}>{line}</p>;
+          }
+        })}
+      </div>
+      <a href={dreamLog.url} target="_blank" style={{marginTop: '.5rem'}}>&gt; READ MORE</a>
     </>
   );
 }

@@ -1,4 +1,6 @@
-const data = [
+import { DreamLog } from '@types';
+
+const data: DreamLog[] = [
   {
     "code": "I",
     "timestamp": "2024-01-14",
@@ -11,8 +13,7 @@ The alarm clock sounds, cutting the image short.
 
 Fragments of what transpired flicker through her mind like anxious flames.
 
-It starts with feeling lost in a crowd of people, on an unfamiliar street...
-`
+It starts with feeling lost in a crowd of people, on an unfamiliar street...`
   }
 ]
 

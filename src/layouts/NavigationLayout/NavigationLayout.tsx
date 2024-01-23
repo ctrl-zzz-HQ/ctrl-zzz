@@ -1,4 +1,4 @@
-import './NavigationLayout.css';
+import styles from './NavigationLayout.module.css';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
 const links: JsonLink[] = [
@@ -25,9 +25,9 @@ export default function NavLayout() {
   }
 
   return (
-    <div className="nav-layout primary page-container">
+    <div className={`${styles.pageContainer} primary`}>
       <h1>CTRL+ZZZ HQ</h1>
-      <div className="nav-layout top-menu">
+      <div className={styles.menu}>
         {
           links.map(link =>
             <Link className={isActive(link) ? 'active' : ''} to={link.path} key={link.path}>

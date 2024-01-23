@@ -1,10 +1,8 @@
-import dreamLogsJson from '@data/dream-logs';
-import { DreamLog } from '@types';
+import dreamLogs from '@data/dream-logs';
 import TableLayout from '@components/TableLayout';
 
 export default function DreamLogLayout() {
 
-  const dreamLogs: DreamLog[] = dreamLogsJson;
   dreamLogs.forEach(dreamLog => dreamLog.label = `${dreamLog.code} [${dreamLog.timestamp}]`);
 
   return (
