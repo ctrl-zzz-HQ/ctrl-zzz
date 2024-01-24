@@ -78,16 +78,17 @@ a {
 }
 
 @media (hover: hover) {
-  a:hover, a:focus-visible {
+  a:hover {
     background: var(--red-color);
     color: var(--white-color);
     outline: none;
   }
 }
 
-a:active {
+a:active, a:focus-visible, a:focus {
   background: var(--red-color);
   color: var(--white-color);
+  outline: none;
 }
 
 a.active {

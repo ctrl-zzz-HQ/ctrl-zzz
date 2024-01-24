@@ -22,7 +22,7 @@ export default function DreamLog({ index }: Props) {
           }
         })}
       </div>
-      <a href={dreamLog.url} target="_blank" style={{marginTop: '.5rem'}}>&gt; READ MORE</a>
+      <a href={dreamLog.url} target="_blank" style={{marginTop: '.5rem', alignSelf: 'flex-start'}}>&gt; READ MORE</a>
     </>
   );
 }
