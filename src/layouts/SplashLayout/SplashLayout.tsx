@@ -65,7 +65,7 @@ export default function Splash() {
           </svg>
         </button>
       </div>}
-      <TypingAnimation text={bootupText} play={playBootup} onEnded={() => setPlayLogo(true)}/>
+      {!playLogo && <TypingAnimation text={bootupText} play={playBootup} onEnded={() => setPlayLogo(true)}/>}
       <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
       <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>

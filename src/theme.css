@@ -108,4 +108,5 @@ a.active {
   border-style: dashed;
   border-color: var(--white-color);
   border-width: 1px 0;
+  flex-grow: 1;
 }

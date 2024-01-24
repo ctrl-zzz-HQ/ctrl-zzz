@@ -2,6 +2,7 @@
   padding: .5rem 0;
   margin: 0 -1rem -1rem -1rem;
   border: none;
+  background: none;
 }
 
 @media (hover: hover) {

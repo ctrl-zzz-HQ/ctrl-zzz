@@ -25,14 +25,20 @@ export default function BootupAnimation({ text, play, onEnded }: Props) {
   }, [bootupPos, setEnded]);
 
   useEffect(() => {
-    ended && onEnded();
+    ended && onEnded && onEnded();
   }, [ended, onEnded]);
 
   return (
-    (!play || ended) ? null :
+    !play ? null :
     <div className="bootup-wrapper">
       <div className={`bootup-text ${bootupPos >= text.length / 2 ? 'monospace' : ''}`}>
-        {text.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
+        {text.substr(0, bootupPos).split('\n').map((line, i) => {
+          if (line.trim().length === 0) {
+            return <br key={i}></br>;
+          } else {
+            return <p key={i}>{line}</p>;
+          }
+        })}
       </div>
     </div>
   );
@@ -41,5 +47,5 @@ export default function BootupAnimation({ text, play, onEnded }: Props) {
 interface Props {
   text: string;
   play: boolean;
-  onEnded: () => void;
+  onEnded?: () => void;
 }

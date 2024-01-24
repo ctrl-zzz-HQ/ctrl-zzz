@@ -1,6 +1,7 @@
 import styles from './DreamLogPage.module.css';
 import dreamLogs from '@data/dream-logs';
 import { useMemo } from 'react';
+import TypingAnimation from '@components/TypingAnimation';
 
 export default function DreamLog({ index }: Props) {
 
@@ -15,21 +16,11 @@ export default function DreamLog({ index }: Props) {
         {dreamLog.timestamp}]
       </h2>
       <div className="scrollable">
-        {dreamLog.text.split('\n').map((line, index) => {
-          if (line.trim().length === 0) {
-            return <br key={index}></br>;
-          } else {
-            return <p key={index}>{line}</p>;
-          }
-        })}
+        <TypingAnimation text={dreamLog.text} play={true} />
       </div>
-      <button className={`${styles.continueButton} secondary-text mobile`}>
-        [
-          <span className="mobile">tap here </span>
-          <span className="desktop">click here or press any key </span>
-        to continue]
+      <button className={`${styles.continueButton} secondary-text`}>
+        [click here <span className="desktop">or press any key</span> to continue]
       </button>
-      <button className={`${styles.continueButton} secondary-text desktop`}>[click or press any key to continue]</button>
     </>
   );
 }
