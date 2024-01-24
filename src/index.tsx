@@ -7,7 +7,7 @@ import './index.css';
 import { NavigationLayout, MissionLayout, AgentLayout, DreamLogLayout, SplashLayout } from "@/layouts";
 import { AgentPage, DreamLogPage, MissionPage } from "@/pages";
 import missions from '@data/missions';
-import agents from '@data/agents.json';
+import agents from '@data/agents';
 import dreamLogs from '@data/dream-logs';
 
 export default function App() {

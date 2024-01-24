@@ -10,6 +10,7 @@ export interface Agent {
   code: string;
   alias: string;
   status: string;
+  roles: string[];
   art: JsonImage[];
   label?: string;
 }

@@ -1,7 +1,10 @@
-[{
+import { Agent } from '@types';
+
+const agents: Agent[] = [{
   "code": "I",
   "alias": "NekoNat",
   "status": "PROSPECTIVE",
+  roles: ['animator', 'vocalist'],
   "art": [{
     "path": "bust/Neko.png",
     "dimensions": {
@@ -40,6 +43,7 @@
   "code": "II",
   "alias": "Lyn 文文",
   "status": "PROSPECTIVE",
+  roles: ['timer', 'vocalist'],
   "art": [{
     "path": "bust/Lyn.png",
     "dimensions": {
@@ -69,6 +73,7 @@
   "code": "III",
   "alias": "Yan",
   "status": "ACTIVE",
+  roles: ['artist', 'lore writer'],
   "art": [{
     "path": "bust/Yan.png",
     "dimensions": {
@@ -83,6 +88,7 @@
   "code": "IV",
   "alias": "Aida",
   "status": "PROSPECTIVE",
+  roles: ['organizer', 'tuner', 'vocalist'],
   "art": [{
     "path": "full/aida r1.png",
     "dimensions": {
@@ -112,6 +118,7 @@
   "code": "V",
   "alias": "Naya",
   "status": "ACTIVE",
+  roles: ['mixer'],
   "art": [{
     "path": "bust/Naya.png",
     "dimensions": {
@@ -126,6 +133,7 @@
   "code": "VI",
   "alias": "Atel",
   "status": "PROSPECTIVE",
+  roles: ['lore writer', 'vocalist'],
   "art": [{
     "path": "bust/Atel.png",
     "dimensions": {
@@ -155,6 +163,7 @@
   "code": "VII",
   "alias": "Lilp",
   "status": "ACTIVE",
+  roles: ['artist'],
   "art": [{
     "path": "bust/Lilp_Nemo.png",
     "dimensions": {
@@ -169,6 +178,7 @@
   "code": "VIII",
   "alias": "peach",
   "status": "ACTIVE",
+  roles: ['artist'],
   "art": [{
     "path": "bust/Peach.png",
     "dimensions": {
@@ -183,6 +193,7 @@
   "code": "IX",
   "alias": "Nezu",
   "status": "PROSPECTIVE",
+  roles: ['artist', 'vocalist'],
   "art": [{
     "path": "bust/Nezu.png",
     "dimensions": {
@@ -212,6 +223,7 @@
   "code": "X",
   "alias": "yenii",
   "status": "ACTIVE",
+  roles: ['artist'],
   "art": [{
     "path": "bust/Yenii.png",
     "dimensions": {
@@ -226,6 +238,7 @@
   "code": "XI",
   "alias": "Joy",
   "status": "PROSPECTIVE",
+  roles: ['guides', 'vocalist'],
   "art": [{
     "path": "bust/Joy.png",
     "dimensions": {
@@ -255,6 +268,7 @@
   "code": "XII",
   "alias": "Ash",
   "status": "ACTIVE",
+  roles: ['animator'],
   "art": [{
     "path": "bust/Ash.png",
     "dimensions": {
@@ -266,3 +280,5 @@
     ]]
   }]
 }]
+
+export default agents;

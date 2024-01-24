@@ -15,11 +15,11 @@ export default function ExpandableImage({ image }: Props) {
   return (
     <>
       <button className="expandable-image image-button" onClick={open}>
-        <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Low quality (click for high quality)" />
+        <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Small" />
       </button>
       {expanded && <div className="expandable-image primary dialog">
         <div className="expandable-image image-container">
-          <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="High quality" />
+          <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="Large" />
         </div>
         {image.credits.map((credit, index) =>
           <p className="expandable-image credit" key={index}>
