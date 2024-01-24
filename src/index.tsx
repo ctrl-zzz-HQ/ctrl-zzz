@@ -6,7 +6,7 @@ import './theme.css';
 import './index.css';
 import { NavigationLayout, MissionLayout, AgentLayout, DreamLogLayout, SplashLayout } from "@/layouts";
 import { AgentPage, DreamLogPage, MissionPage } from "@/pages";
-import missions from '@data/missions.json';
+import missions from '@data/missions';
 import agents from '@data/agents.json';
 import dreamLogs from '@data/dream-logs';
 

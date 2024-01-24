@@ -18,6 +18,7 @@ export interface Mission {
   code: string;
   status: string;
   brief: string;
+  embed: string;
   label?: string;
 }
 

@@ -1,4 +1,4 @@
-import missions from '../data/missions.json';
+import missions from '@data/missions';
 import { useMemo } from 'react';
 
 export default function Mission({ index }: Props) {
@@ -12,6 +12,7 @@ export default function Mission({ index }: Props) {
         <span className="desktop">status: </span>
         {mission.status}]
       </h2>
+      <div style={{width: '100%'}} dangerouslySetInnerHTML={{__html: mission.embed}}></div>
       <div className="mission section">
         <h3>&gt; Brief</h3>
         <p>{mission.brief}</p>

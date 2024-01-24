@@ -18,7 +18,7 @@ export default function TableLayout({ data }: Props) {
         </div>
         <div className={`${styles.row} ${data.length <= 1 ? 'd-none' : ''} mobile`}>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
-            <div className="d-flex flex-row justify-space-between">
+            <div className="w-100 d-flex flex-row justify-space-between">
               <MobileLinks data={data} />
             </div>
           </div>
