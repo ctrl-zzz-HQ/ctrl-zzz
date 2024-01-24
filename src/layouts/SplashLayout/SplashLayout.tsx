@@ -3,7 +3,8 @@ import { useCookies } from 'react-cookie';
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import LogoAnimation from './LogoAnimation';
-import BootupAnimation from './BootupAnimation';
+import TypingAnimation from '@components/TypingAnimation';
+import bootupText from '@data/bootup-text';
 
 const cookieName = 'booted';
 
@@ -64,7 +65,7 @@ export default function Splash() {
           </svg>
         </button>
       </div>}
-      <BootupAnimation play={playBootup} onEnded={() => setPlayLogo(true)}/>
+      <TypingAnimation text={bootupText} play={playBootup} onEnded={() => setPlayLogo(true)}/>
       <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
       <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>

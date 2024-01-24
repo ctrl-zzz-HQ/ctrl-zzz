@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import bootupText from '@data/bootup_text';
 
-export default function BootupAnimation({ play, onEnded }: Props) {
+export default function BootupAnimation({ text, play, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
   const [startTime, setStartTime] = useState(0);
@@ -15,14 +14,14 @@ export default function BootupAnimation({ play, onEnded }: Props) {
   }, [play, ended]);
 
   useEffect(() => {
-    if (startTime && bootupPos > 0 && bootupPos < bootupText.length) {
-      const intervalId = setInterval(() => setBootupPos(new Date().getTime() - startTime), 1);
-      return () => clearInterval(intervalId);
+    if (startTime && bootupPos > 0 && bootupPos < text.length) {
+      const intervalId = setTimeout(() => setBootupPos(new Date().getTime() - startTime), 1);
+      return () => clearTimeout(intervalId);
     }
   }, [startTime, bootupPos, setBootupPos]);
 
   useEffect(() => {
-    bootupPos >= bootupText.length && setEnded(true);
+    bootupPos >= text.length && setEnded(true);
   }, [bootupPos, setEnded]);
 
   useEffect(() => {
@@ -32,14 +31,15 @@ export default function BootupAnimation({ play, onEnded }: Props) {
   return (
     (!play || ended) ? null :
     <div className="bootup-wrapper">
-      <div className={`bootup-text ${bootupPos >= bootupText.length / 2 ? 'monospace' : ''}`}>
-        {bootupText.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
+      <div className={`bootup-text ${bootupPos >= text.length / 2 ? 'monospace' : ''}`}>
+        {text.substr(0, bootupPos).split('\n').map((line, i) => <p key={i}>{line}</p>)}
       </div>
     </div>
   );
 }
 
 interface Props {
+  text: string;
   play: boolean;
   onEnded: () => void;
 }
