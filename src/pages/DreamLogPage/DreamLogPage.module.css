@@ -1,0 +1,15 @@
+.continueButton {
+  padding: .5rem 0;
+  margin: 0 -1rem -1rem -1rem;
+  border: none;
+}
+
+@media (hover: hover) {
+  .continueButton:hover {
+    background: var(--red-color);
+  }
+}
+
+.continueButton:active {
+  background: var(--red-color);
+}
