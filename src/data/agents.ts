@@ -6,15 +6,6 @@ const agents: Agent[] = [{
   "status": "PROSPECTIVE",
   roles: ['animator', 'vocalist'],
   "art": [{
-    "path": "bust/Neko.png",
-    "dimensions": {
-      "width": 3150,
-      "height": 3150
-    },
-    "credits": [[
-      "art", "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
-    ]]
-  }, {
     "path": "full/neko r1.png",
     "dimensions": {
       "width": 2895,
@@ -28,6 +19,15 @@ const agents: Agent[] = [{
       "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
     ], [
       "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
+    "path": "bust/Neko.png",
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
     ]]
   }, {
     "path": "misc/Promotional-Nat-Sprite.png",
@@ -45,15 +45,6 @@ const agents: Agent[] = [{
   "status": "PROSPECTIVE",
   roles: ['timer', 'vocalist'],
   "art": [{
-    "path": "bust/Lyn.png",
-    "dimensions": {
-      "width": 1300,
-      "height": 1300
-    },
-    "credits": [[
-      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    ]]
-  }, {
     "path": "full/lyn r1.png",
     "dimensions": {
       "width": 2895,
@@ -67,6 +58,15 @@ const agents: Agent[] = [{
       "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
     ], [
       "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
+    "path": "bust/Lyn.png",
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
     ]]
   }]
 }, {
@@ -135,15 +135,6 @@ const agents: Agent[] = [{
   "status": "PROSPECTIVE",
   roles: ['lore writer', 'vocalist'],
   "art": [{
-    "path": "bust/Atel.png",
-    "dimensions": {
-      "width": 3150,
-      "height": 3150
-    },
-    "credits": [[
-      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    ]]
-  }, {
     "path": "full/atel r1.png",
     "dimensions": {
       "width": 2895,
@@ -157,6 +148,15 @@ const agents: Agent[] = [{
       "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
     ], [
       "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
+    "path": "bust/Atel.png",
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
     ]]
   }]
 }, {
@@ -195,15 +195,6 @@ const agents: Agent[] = [{
   "status": "PROSPECTIVE",
   roles: ['artist', 'vocalist'],
   "art": [{
-    "path": "bust/Nezu.png",
-    "dimensions": {
-      "width": 3150,
-      "height": 3150
-    },
-    "credits": [[
-      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    ]]
-  }, {
     "path": "full/nezu r1.png",
     "dimensions": {
       "width": 2895,
@@ -217,6 +208,15 @@ const agents: Agent[] = [{
       "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
     ], [
       "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
+    "path": "bust/Nezu.png",
+    "dimensions": {
+      "width": 3150,
+      "height": 3150
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
     ]]
   }]
 }, {
@@ -240,15 +240,6 @@ const agents: Agent[] = [{
   "status": "PROSPECTIVE",
   roles: ['guides', 'vocalist'],
   "art": [{
-    "path": "bust/Joy.png",
-    "dimensions": {
-      "width": 1300,
-      "height": 1300
-    },
-    "credits": [[
-      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
-    ]]
-  }, {
     "path": "full/joy r1.png",
     "dimensions": {
       "width": 2895,
@@ -262,6 +253,15 @@ const agents: Agent[] = [{
       "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
     ], [
       "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
+    "path": "bust/Joy.png",
+    "dimensions": {
+      "width": 1300,
+      "height": 1300
+    },
+    "credits": [[
+      "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
     ]]
   }]
 }, {

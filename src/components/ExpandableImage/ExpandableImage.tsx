@@ -1,5 +1,5 @@
 import './ExpandableImage.css';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { JsonImage } from '@types';
 
 const lqPath = '/character art/LQ/';
@@ -11,6 +11,19 @@ export default function ExpandableImage({ image }: Props) {
 
   const open = useCallback(() => setExpanded(true), [setExpanded]);
   const close = useCallback(() => setExpanded(false), [setExpanded]);
+
+  useEffect(() => {
+    if (expanded) {
+      const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setExpanded(false);
+        }
+      }
+
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [expanded])
 
   return (
     <>
