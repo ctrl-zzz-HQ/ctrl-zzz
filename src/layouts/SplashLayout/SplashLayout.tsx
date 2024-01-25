@@ -12,16 +12,16 @@ export default function Splash() {
 
   const [cookies, setCookie, deleteCookie] = useCookies([cookieName]);
   const [splashed, setSplashed] = useState<boolean>(cookies[cookieName]);
-  const [playBootup, setPlayBootup] = useState(false);
+  const [bootupTrigger, setBootupTrigger] = useState(0);
   const [playLogo, setPlayLogo] = useState(false);
 
-  const powerOn = useCallback(() => setPlayBootup(true), [setPlayBootup]);
+  const powerOn = useCallback(() => setBootupTrigger(prev => prev + 1), []);
 
   const powerOff = useCallback(() => {
-    setPlayBootup(false);
+    setBootupTrigger(0);
     setPlayLogo(false);
     setSplashed(false);
-  }, [setPlayBootup, setPlayLogo, setSplashed]);
+  }, []);
 
   useEffect(() => {
     if (splashed) {
@@ -56,7 +56,7 @@ export default function Splash() {
       </button>
     </> :
     <div className="splash page-container primary">
-      {!playBootup && !playLogo &&
+      {bootupTrigger === 0 && !playLogo &&
       <div className="button-wrapper">
         <button className="splash power-on-button" onClick={powerOn}>
           {/* Adapted from: https://commons.wikimedia.org/wiki/File:Power.svg */}
@@ -65,7 +65,7 @@ export default function Splash() {
           </svg>
         </button>
       </div>}
-      {!playLogo && <TypingAnimation text={bootupText} play={playBootup} onEnded={() => setPlayLogo(true)}/>}
+      {!playLogo && <TypingAnimation text={bootupText} playTrigger={bootupTrigger} onEnded={() => setPlayLogo(true)}/>}
       <LogoAnimation play={playLogo} onEnded={() => setSplashed(true)} />
       <button className="skip-button" onClick={() => setSplashed(true)}>Click here or 'Esc' to skip.</button>
     </div>

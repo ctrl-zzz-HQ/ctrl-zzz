@@ -16,7 +16,7 @@ export default function DreamLog({ index }: Props) {
         {dreamLog.timestamp}]
       </h2>
       <div className="scrollable">
-        <TypingAnimation text={dreamLog.text} play={true} />
+        <TypingAnimation text={dreamLog.text} playTrigger={1} />
       </div>
       <button className={`${styles.continueButton} secondary-text`}>
         [click here <span className="desktop">or press any key</span> to continue]

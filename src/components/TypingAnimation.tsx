@@ -1,35 +1,25 @@
 import { useState, useEffect } from 'react';
 
-export default function BootupAnimation({ text, play, onEnded }: Props) {
+export default function BootupAnimation({ text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
-  const [startTime, setStartTime] = useState(0);
-  const [ended, setEnded] = useState(false);
 
   useEffect(() => {
-    if (play && !ended) {
-      setStartTime(new Date().getTime());
+    if (playTrigger !== 0) {
       setBootupPos(1);
     }
-  }, [play, ended]);
+  }, [playTrigger]);
 
   useEffect(() => {
-    if (startTime && bootupPos > 0 && bootupPos < text.length) {
-      const intervalId = setTimeout(() => setBootupPos(new Date().getTime() - startTime), 1);
+    if (bootupPos > 0 && bootupPos < text.length) {
+      const intervalId = setTimeout(() => setBootupPos(prev => prev + 1));
       return () => clearTimeout(intervalId);
+    } else if (bootupPos >= text.length) {
+      onEnded && onEnded();
     }
-  }, [startTime, bootupPos, setBootupPos]);
-
-  useEffect(() => {
-    bootupPos >= text.length && setEnded(true);
-  }, [bootupPos, setEnded]);
-
-  useEffect(() => {
-    ended && onEnded && onEnded();
-  }, [ended, onEnded]);
+  }, [bootupPos, text]);
 
   return (
-    !play ? null :
     <div className="bootup-wrapper">
       <div className={`bootup-text ${bootupPos >= text.length / 2 ? 'monospace' : ''}`}>
         {text.substr(0, bootupPos).split('\n').map((line, i) => {
@@ -46,6 +36,10 @@ export default function BootupAnimation({ text, play, onEnded }: Props) {
 
 interface Props {
   text: string;
-  play: boolean;
+  /**
+   * When this prop changes, animation will be triggered from the beginning,
+   * unless equal to 0.
+   */
+  playTrigger: number;
   onEnded?: () => void;
 }
