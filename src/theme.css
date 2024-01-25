@@ -99,14 +99,3 @@ a.active {
   background: var(--gray-color);
   color: var(--dark-gray-color);
 }
-
-.scrollable {
-  overflow-y: auto;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: 1rem;
-  border-style: dashed;
-  border-color: var(--white-color);
-  border-width: 1px 0;
-  flex-grow: 1;
-}
