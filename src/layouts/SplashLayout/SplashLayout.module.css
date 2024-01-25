@@ -1,15 +1,15 @@
-.splash.page-container {
+.pageContainer {
   width: 100vw;
   height: 100%;
 }
 
-.splash .skip-button {
+.skipButton {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-.splash.power-off-button {
+.powerOffButton {
   width: 28px;
   height: 28px;
   position: absolute;
@@ -21,47 +21,24 @@
     drop-shadow(0px 0px 2px var(--white-color));
 }
 
-.splash.power-on-button {
+.powerOnButton {
   max-width: 200px;
   color: var(--gray-color);
   transition: color 1s, filter .5s;
 }
 
-.splash.power-off-button, .splash.power-on-button {
+.powerOffButton, .powerOnButton {
   background: transparent;
   border: none;
 }
 
-.splash.power-on-button:hover {
+.powerOnButton:hover {
   color: var(--white-color);
   filter: drop-shadow(0px 0px 10px var(--white-color));
   transition: color .5s, filter 1s;
 }
 
-.splash .bootup-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.splash .bootup-text {
-  position: absolute;
-  bottom: 0;
-  min-height: 100%;
-  color: var(--gray-color);
-  text-shadow: 1px 0 0 rgba(255, 0, 0, .5),
-    -1px 0 0 rgba(0, 255, 255, .7),
-    0 0 2px var(--white-color);
-}
-
-.splash .bootup-text.monospace {
-  font-family: monospace;
-  font-size: 13px;
-  line-height: 1.2;
-  color: var(--white-color);
-}
-
-.splash .logo-wrapper, .splash .button-wrapper {
+.wrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -70,7 +47,21 @@
   align-items: center;
 }
 
-.splash .logo-animation {
-  max-width: 250px;
-  filter: brightness(1.4);
+.typingWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.typingText {
+  position: absolute;
+  bottom: 0;
+  min-height: 100%;
+  text-shadow: 1px 0 0 rgba(255, 0, 0, .5),
+    -1px 0 0 rgba(0, 255, 255, .7),
+    0 0 2px var(--white-color);
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--white-color);
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function BootupAnimation({ text, playTrigger, onEnded }: Props) {
+export default function BootupAnimation({ className, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 
@@ -20,21 +20,20 @@ export default function BootupAnimation({ text, playTrigger, onEnded }: Props) {
   }, [bootupPos, text]);
 
   return (
-    <div className="bootup-wrapper">
-      <div className={`bootup-text ${bootupPos >= text.length / 2 ? 'monospace' : ''}`}>
-        {text.substr(0, bootupPos).split('\n').map((line, i) => {
-          if (line.trim().length === 0) {
-            return <br key={i}></br>;
-          } else {
-            return <p key={i}>{line}</p>;
-          }
-        })}
-      </div>
+    <div className={className}>
+      {text.substr(0, bootupPos).split('\n').map((line, i) => {
+        if (line.trim().length === 0) {
+          return <br key={i}></br>;
+        } else {
+          return <p key={i}>{line}</p>;
+        }
+      })}
     </div>
   );
 }
 
 interface Props {
+  className?: string;
   text: string;
   /**
    * When this prop changes, animation will be triggered from the beginning,

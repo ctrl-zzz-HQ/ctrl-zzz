@@ -1,3 +1,4 @@
+import styles from './LogoAnimation.module.css';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import logoAnimationWebm from '../../assets/Logo 500x500.webm';
 import logoAnimationMov from '../../assets/Logo 500x500.mov';
@@ -37,13 +38,11 @@ export default function LogoAnimation({ play, onEnded }: LogoAnimationProps) {
   }, [play, onEnded, playLogoAnimation]);
 
   return (
-    <div className={`logo-wrapper ${play ? '' : 'd-none'}`}>
-      <video playsInline muted className="logo-animation" ref={logoAnimationRef} onStalled={onEnded} onEnded={onEnded}>
-        {isSafari && <source src={logoAnimationMov} type="video/quicktime"/>} {/* Safari - must be first to avoid playing WEBM without transparency */}
-        <source src={logoAnimationWebm} type="video/webm"/> {/* Chrome/Firefox */}
-        <source src={logoAnimationMp4} type="video/mp4" onError={() => setPlayLogoAnimation(false)}/> {/* Backup - no transparency */}
-      </video>
-    </div>
+    <video playsInline muted className={styles.logoAnimation} ref={logoAnimationRef} onStalled={onEnded} onEnded={onEnded}>
+      {isSafari && <source src={logoAnimationMov} type="video/quicktime"/>} {/* Safari - must be first to avoid playing WEBM without transparency */}
+      <source src={logoAnimationWebm} type="video/webm"/> {/* Chrome/Firefox */}
+      <source src={logoAnimationMp4} type="video/mp4" onError={() => setPlayLogoAnimation(false)}/> {/* Backup - no transparency */}
+    </video>
   );
 }
 
