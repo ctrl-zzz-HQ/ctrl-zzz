@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 
-const getLastNumberInPath = function(path: string): number|undefined {
+export const getLastNumberInPath = function(path: string): number|undefined {
   const splitPath = path.split('/');
   for (let i = splitPath.length - 1; i >= 0; i--) {
     if (splitPath[i].length > 0) {
@@ -19,6 +19,7 @@ export function MobileLinks({ data }: Props) {
     currIndex === undefined ? null :
     <>
       <Link to={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; prev</Link>
+      <p className="secondary-text">[or swipe]</p>
       <Link to={`${currIndex + 1}`} className={currIndex >= data.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
     </>
   );
