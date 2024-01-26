@@ -11,14 +11,14 @@ export default function DreamLog({ index }: Props) {
   return (
     <>
       <h2>
-        <span className="desktop">DREAM </span>
-        LOG {dreamLog.code} [
-        <span className="desktop">timestamp: </span>
-        {dreamLog.timestamp}]
+        DREAM LOG {dreamLog.code}
       </h2>
       <div className={styles.scrollBody} ref={bodyRef}>
         <TypingAnimation text={dreamLog.text} playTrigger={1} />
       </div>
+      <p className={`${styles.footer} secondary-text`}>
+        [timestamp: {dreamLog.timestamp}]
+      </p>
     </>
   );
 }

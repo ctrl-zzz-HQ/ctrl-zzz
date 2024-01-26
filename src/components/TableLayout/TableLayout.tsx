@@ -23,7 +23,7 @@ export default function TableLayout({ data }: Props) {
             </div>
           </div>
         </div>
-        <div className={`${styles.row} ${styles.fitHeight}`}>
+        <div className={`${styles.row} ${styles.fitHeight} desktop`}>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
             <Footer />
           </div>

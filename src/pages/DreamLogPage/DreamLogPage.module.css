@@ -1,13 +1,12 @@
 .scrollBody {
   overflow-y: auto;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin: 0 -1rem;
   padding: 1rem;
   border-top: 1px dashed var(--white-color);
   flex-grow: 1;
 }
 
-.continueText {
+.footer {
   padding: .5rem 1rem;
   margin: 0 -1rem -1rem -1rem;
   background: none;

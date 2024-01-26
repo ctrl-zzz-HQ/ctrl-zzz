@@ -18,7 +18,7 @@ export function MobileLinks({ data }: Props) {
   return (
     currIndex === undefined ? null :
     <>
-      <Link to={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; previous</Link>
+      <Link to={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; prev</Link>
       <Link to={`${currIndex + 1}`} className={currIndex >= data.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
     </>
   );
