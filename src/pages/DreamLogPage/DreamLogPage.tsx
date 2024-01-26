@@ -13,10 +13,10 @@ export default function DreamLog({ index }: Props) {
     width: 0,
     height: 0,
     scrollTop: 0,
-    onEndIndexCalculated: endIndex => setTypingText(dreamLog.text.substr(0, endIndex)),
+    onEndIndexCalculated: index => setEndIndex(index),
     onScrollHeightCalculated: height => setScrollHeight(height),
   });
-  const [typingText, setTypingText] = useState('');
+  const [endIndex, setEndIndex] = useState(0);
   const [scrollHeight, setScrollHeight] = useState(0);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -83,7 +83,7 @@ export default function DreamLog({ index }: Props) {
         {dreamLog.timestamp}]
       </h2>
       <div className={styles.scrollBody} ref={bodyRef}>
-        <TypingAnimation style={{minHeight: scrollHeight + 'px'}} text={typingText} playTrigger={1} />
+        <TypingAnimation style={{minHeight: scrollHeight + 'px'}} text={dreamLog.text.substr(0, endIndex)} playTrigger={1} />
       </div>
       <p className={`${styles.continueText} secondary-text desktop`}>
         [press any key to continue]

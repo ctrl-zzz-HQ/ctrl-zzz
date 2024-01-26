@@ -12,7 +12,7 @@ export default function TypingAnimation({ className, style, text, playTrigger, o
 
   useEffect(() => {
     if (bootupPos > 0 && bootupPos < text.length) {
-      const intervalId = setTimeout(() => setBootupPos(prev => prev + 1));
+      const intervalId = setTimeout(() => setBootupPos(prev => prev + 1), 0);
       return () => clearTimeout(intervalId);
     } else if (bootupPos >= text.length) {
       onEnded && onEnded();

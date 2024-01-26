@@ -3,6 +3,14 @@ import { useEffect, useCallback, useRef, useMemo } from 'react';
 export default function Pager({ text, width, height, padding, scrollTop, onEndIndexCalculated, onScrollHeightCalculated }: PagerProps) {
 
   const bodyRef = useRef<HTMLDivElement>(null);
+  const heightRef = useCallback((node: HTMLDivElement) => {
+    if (node) {
+      const style = window.getComputedStyle(node);
+      const paddingTop = +style.paddingTop.replace('px', '');
+      const paddingBottom = +style.paddingBottom.replace('px', '');
+      onScrollHeightCalculated(node.scrollHeight - paddingTop - paddingBottom);
+    }
+  }, [text, width, height, padding]);
   const bodyStyle = useMemo(() => {
     return {
       width: width + 'px',
@@ -21,28 +29,13 @@ export default function Pager({ text, width, height, padding, scrollTop, onEndIn
 
   useEffect(() => {
     if (!bodyRef.current) return;
-    bodyRef.current.innerHTML = text.split('\n')
-      .map(line => convertLineToHTML(line))
-      .join();
-    onScrollHeightCalculated(bodyRef.current.scrollHeight);
-  }, [text, width, height, padding]);
-
-  useEffect(() => {
-    if (!bodyRef.current) return;
-
-    // update scrollTop
-    // TODO this needs to be done after we've reached the point
-    // where scrollTop can be set
     bodyRef.current.innerHTML = '';
 
-    // at what point does adding the next word result in scrollTop + clientHeight < scrollHeight?
-    // recalculate when scroll, resize, and page load
-
-    // First go line by line
-    let linesHTML = '';
     let endIndex = 0;
 
+    // First go line by line
     const lines = text.split('\n');
+    let linesHTML = '';
     let lineIndex = 0;
     while (lineIndex < lines.length) {
       linesHTML = bodyRef.current.innerHTML;
@@ -76,14 +69,31 @@ export default function Pager({ text, width, height, padding, scrollTop, onEndIn
   }, [text, width, height, padding, scrollTop]);
 
   return (
-    <div style={{
-      position: 'absolute',
-      overflow: 'scroll',
-      visibility: 'hidden',
-      // background: 'red',
-      ...bodyStyle,
-    }} ref={bodyRef}>
-    </div>
+    <>
+      <div style={{
+        position: 'absolute',
+        overflow: 'scroll',
+        visibility: 'hidden',
+        // background: 'red',
+        ...bodyStyle,
+      }} ref={heightRef}>
+        {text.split('\n').map(line => {
+          if (line.trim().length === 0) {
+            return <br></br>;
+          } else {
+            return <p>{line}</p>;
+          }
+        })}
+      </div>
+      <div style={{
+        position: 'absolute',
+        overflow: 'scroll',
+        visibility: 'hidden',
+        // background: 'red',
+        ...bodyStyle,
+      }} ref={bodyRef}>
+      </div>
+    </>
   );
 }
 
