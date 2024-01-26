@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function BootupAnimation({ className, text, playTrigger, onEnded }: Props) {
+export default function TypingAnimation({ className, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 

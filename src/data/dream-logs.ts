@@ -41,7 +41,7 @@ One of them stands up from their station.
 
 "Wrap up your sims everyone. We have to leave in five minutes."
 
-The clicking and tapping of keys speeds up and the room falls into quiet concentration.`
+The clicking and tapping of keys speeds up and the room falls into quiet concentration.`,
   }
 ]
 
