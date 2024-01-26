@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef, useMemo } from 'react';
 
-export default function Pager({ text, width, height, padding, scrollTop, onEndIndexCalculated }: PagerProps) {
+export default function Pager({ text, width, height, padding, scrollTop, onEndIndexCalculated, onScrollHeightCalculated }: PagerProps) {
 
   const bodyRef = useRef<HTMLDivElement>(null);
   const bodyStyle = useMemo(() => {
@@ -21,11 +21,18 @@ export default function Pager({ text, width, height, padding, scrollTop, onEndIn
 
   useEffect(() => {
     if (!bodyRef.current) return;
+    bodyRef.current.innerHTML = text.split('\n')
+      .map(line => convertLineToHTML(line))
+      .join();
+    onScrollHeightCalculated(bodyRef.current.scrollHeight);
+  }, [text, width, height, padding]);
+
+  useEffect(() => {
+    if (!bodyRef.current) return;
 
     // update scrollTop
     // TODO this needs to be done after we've reached the point
     // where scrollTop can be set
-    bodyRef.current.scrollTop = scrollTop;
     bodyRef.current.innerHTML = '';
 
     // at what point does adding the next word result in scrollTop + clientHeight < scrollHeight?
@@ -40,46 +47,33 @@ export default function Pager({ text, width, height, padding, scrollTop, onEndIn
     while (lineIndex < lines.length) {
       linesHTML = bodyRef.current.innerHTML;
       bodyRef.current.innerHTML += convertLineToHTML(lines[lineIndex]);
-      if (scrollTop > 0) {
-        // Set scrollTop, then check value to see if it "stuck"
-        bodyRef.current.scrollTop = scrollTop;
-        if (bodyRef.current.scrollTop === scrollTop) {
-          endIndex--; // remove the extra newline at the end
-          break;
-        }
-      } else {
-        if (bodyRef.current.scrollHeight > bodyRef.current.clientHeight) {
-          endIndex--; // remove the extra newline at the end
-          break;
-        }
+      if (bodyRef.current.scrollHeight > scrollTop + bodyRef.current.clientHeight) {
+        endIndex--; // remove the extra newline at the end
+        break;
       }
       endIndex += lines[lineIndex].length + 1; // +1 to account for the newline after each line
       lineIndex++;
     }
     if (lineIndex === 0) return;
+    if (lineIndex === lines.length) {
+      onEndIndexCalculated(endIndex);
+      return;
+    }
 
     // Next go word by word
     const words = lines[lineIndex].split(' ');
     let wordIndex = 0;
     while (wordIndex < words.length) {
       bodyRef.current.innerHTML = `${linesHTML}<p>${words.slice(0, wordIndex + 1).join(' ')}</p>`;
-      if (scrollTop > 0) {
-        // Set scrollTop, then check value to see if it "stuck"
-        bodyRef.current.scrollTop = scrollTop;
-        if (bodyRef.current.scrollTop === scrollTop) {
-          break;
-        }
-      } else {
-        if (bodyRef.current.scrollHeight > bodyRef.current.clientHeight) {
-          break;
-        }
+      if (bodyRef.current.scrollHeight > scrollTop + bodyRef.current.clientHeight) {
+        break;
       }
       endIndex += words[wordIndex].length + 1; // +1 to account for the space or newline before each word
       wordIndex++;
     }
 
     onEndIndexCalculated(endIndex);
-  }, [text, width, height, scrollTop]);
+  }, [text, width, height, padding, scrollTop]);
 
   return (
     <div style={{
@@ -100,4 +94,5 @@ export interface PagerProps {
   padding: string;
   scrollTop: number;
   onEndIndexCalculated: (endIndex: number) => void;
+  onScrollHeightCalculated: (scrollHeight: number) => void;
 }

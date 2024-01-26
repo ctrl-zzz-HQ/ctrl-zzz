@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function TypingAnimation({ className, text, playTrigger, onEnded }: Props) {
+export default function TypingAnimation({ className, style, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 
@@ -20,7 +20,7 @@ export default function TypingAnimation({ className, text, playTrigger, onEnded 
   }, [bootupPos, text]);
 
   return (
-    <div className={className}>
+    <div style={style} className={className}>
       {text.substr(0, bootupPos).split('\n').map((line, i) => {
         if (line.trim().length === 0) {
           return <br key={i}></br>;
@@ -34,6 +34,7 @@ export default function TypingAnimation({ className, text, playTrigger, onEnded 
 
 interface Props {
   className?: string;
+  style?: object;
   text: string;
   /**
    * When this prop changes, animation will be triggered from the beginning,

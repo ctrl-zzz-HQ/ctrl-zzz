@@ -14,14 +14,11 @@ export default function DreamLog({ index }: Props) {
     height: 0,
     scrollTop: 0,
     onEndIndexCalculated: endIndex => setTypingText(dreamLog.text.substr(0, endIndex)),
+    onScrollHeightCalculated: height => setScrollHeight(height),
   });
   const [typingText, setTypingText] = useState('');
+  const [scrollHeight, setScrollHeight] = useState(0);
   const bodyRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // at what point does adding the next word result in scrollTop + clientHeight < scrollHeight?
-    // recalculate when scroll, resize, and page load
-  }, []);
 
   const scrollToNextPage = useCallback(() => {
     if (bodyRef.current) {
@@ -68,11 +65,11 @@ export default function DreamLog({ index }: Props) {
 
     handleResize();
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
+    bodyRef.current.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
+      bodyRef.current?.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
@@ -86,7 +83,7 @@ export default function DreamLog({ index }: Props) {
         {dreamLog.timestamp}]
       </h2>
       <div className={styles.scrollBody} ref={bodyRef}>
-        <TypingAnimation text={typingText} playTrigger={1} />
+        <TypingAnimation style={{minHeight: scrollHeight + 'px'}} text={typingText} playTrigger={1} />
       </div>
       <p className={`${styles.continueText} secondary-text desktop`}>
         [press any key to continue]
