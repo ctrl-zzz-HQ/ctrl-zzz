@@ -9,7 +9,8 @@ export function MobileLinks({ data }: Props) {
     currIndex === undefined ? null :
     <>
       <Link to={`${currIndex - 1}`} className={currIndex <= 0 ? 'v-hidden' : ''}>&lt; prev</Link>
-      <p className="secondary-text">[or swipe]</p>
+      <p className="secondary-text touch">[or swipe]</p>
+      <p className="secondary-text no-touch">[or use arrow keys]</p>
       <Link to={`${currIndex + 1}`} className={currIndex >= data.length - 1 ? 'v-hidden' : ''}>next &gt;</Link>
     </>
   );
@@ -27,6 +28,8 @@ export function DesktopLinks({ data }: Props) {
           &gt; {item.label}
         </Link>
       )}
+      <p className="secondary-text touch">[swipe to navigate]</p>
+      <p className="secondary-text no-touch">[arrow keys to navigate]</p>
     </>
   );
 }

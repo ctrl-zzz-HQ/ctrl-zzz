@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useMemo, useState, useCallback, TouchEvent } from 'react';
+import { useMemo, useState, useCallback, useEffect, TouchEvent } from 'react';
 
 export const usePathIndex = function(): number|undefined {
   const { pathname } = useLocation();
@@ -12,6 +12,13 @@ export const usePathIndex = function(): number|undefined {
     }
   }, [pathname]);
   return currIndex;
+}
+
+export const useKeyDown = function(callback: (event: KeyboardEvent) => void) {
+  useEffect(() => {
+    document.addEventListener('keydown', callback);
+    return () => document.removeEventListener('keydown', callback);
+  }, [callback]);
 }
 
 // Swipe logic adapted from: https://stackoverflow.com/a/70612770
