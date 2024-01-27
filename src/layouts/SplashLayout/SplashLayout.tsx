@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import LogoAnimation from './LogoAnimation';
 import TypingAnimation from '@components/TypingAnimation';
 import bootupText from '@data/bootup-text';
+import { useKeyDown } from '@/hooks';
 
 const cookieName = 'booted';
 
@@ -34,18 +35,11 @@ export default function Splash() {
     }
   }, [splashed, setCookie, deleteCookie]);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSplashed(true);
-      }
+  useKeyDown(useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setSplashed(true);
     }
-
-    if (!splashed) {
-      document.addEventListener('keydown', handleKeyDown);
-      return () => document.removeEventListener('keydown', handleKeyDown);
-    }
-  }, [splashed]);
+  }, []));
 
   return (
     <>
