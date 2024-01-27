@@ -17,6 +17,7 @@ export default function DreamLog({ index }: Props) {
     onPageLengthCalculated: (length) => setPage(prev => ({...prev, length})),
   });
   const [page, setPage] = useState<Page>({ start: 0, length: 0 });
+  const [typingTrigger, setTypingTrigger] = useState(1);
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,6 +26,8 @@ export default function DreamLog({ index }: Props) {
       text: dreamLog.text.substr(page.start),
     }));
   }, [page.start]);
+
+  useEffect(() => setTypingTrigger(prev => prev + 1), [page.start]);
 
   const goToNextPage = useCallback(() => {
     setPage(prev => {
@@ -102,7 +105,7 @@ export default function DreamLog({ index }: Props) {
         ]
       </h2>
       <div className={styles.page} ref={bodyRef} {...tapHandlers}>
-        <TypingAnimation text={dreamLog.text.substr(page.start, page.length).trim()} playOnTextChange={true} playTrigger={1} />
+        <TypingAnimation text={dreamLog.text.substr(page.start, page.length).trim()} playTrigger={typingTrigger} />
       </div>
       <p className={`${styles.footer} secondary-text`} {...tapHandlers}>
         [
