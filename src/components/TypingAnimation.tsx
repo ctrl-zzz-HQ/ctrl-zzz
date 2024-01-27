@@ -17,7 +17,7 @@ export default function BootupAnimation({ className, speed=1, text, playTrigger,
     } else if (bootupPos >= text.length) {
       onEnded && onEnded();
     }
-  }, [bootupPos, text]);
+  }, [bootupPos, text, onEnded, speed]);
 
   return (
     <div className={className}>

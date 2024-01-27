@@ -6,7 +6,7 @@ import ExpandableImage from '@components/ExpandableImage';
 export default function Agent({ index }: Props) {
 
   const getAgent = useCallback((index: number) => index < 0 ? null : agents[index], []);
-  const agent = useMemo(() => getAgent(index), [index]);
+  const agent = useMemo(() => getAgent(index), [index, getAgent]);
   const navigate = useNavigate();
 
   useEffect(() => {
