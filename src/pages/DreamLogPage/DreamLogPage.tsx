@@ -3,64 +3,63 @@ import dreamLogs from '@data/dream-logs';
 import { useMemo, useEffect, useCallback, useRef, useState } from 'react';
 import TypingAnimation from '@components/TypingAnimation';
 import Pager, { PagerProps } from './Pager';
+import { useTap } from '@/hooks';
 
 export default function DreamLog({ index }: Props) {
 
   const dreamLog = useMemo(() => dreamLogs[index], [index]);
   const [pagerProps, setPagerProps] = useState<PagerProps>({
     text: dreamLog.text,
-    padding: [0, 0],
+    padding: '0',
     width: 0,
     height: 0,
     scrollTop: 0,
-    onEndIndexCalculated: (index, pageScroll) => {
-      setEndIndex(index);
-      setNextPageScroll(pageScroll);
-    },
-    onScrollHeightCalculated: height => setScrollHeight(height),
+    onPageLengthCalculated: (length) => setPage(prev => ({...prev, length})),
   });
-  const [endIndex, setEndIndex] = useState(0);
-  const [nextPageScroll, setNextPageScroll] = useState(0);
-  const [scrollHeight, setScrollHeight] = useState(0);
-  const [scrollHeight2, setScrollHeight2] = useState(0);
+  const [page, setPage] = useState<Page>({ start: 0, length: 0 });
+  const [typingTrigger, setTypingTrigger] = useState(1);
   const bodyRef = useRef<HTMLDivElement>(null);
 
-  const scrollToNextPage = useCallback((e: KeyboardEvent) => {
-    const scroll: boolean = /^[A-z0-9 ]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey;
-    if (!scroll) return;
+  useEffect(() => {
+    setPagerProps(prev => ({
+      ...prev,
+      text: dreamLog.text.substr(page.start),
+    }));
+  }, [page.start]);
 
-    if (bodyRef.current) {
-      if (nextPageScroll + bodyRef.current.clientHeight > scrollHeight) {
-        setScrollHeight2(nextPageScroll + bodyRef.current.clientHeight - pagerProps.padding[0] * 2);
+  useEffect(() => setTypingTrigger(prev => prev + 1), [page.start]);
+
+  const goToNextPage = useCallback(() => {
+    setPage(prev => {
+      let start = prev.start + prev.length;
+      return {
+        ...prev,
+        start: start < dreamLog.text.length ? start : 0,
       }
-      setTimeout(() => bodyRef.current && (bodyRef.current.scrollTop = nextPageScroll), 0);
-    }
-  }, [nextPageScroll, pagerProps]);
+    });
+  }, [dreamLog.text]);
+
+  const tapHandlers = useTap(goToNextPage);
 
   useEffect(() => {
-    document.addEventListener('keydown', scrollToNextPage);
-    return () => document.removeEventListener('keydown', scrollToNextPage);
-  }, [scrollToNextPage]);
+    const handleKeyDown = function(e: KeyboardEvent) {
+      const scrollKey: boolean = /^[A-z0-9 ]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey;
+      if (!scrollKey) return;
+      goToNextPage();
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [goToNextPage]);
 
   useEffect(() => {
     if (!bodyRef.current) return;
 
     const style = window.getComputedStyle(bodyRef.current);
-    const padParts: number[] = style.padding.split(' ')
-      .map(part => part.replace('px', ''))
-      .map(part => +part);
-    let padding: [number, number] = [0, 0];
-    if (padParts.length == 1) {
-      padding = [padParts[0], padParts[0]];
-    } else if (padParts.length == 2) {
-      padding = [padParts[0], padParts[1]];
-    } else if (padParts.length == 4) {
-      padding = [(padParts[0] + padParts[2]) / 2, (padParts[1] + padParts[3]) / 2];
-    }
     setPagerProps(prev => {
       return {
         ...prev,
-        padding,
+        padding: style.padding,
       }
     });
 
@@ -99,16 +98,19 @@ export default function DreamLog({ index }: Props) {
     <>
       <Pager {...pagerProps} />
       <h2>
-        DREAM LOG {dreamLog.code}
+        <span className="desktop">DREAM </span>
+        LOG {dreamLog.code} [
+          <span className="desktop">timestamp: </span>
+          {dreamLog.timestamp}
+        ]
       </h2>
-      <div className={styles.scrollBody} ref={bodyRef}>
-        <TypingAnimation text={dreamLog.text.substr(0, endIndex)} playTrigger={1} />
+      <div className={styles.page} ref={bodyRef} {...tapHandlers}>
+        <TypingAnimation text={dreamLog.text.substr(page.start, page.length).trim()} playTrigger={typingTrigger} />
       </div>
-      <p className={`${styles.continueText} secondary-text desktop`}>
-        [press any key to continue]
-      </p>
-      <p className={`${styles.continueText} secondary-text mobile`}>
-        [tap anywhere to continue]
+      <p className={`${styles.footer} secondary-text`} {...tapHandlers}>
+        [
+          <span className="desktop">press any key or </span>
+        tap to {page.start + page.length < dreamLog.text.length ? 'continue' : 'start over'}]
       </p>
     </>
   );
@@ -116,4 +118,9 @@ export default function DreamLog({ index }: Props) {
 
 interface Props {
   index: number;
+}
+
+interface Page {
+  start: number;
+  length: number;
 }

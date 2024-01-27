@@ -17,9 +17,9 @@ export const usePathIndex = function(): number|undefined {
 // Swipe logic adapted from: https://stackoverflow.com/a/70612770
 export const useSwipe = function(
   callback: (swipeDir: direction) => void,
-  options?: { swipeDistance?: number }) {
+  options?: { minSwipeDistance?: number }) {
 
-  let swipeDistance = options?.swipeDistance || 50;
+  let minSwipeDistance = options?.minSwipeDistance || 50;
 
   const [touchStart, setTouchStart] = useState<Point|null>(null)
   const [touchEnd, setTouchEnd] = useState<Point|null>(null)
@@ -47,17 +47,52 @@ export const useSwipe = function(
     let swipeDir: direction|undefined;
 
     if (Math.abs(distance.x) > Math.abs(distance.y)) {
-      if (distance.x > swipeDistance) swipeDir = 'left';
-      if (distance.x < -swipeDistance) swipeDir = 'right';
+      if (distance.x >= minSwipeDistance) swipeDir = 'left';
+      if (distance.x <= -minSwipeDistance) swipeDir = 'right';
     } else {
-      if (distance.y > swipeDistance) swipeDir = 'up';
-      if (distance.y < -swipeDistance) swipeDir = 'down';
+      if (distance.y >= minSwipeDistance) swipeDir = 'up';
+      if (distance.y <= -minSwipeDistance) swipeDir = 'down';
     }
 
     if (swipeDir) callback(swipeDir);
   }, [touchStart, touchEnd]);
 
   return { onTouchStart, onTouchMove, onTouchEnd };
+}
+
+export const useTap = function(
+  callback: () => void,
+  options?: { maxTapDuration?: number, maxTapDistance?: number }) {
+
+  let maxTapDuration = options?.maxTapDuration || 500;
+  let maxTapDistance = options?.maxTapDistance || 10;
+
+  const [touchStart, setTouchStart] = useState<{x: number, y: number, time: number}|null>(null)
+
+  const onTouchStart = useCallback((e: TouchEvent) => {
+    if (e.touches.length > 1) return;
+    setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY, time: e.timeStamp });
+  }, [])
+
+  const onTouchEnd = useCallback((e: TouchEvent) => {
+    if (!touchStart || e.changedTouches.length > 1) return;
+
+    const touchEnd = {
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY,
+      time: e.timeStamp,
+    }
+
+    if (touchEnd.time - touchStart.time > maxTapDuration) return;
+
+    const distance: Point = {x: touchStart.x - touchEnd.x, y: touchStart.y - touchEnd.y };
+    const distanceMag: number = Math.sqrt(distance.x * distance.x + distance.y * distance.y);
+    if (distanceMag > maxTapDistance) return;
+
+    callback();
+  }, [touchStart]);
+
+  return { onTouchStart, onTouchEnd };
 }
 
 type direction = 'left' | 'right' | 'up' | 'down';

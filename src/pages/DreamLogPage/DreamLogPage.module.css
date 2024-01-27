@@ -1,7 +1,7 @@
-.scrollBody {
-  overflow-y: auto;
+.page {
+  overflow: hidden;
   margin: 0 -1rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   border-top: 1px dashed var(--white-color);
   flex-grow: 1;
 }
