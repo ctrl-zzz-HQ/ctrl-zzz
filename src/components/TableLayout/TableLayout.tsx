@@ -22,21 +22,21 @@ export default function TableLayout({ data }: Props) {
     <div className={styles.tableContainer} {...swipeHandlers}>
       <div className={styles.table}>
         <div className={`${styles.row} ${styles.fillHeight}`}>
-          <div className={`${styles.cell} ${styles.fitWidth} desktop`}>
+          <div className={`${styles.cell} ${styles.fitWidth} wide`}>
             <DesktopLinks data={data} />
           </div>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
             <Outlet />
           </div>
         </div>
-        <div className={`${styles.row} ${data.length <= 1 ? 'd-none' : ''} mobile`}>
+        <div className={`${styles.row} ${data.length <= 1 ? 'd-none' : ''} narrow`}>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
             <div className="w-100 d-flex flex-row justify-space-between align-baseline">
               <MobileLinks data={data} />
             </div>
           </div>
         </div>
-        <div className={`${styles.row} ${styles.fitHeight} desktop`}>
+        <div className={`${styles.row} ${styles.fitHeight} wide tall`}>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
             <Footer />
           </div>

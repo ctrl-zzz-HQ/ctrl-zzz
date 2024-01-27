@@ -18,7 +18,7 @@ export default function Agent({ index }: Props) {
     <>
       <h2>
         AGENT {agent.code} [
-        <span className="desktop">alias: </span>
+        <span className="wide">alias: </span>
         {agent.alias}]
       </h2>
       <div className="scrollable">

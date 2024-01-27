@@ -58,13 +58,25 @@ td.fit-width {
 }
 
 @media only screen and (min-width: 600px) {
-  .mobile {
+  .narrow {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 599px) {
-  .desktop {
+  .wide {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-height: 500px) {
+  .short {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-height: 499px) {
+  .tall {
     display: none !important;
   }
 }

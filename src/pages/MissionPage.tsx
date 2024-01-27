@@ -9,7 +9,7 @@ export default function Mission({ index }: Props) {
     <>
       <h2>
         MISSION {mission.code} [
-        <span className="desktop">status: </span>
+        <span className="wide">status: </span>
         {mission.status}]
       </h2>
       <div className="w-100" dangerouslySetInnerHTML={{__html: mission.embed}}></div>
