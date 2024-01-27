@@ -1,19 +1,9 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useMemo } from 'react';
-
-export const getLastNumberInPath = function(path: string): number|undefined {
-  const splitPath = path.split('/');
-  for (let i = splitPath.length - 1; i >= 0; i--) {
-    if (splitPath[i].length > 0) {
-      return +splitPath[i];
-    }
-  }
-}
+import { Link } from 'react-router-dom';
+import { usePathIndex } from '@/hooks';
 
 export function MobileLinks({ data }: Props) {
 
-  const { pathname } = useLocation();
-  const currIndex = useMemo<number|undefined>(() => getLastNumberInPath(pathname), [pathname]);
+  const currIndex = usePathIndex();
 
   return (
     currIndex === undefined ? null :
@@ -27,8 +17,7 @@ export function MobileLinks({ data }: Props) {
 
 export function DesktopLinks({ data }: Props) {
 
-  const { pathname } = useLocation();
-  const currIndex = useMemo<number|undefined>(() => getLastNumberInPath(pathname), [pathname]);
+  const currIndex = usePathIndex();
 
   return (
     currIndex === undefined ? null :

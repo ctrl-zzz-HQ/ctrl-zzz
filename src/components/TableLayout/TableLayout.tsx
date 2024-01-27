@@ -1,8 +1,9 @@
 import styles from './TableLayout.module.css';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import Footer from '@components/Footer';
-import { DesktopLinks, MobileLinks, getLastNumberInPath } from '@components/PageLinks';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useState, useCallback, TouchEvent } from 'react';
+import { usePathIndex } from '@/hooks';
+import { DesktopLinks, MobileLinks } from '@components/PageLinks';
+import Footer from '@components/Footer';
 
 // the required distance between touchStart and touchEnd to be detected as a swipe
 const minSwipeDistance = 50
@@ -10,7 +11,7 @@ const minSwipeDistance = 50
 export default function TableLayout({ data }: Props) {
 
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const currIndex = usePathIndex();
 
   // Swipe logic adapted from: https://stackoverflow.com/a/70612770
   const [touchStart, setTouchStart] = useState<number|null>(null)
@@ -24,21 +25,20 @@ export default function TableLayout({ data }: Props) {
   const onTouchMove = useCallback((e: TouchEvent) => setTouchEnd(e.targetTouches[0].clientX), [])
 
   const onTouchEnd = useCallback(() => {
-    if (!touchStart || !touchEnd) return
+    if (currIndex === undefined) return;
+    if (!touchStart || !touchEnd) return;
+
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
     if (!isLeftSwipe && !isRightSwipe) return;
-
-    const currIndex = getLastNumberInPath(pathname);
-    if (currIndex === undefined) return;
 
     if (isLeftSwipe) {
       if (currIndex < data.length - 1) navigate(`${currIndex + 1}`);
     } else if (isRightSwipe) {
       if (currIndex > 0) navigate(`${currIndex - 1}`);
     }
-  }, [touchStart, touchEnd])
+  }, [touchStart, touchEnd, currIndex])
 
   return (
     <div className={styles.tableContainer} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
