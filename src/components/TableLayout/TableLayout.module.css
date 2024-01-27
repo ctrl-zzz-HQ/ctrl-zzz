@@ -34,15 +34,15 @@
   overflow-y: auto;
 }
 
-.row.fillHeight, .cell.fillWidth {
+.fillWidth, .fillHeight {
   flex-grow: 1;
 }
 
-.row.fitHeight {
+.fitWidth {
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.cell.fitWidth {
-  white-space: nowrap;
+.fitHeight {
   flex-shrink: 0;
 }

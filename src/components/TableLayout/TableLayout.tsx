@@ -29,7 +29,7 @@ export default function TableLayout({ data }: Props) {
             <Outlet />
           </div>
         </div>
-        <div className={`${styles.row} ${data.length <= 1 ? 'd-none' : ''} narrow`}>
+        <div className={`${styles.row} ${styles.fitHeight} ${data.length <= 1 ? 'd-none' : ''} narrow`}>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
             <div className="w-100 d-flex flex-row justify-space-between align-baseline">
               <MobileLinks data={data} />
