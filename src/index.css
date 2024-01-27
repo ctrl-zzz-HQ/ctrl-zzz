@@ -69,6 +69,18 @@ td.fit-width {
   }
 }
 
+@media (hover: hover) {
+  .touch {
+    display: none !important;
+  }
+}
+
+@media (hover: none) {
+  .no-touch {
+    display: none !important;
+  }
+}
+
 button {
   cursor: pointer;
 }

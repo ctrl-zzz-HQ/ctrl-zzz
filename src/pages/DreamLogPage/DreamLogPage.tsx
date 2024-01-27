@@ -32,8 +32,8 @@ export default function DreamLog({ index }: Props) {
     setPage(prev => {
       let start = prev.start + prev.length;
       return {
-        ...prev,
         start: start < dreamLog.text.length ? start : 0,
+        length: 0, // will be updated after Pager calculates what the length should be
       }
     });
   }, [dreamLog.text]);
@@ -42,7 +42,7 @@ export default function DreamLog({ index }: Props) {
 
   useEffect(() => {
     const handleKeyDown = function(e: KeyboardEvent) {
-      const scrollKey: boolean = /^[A-z0-9 ]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey;
+      const scrollKey: boolean = e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey;
       if (!scrollKey) return;
       goToNextPage();
     }
@@ -108,8 +108,9 @@ export default function DreamLog({ index }: Props) {
       </div>
       <p className={`${styles.footer} secondary-text`} {...tapHandlers}>
         [
-          <span className="desktop">press any key or </span>
-        tap to {page.start + page.length < dreamLog.text.length ? 'continue' : 'start over'}]
+          <span className="no-touch">press any key </span>
+          <span className="touch">tap </span>
+        to {page.start + page.length < dreamLog.text.length ? 'continue' : 'start over'}]
       </p>
     </>
   );
