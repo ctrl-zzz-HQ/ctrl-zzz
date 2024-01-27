@@ -21,27 +21,31 @@ export const useSwipe = function(
 
   let swipeDistance = options?.swipeDistance || 50;
 
-  const [touchStart, setTouchStart] = useState<number|null>(null)
-  const [touchEnd, setTouchEnd] = useState<number|null>(null)
+  const [touchStart, setTouchStart] = useState<Point|null>(null)
+  const [touchEnd, setTouchEnd] = useState<Point|null>(null)
 
   const onTouchStart = useCallback((e: TouchEvent) => {
     setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX)
+    setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY })
   }, [])
 
-  const onTouchMove = useCallback((e: TouchEvent) => setTouchEnd(e.targetTouches[0].clientX), [])
+  const onTouchMove = useCallback((e: TouchEvent) => {
+    setTouchEnd({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
+  }, [])
 
   const onTouchEnd = useCallback(() => {
     if (!touchStart || !touchEnd) return;
 
-    const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > swipeDistance
-    const isRightSwipe = distance < -swipeDistance
-
+    const distance: Point = {x: touchStart.x - touchEnd.x, y: touchStart.y - touchEnd.y };
     let swipeDir: direction|undefined;
 
-    if (isLeftSwipe) swipeDir = 'left';
-    if (isRightSwipe) swipeDir = 'right';
+    if (Math.abs(distance.x) > Math.abs(distance.y)) {
+      if (distance.x > swipeDistance) swipeDir = 'left';
+      if (distance.x < -swipeDistance) swipeDir = 'right';
+    } else {
+      if (distance.y > swipeDistance) swipeDir = 'up';
+      if (distance.y < -swipeDistance) swipeDir = 'down';
+    }
 
     if (swipeDir) callback(swipeDir);
   }, [touchStart, touchEnd]);
@@ -50,3 +54,7 @@ export const useSwipe = function(
 }
 
 type direction = 'left' | 'right' | 'up' | 'down';
+interface Point {
+  x: number,
+  y: number,
+}
