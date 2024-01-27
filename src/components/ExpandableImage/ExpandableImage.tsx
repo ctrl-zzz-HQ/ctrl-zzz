@@ -1,9 +1,14 @@
 import './ExpandableImage.css';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, TouchEvent } from 'react';
 import { JsonImage } from '@types';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
+const swipeHandlers = {
+  onTouchStart: (e: TouchEvent) => e.stopPropagation(),
+  onTouchMove: (e: TouchEvent) => e.stopPropagation(),
+  onTouchEnd: (e: TouchEvent) => e.stopPropagation(),
+}
 
 export default function ExpandableImage({ image }: Props) {
 
@@ -11,6 +16,7 @@ export default function ExpandableImage({ image }: Props) {
 
   const open = useCallback(() => setExpanded(true), [setExpanded]);
   const close = useCallback(() => setExpanded(false), [setExpanded]);
+
 
   useEffect(() => {
     if (expanded) {
@@ -30,7 +36,7 @@ export default function ExpandableImage({ image }: Props) {
       <button className="expandable-image image-button" onClick={open}>
         <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Small" />
       </button>
-      {expanded && <div className="expandable-image primary dialog">
+      {expanded && <div className="expandable-image primary dialog" {...swipeHandlers}>
         <div className="expandable-image image-container">
           <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="Large" />
         </div>
