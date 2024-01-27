@@ -1,7 +1,7 @@
 import styles from './TableLayout.module.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
-import { usePathIndex, useSwipe } from '@/hooks';
+import { usePathIndex, useSwipe, useKeyDown } from '@/hooks';
 import { DesktopLinks, MobileLinks } from '@components/PageLinks';
 import Footer from '@components/Footer';
 
@@ -9,14 +9,28 @@ export default function TableLayout({ data }: Props) {
 
   const navigate = useNavigate();
   const currIndex = usePathIndex();
-  const swipeHandlers = useSwipe(useCallback(direction => {
+  const navigateToIndexPlusAmount = useCallback((amount: number) => {
     if (currIndex === undefined) return;
-    if (direction == 'left') {
-      if (currIndex < data.length - 1) navigate(`${currIndex + 1}`);
-    } else if (direction == 'right') {
-      if (currIndex > 0) navigate(`${currIndex - 1}`);
+    if ((currIndex + amount >= 0) && (currIndex + amount < data.length)) {
+      navigate(`${currIndex + amount}`);
     }
-  }, [data, currIndex, navigate]));
+  }, [data, currIndex, navigate]);
+
+  const swipeHandlers = useSwipe(useCallback(direction => {
+    if (direction == 'left') {
+      navigateToIndexPlusAmount(1);
+    } else if (direction == 'right') {
+      navigateToIndexPlusAmount(-1);
+    }
+  }, [navigateToIndexPlusAmount]));
+
+  useKeyDown(useCallback((e: KeyboardEvent) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      navigateToIndexPlusAmount(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      navigateToIndexPlusAmount(-1);
+    }
+  }, [navigateToIndexPlusAmount]));
 
   return (
     <div className={styles.tableContainer} {...swipeHandlers}>

@@ -28,8 +28,12 @@ export function DesktopLinks({ data }: Props) {
           &gt; {item.label}
         </Link>
       )}
-      <p className="secondary-text touch">[swipe to navigate]</p>
-      <p className="secondary-text no-touch">[arrow keys to navigate]</p>
+      <p className={`${data.length <= 1 ? 'd-none' : ''} secondary-text`}>
+        [
+          <span className="touch">swipe </span>
+          <span className="no-touch">arrow keys </span>
+        to navigate]
+      </p>
     </>
   );
 }
