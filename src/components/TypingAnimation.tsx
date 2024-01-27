@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 
-export default function BootupAnimation({ className, speed=1, text, playTrigger, onEnded }: Props) {
+export default function TypingAnimation({ className, speed=1, playOnTextChange=false, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 
   useEffect(() => {
-    if (playTrigger !== 0) {
-      setBootupPos(1);
-    }
+    if (playTrigger !== 0) setBootupPos(1);
   }, [playTrigger]);
+
+  useEffect(() => {
+    if (playOnTextChange) setBootupPos(1);
+  }, [playOnTextChange, text]);
 
   useEffect(() => {
     if (bootupPos > 0 && bootupPos < text.length) {
@@ -35,6 +37,7 @@ export default function BootupAnimation({ className, speed=1, text, playTrigger,
 interface Props {
   className?: string;
   speed?: number;
+  playOnTextChange?: boolean;
   text: string;
   /**
    * When this prop changes, animation will be triggered from the beginning,
