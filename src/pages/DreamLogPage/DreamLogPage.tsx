@@ -27,9 +27,8 @@ export default function DreamLog({ index }: Props) {
     }));
   }, [page.start]);
 
-  useEffect(() => setTypingTrigger(prev => prev + 1), [page.start]);
-
   const goToNextPage = useCallback(() => {
+    setTypingTrigger(prev => prev + 1);
     setPage(prev => {
       let start = prev.start + prev.length;
       return {
