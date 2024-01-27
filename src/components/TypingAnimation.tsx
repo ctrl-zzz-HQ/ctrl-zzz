@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function TypingAnimation({ className, style, speed=0, text, playTrigger, onEnded }: Props) {
+export default function BootupAnimation({ className, speed=1, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 
@@ -12,7 +12,7 @@ export default function TypingAnimation({ className, style, speed=0, text, playT
 
   useEffect(() => {
     if (bootupPos > 0 && bootupPos < text.length) {
-      const intervalId = setTimeout(() => setBootupPos(prev => prev + 1), speed);
+      const intervalId = setTimeout(() => setBootupPos(prev => prev + 4), speed);
       return () => clearTimeout(intervalId);
     } else if (bootupPos >= text.length) {
       onEnded && onEnded();
@@ -20,7 +20,7 @@ export default function TypingAnimation({ className, style, speed=0, text, playT
   }, [bootupPos, text, speed]);
 
   return (
-    <div style={style} className={className}>
+    <div className={className}>
       {text.substr(0, bootupPos).split('\n').map((line, i) => {
         if (line.trim().length === 0) {
           return <br key={i}></br>;
@@ -34,7 +34,6 @@ export default function TypingAnimation({ className, style, speed=0, text, playT
 
 interface Props {
   className?: string;
-  style?: object;
   speed?: number;
   text: string;
   /**

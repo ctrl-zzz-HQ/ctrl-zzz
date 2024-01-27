@@ -99,17 +99,16 @@ export default function DreamLog({ index }: Props) {
     <>
       <Pager {...pagerProps} />
       <h2>
-        <span className="desktop">DREAM </span>
-        LOG {dreamLog.code} [
-        <span className="desktop">timestamp: </span>
-        {dreamLog.timestamp}]
+        DREAM LOG {dreamLog.code}
       </h2>
       <div className={styles.scrollBody} ref={bodyRef}>
-        <TypingAnimation style={{minHeight: Math.max(scrollHeight, scrollHeight2) + 'px'}}
-          speed={1} text={dreamLog.text.substr(0, endIndex)} playTrigger={1} />
+        <TypingAnimation text={dreamLog.text.substr(0, endIndex)} playTrigger={1} />
       </div>
       <p className={`${styles.continueText} secondary-text desktop`}>
         [press any key to continue]
+      </p>
+      <p className={`${styles.continueText} secondary-text mobile`}>
+        [tap anywhere to continue]
       </p>
     </>
   );
