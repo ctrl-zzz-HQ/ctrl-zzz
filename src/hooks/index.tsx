@@ -30,7 +30,14 @@ export const useSwipe = function(
   }, [])
 
   const onTouchMove = useCallback((e: TouchEvent) => {
-    setTouchEnd({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
+    // If the gesture involves more than one touch,
+    // reset touchStart until there's only one touch.
+    // That way, we won't detect pinches/zooms as swipes.
+    if (e.touches.length > 1) {
+      setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
+    } else {
+      setTouchEnd({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
+    }
   }, [])
 
   const onTouchEnd = useCallback(() => {
