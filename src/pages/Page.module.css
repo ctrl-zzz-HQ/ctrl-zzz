@@ -14,9 +14,10 @@
 }
 
 .socialLink {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   width: fit-content;
+  margin-right: 1rem;
 }
 
 .socialHandle {

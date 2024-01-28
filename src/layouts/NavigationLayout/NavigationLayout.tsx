@@ -26,7 +26,7 @@ export default function NavLayout() {
 
   return (
     <div className={`${styles.pageContainer} primary`}>
-      <h1>CTRL+ZZZ HQ</h1>
+      <h1>CTRL+ZZZ</h1>
       <div className={styles.menu}>
         {
           links.map(link =>
