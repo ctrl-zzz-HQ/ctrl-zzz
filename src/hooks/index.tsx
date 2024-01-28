@@ -29,10 +29,8 @@ export const useSwipe = function(
   const swipeDistance = options?.swipeDistance || 25;
 
   const [touchStart, setTouchStart] = useState<Point|null>(null)
-  const [touchEnd, setTouchEnd] = useState<Point|null>(null)
 
   const onTouchStart = useCallback((e: TouchEvent) => {
-    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
     setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY })
   }, [])
 
@@ -42,13 +40,12 @@ export const useSwipe = function(
     // That way, we won't detect pinches/zooms as swipes.
     if (e.touches.length > 1) {
       setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
-    } else {
-      setTouchEnd({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
     }
   }, [])
 
-  const onTouchEnd = useCallback(() => {
-    if (!touchStart || !touchEnd) return;
+  const onTouchEnd = useCallback((e: TouchEvent) => {
+    if (!touchStart) return;
+    const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
 
     const distance: Point = {x: touchStart.x - touchEnd.x, y: touchStart.y - touchEnd.y };
     let swipeDir: direction|undefined;
@@ -62,7 +59,7 @@ export const useSwipe = function(
     }
 
     if (swipeDir) callback(swipeDir);
-  }, [touchStart, touchEnd, callback, swipeDistance]);
+  }, [touchStart, callback, swipeDistance]);
 
   return { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel: onTouchEnd };
 }
