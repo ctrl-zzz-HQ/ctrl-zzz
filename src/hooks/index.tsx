@@ -26,7 +26,7 @@ export const useSwipe = function(
   callback: (swipeDir: direction) => void,
   options?: { swipeDistance?: number }) {
 
-  const swipeDistance = options?.swipeDistance || 40;
+  const swipeDistance = options?.swipeDistance || 25;
 
   const [touchStart, setTouchStart] = useState<Point|null>(null)
   const [touchEnd, setTouchEnd] = useState<Point|null>(null)
