@@ -5,15 +5,19 @@ import { useKeyDown } from '@/hooks';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
+const stopPropagation = (e: TouchEvent) => e.stopPropagation();
 const swipeHandlers = {
-  onTouchStart: (e: TouchEvent) => e.stopPropagation(),
-  onTouchMove: (e: TouchEvent) => e.stopPropagation(),
-  onTouchEnd: (e: TouchEvent) => e.stopPropagation(),
+  onTouchStart: stopPropagation,
+  onTouchMove: stopPropagation,
+  onTouchEnd: stopPropagation,
+  onTouchCancel: stopPropagation,
 }
 
 export default function ExpandableImage({ image }: Props) {
 
   const [expanded, setExpanded] = useState(false);
+  const [loadedSmall, setLoadedSmall] = useState(false);
+  const [loadedBig, setLoadedBig] = useState(false);
 
   const open = useCallback(() => setExpanded(true), [setExpanded]);
   const close = useCallback(() => setExpanded(false), [setExpanded]);
@@ -27,11 +31,21 @@ export default function ExpandableImage({ image }: Props) {
   return (
     <>
       <button className={styles.imageButton} onClick={open}>
-        <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Small" />
+        <img className={`${loadedSmall ? styles.loaded : ''} w-100 h-100`}
+          width={image.dimensions.width}
+          height={image.dimensions.height}
+          src={lqPath + image.path}
+          alt="Small"
+          onLoad={() => setLoadedSmall(true)} />
       </button>
       {expanded && <div className={`${styles.dialog} primary`} {...swipeHandlers}>
         <div className={styles.imageContainer}>
-          <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="Large" />
+          <img className={loadedBig ? styles.loaded : ''}
+            width={image.dimensions.width}
+            height={image.dimensions.height}
+            src={hqPath + image.path}
+            alt="Large"
+            onLoad={() => setLoadedBig(true)} />
         </div>
         {image.credits.map((credit, index) =>
           <p className={styles.credit} key={index}>
