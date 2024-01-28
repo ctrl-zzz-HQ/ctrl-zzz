@@ -1,21 +1,20 @@
-import styles from './Page.module.css';
+import styles from '../Page.module.css';
 import agents from '@data/agents';
 import { useNavigate } from 'react-router-dom';
 import { useMemo, useEffect, useCallback } from 'react';
 import ExpandableImage from '@components/ExpandableImage';
 import { JsonSocial } from '@types';
-import xLogo from '@/assets/x_logo.png';
-import ytLogo from '@/assets/yt_logo.png';
+import { X, YouTube } from './SocialLogos';
 
 const socialToAnchor = function(social: JsonSocial, key: string) {
   if (social.platform === 'x') {
     return <a className={styles.socialLink} key={key} href={`https://x.com/${social.handle}`}>
-      <img height="13" src={xLogo}/>
+      <X />
       <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
     </a>;
   } else if (social.platform === 'yt') {
     return <a className={styles.socialLink} key={key} href={`https://youtube.com/@${social.handle}`}>
-      <img height="13" src={ytLogo}/>
+      <YouTube />
       <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
     </a>;
   }
