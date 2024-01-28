@@ -6,6 +6,7 @@ export function X() {
   );
 }
 
+/* Adapted from: https://commons.wikimedia.org/wiki/File:YouTube_full-color_icon_(2017).svg */
 export function YouTube() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.57 20" height="13">
