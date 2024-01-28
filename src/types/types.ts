@@ -10,6 +10,7 @@ export interface Agent {
   alias: string;
   status: string;
   roles: string[];
+  socials: Array<JsonSocial>;
   art: JsonImage[];
   label?: string;
 }
@@ -29,4 +30,9 @@ export interface JsonImage {
     width: number,
     height: number,
   }
+}
+
+export interface JsonSocial {
+  platform: 'x' | 'yt';
+  handle: string;
 }

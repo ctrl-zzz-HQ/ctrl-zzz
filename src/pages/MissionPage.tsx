@@ -1,3 +1,4 @@
+import styles from './Page.module.css';
 import missions from '@data/missions';
 import { useMemo } from 'react';
 
@@ -8,14 +9,19 @@ export default function Mission({ index }: Props) {
   return (
     <>
       <h2>
-        MISSION {mission.code} [
-        <span className="wide">status: </span>
-        {mission.status}]
+        MISSION {mission.code}
       </h2>
-      <div className="w-100" dangerouslySetInnerHTML={{__html: mission.embed}}></div>
-      <div className="mission section">
-        <h3>&gt; Brief</h3>
-        <p>{mission.brief}</p>
+      <div className={styles.scrollBody}>
+        <div className="section">
+          <div className="w-100" dangerouslySetInnerHTML={{__html: mission.embed}}></div>
+        </div>
+        <div className="section">
+          <h3>&gt; Brief</h3>
+          <p>{mission.brief}</p>
+        </div>
+      </div>
+      <div className={styles.footer}>
+        <p className="secondary-text">[status: {mission.status}]</p>
       </div>
     </>
   );

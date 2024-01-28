@@ -1,4 +1,4 @@
-import styles from './DreamLogPage.module.css';
+import styles from '../Page.module.css';
 import dreamLogs from '@data/dream-logs';
 import { useMemo, useRef } from 'react';
 import TypingAnimation from '@components/TypingAnimation';

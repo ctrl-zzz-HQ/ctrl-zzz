@@ -1,7 +1,25 @@
+import styles from './Page.module.css';
 import agents from '@data/agents';
 import { useNavigate } from 'react-router-dom';
 import { useMemo, useEffect, useCallback } from 'react';
 import ExpandableImage from '@components/ExpandableImage';
+import { JsonSocial } from '@types';
+import xLogo from '@/assets/x_logo.png';
+import ytLogo from '@/assets/yt_logo.png';
+
+const socialToAnchor = function(social: JsonSocial, key: string) {
+  if (social.platform === 'x') {
+    return <a className={styles.socialLink} key={key} href={`https://x.com/${social.handle}`}>
+      <img height="13" src={xLogo}/>
+      <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
+    </a>;
+  } else if (social.platform === 'yt') {
+    return <a className={styles.socialLink} key={key} href={`https://youtube.com/@${social.handle}`}>
+      <img height="13" src={ytLogo}/>
+      <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
+    </a>;
+  }
+}
 
 export default function Agent({ index }: Props) {
 
@@ -21,7 +39,10 @@ export default function Agent({ index }: Props) {
         <span className="wide">alias: </span>
         {agent.alias}]
       </h2>
-      <div className="scrollable">
+      <div className={styles.scrollBody}>
+        <div className="section">
+          <p className="secondary-text">[status: {agent.status}]</p>
+        </div>
         <div className="section">
           <h3>&gt; Roles</h3>
           <p>{agent.roles.join(', ')}</p>
@@ -35,8 +56,8 @@ export default function Agent({ index }: Props) {
           </div>
         </div>
       </div>
-      <div>
-      {/* TODO Social media links */}
+      <div className={`${styles.footer} secondary-text`}>
+        {agent.socials.map((social, index) => socialToAnchor(social, index.toString()))}
       </div>
     </>
   );

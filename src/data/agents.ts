@@ -5,6 +5,10 @@ const agents: Agent[] = [{
   "alias": "NekoNat",
   "status": "PROSPECTIVE",
   roles: ['animator', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'nekonat_lie' },
+    { platform: 'x', handle: 'nekonat_lie' },
+  ],
   "art": [{
     "path": "full/neko r1.png",
     "dimensions": {
@@ -44,6 +48,10 @@ const agents: Agent[] = [{
   "alias": "Lyn 文文",
   "status": "PROSPECTIVE",
   roles: ['timer', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'lynsings' },
+    { platform: 'x', handle: 'lynsings' },
+  ],
   "art": [{
     "path": "full/lyn r1.png",
     "dimensions": {
@@ -74,6 +82,9 @@ const agents: Agent[] = [{
   "alias": "Yan",
   "status": "ACTIVE",
   roles: ['artist', 'lore writer'],
+  socials: [
+    { platform: 'x', handle: 'damon3758' },
+  ],
   "art": [{
     "path": "bust/Yan.png",
     "dimensions": {
@@ -89,6 +100,10 @@ const agents: Agent[] = [{
   "alias": "Aida",
   "status": "PROSPECTIVE",
   roles: ['organizer', 'tuner', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'aidalyra' },
+    { platform: 'x', handle: 'aida_lyra' },
+  ],
   "art": [{
     "path": "full/aida r1.png",
     "dimensions": {
@@ -119,6 +134,10 @@ const agents: Agent[] = [{
   "alias": "Naya",
   "status": "ACTIVE",
   roles: ['mixer'],
+  socials: [
+    { platform: 'yt', handle: 'naya_ree' },
+    { platform: 'x', handle: 'naya_yt' },
+  ],
   "art": [{
     "path": "bust/Naya.png",
     "dimensions": {
@@ -134,6 +153,10 @@ const agents: Agent[] = [{
   "alias": "Atel",
   "status": "PROSPECTIVE",
   roles: ['lore writer', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'atelierFIVE' },
+    { platform: 'x', handle: 'atelierfiveyt' },
+  ],
   "art": [{
     "path": "full/atel r1.png",
     "dimensions": {
@@ -164,6 +187,9 @@ const agents: Agent[] = [{
   "alias": "Lilp",
   "status": "ACTIVE",
   roles: ['artist'],
+  socials: [
+    { platform: 'x', handle: 'lilpdono' },
+  ],
   "art": [{
     "path": "bust/Lilp_Nemo.png",
     "dimensions": {
@@ -179,6 +205,9 @@ const agents: Agent[] = [{
   "alias": "peach",
   "status": "ACTIVE",
   roles: ['artist'],
+  socials: [
+    { platform: 'x', handle: 'peach_pxl' },
+  ],
   "art": [{
     "path": "bust/Peach.png",
     "dimensions": {
@@ -194,6 +223,10 @@ const agents: Agent[] = [{
   "alias": "Nezu",
   "status": "PROSPECTIVE",
   roles: ['artist', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'nezuminvt' },
+    { platform: 'x', handle: 'nezuminvt' },
+  ],
   "art": [{
     "path": "full/nezu r1.png",
     "dimensions": {
@@ -224,6 +257,9 @@ const agents: Agent[] = [{
   "alias": "yenii",
   "status": "ACTIVE",
   roles: ['artist'],
+  socials: [
+    { platform: 'x', handle: 'yeniihuenii' },
+  ],
   "art": [{
     "path": "bust/Yenii.png",
     "dimensions": {
@@ -239,6 +275,10 @@ const agents: Agent[] = [{
   "alias": "Joy",
   "status": "PROSPECTIVE",
   roles: ['guides', 'vocalist'],
+  socials: [
+    { platform: 'yt', handle: 'xXxAngelOfYouthxXx' },
+    { platform: 'x', handle: 'theangelofyouth' },
+  ],
   "art": [{
     "path": "full/joy r1.png",
     "dimensions": {
@@ -267,8 +307,11 @@ const agents: Agent[] = [{
 }, {
   "code": "XII",
   "alias": "Ash",
-  "status": "ACTIVE",
+  "status": "RETIRED",
   roles: ['animator'],
+  socials: [
+    { platform: 'x', handle: 'ashking109' },
+  ],
   "art": [{
     "path": "bust/Ash.png",
     "dimensions": {
