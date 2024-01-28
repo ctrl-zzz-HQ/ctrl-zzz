@@ -64,7 +64,7 @@ export const useSwipe = function(
     if (swipeDir) callback(swipeDir);
   }, [touchStart, touchEnd, callback, swipeDistance]);
 
-  return { onTouchStart, onTouchMove, onTouchEnd };
+  return { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel: onTouchEnd };
 }
 
 type direction = 'left' | 'right' | 'up' | 'down';
