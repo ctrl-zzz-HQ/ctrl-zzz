@@ -19,14 +19,17 @@ export default function ExpandableImage({ image }: Props) {
   const [loadedSmall, setLoadedSmall] = useState(false);
   const [loadedBig, setLoadedBig] = useState(false);
 
-  const open = useCallback(() => setExpanded(true), [setExpanded]);
-  const close = useCallback(() => setExpanded(false), [setExpanded]);
+  const open = useCallback(() => setExpanded(true), []);
+  const close = useCallback(() => {
+    setExpanded(false);
+    setLoadedBig(false);
+  }, []);
 
   useKeyDown(useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      setExpanded(false);
+      close();
     }
-  }, []));
+  }, [close]));
 
   return (
     <>
