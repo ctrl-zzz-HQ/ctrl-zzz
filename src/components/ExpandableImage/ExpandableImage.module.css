@@ -1,4 +1,4 @@
-.expandable-image.image-button {
+.imageButton {
   width: 200px;
   max-width: 50%;
   border: none;
@@ -6,11 +6,11 @@
   background: transparent;
 }
 
-.expandable-image.image-button img {
+.imageButton img {
   display: block;
 }
 
-.expandable-image.dialog {
+.dialog {
   position: fixed;
   top: 0;
   left: 0;
@@ -22,19 +22,19 @@
   z-index: 100;
 }
 
-.expandable-image.image-container {
+.imageContainer {
   flex: 1;
   position: relative;
 }
 
-.expandable-image.dialog img {
+.dialog img {
   height: 100%;
   width: 100%;
   object-fit: scale-down;
   position: absolute;
 }
 
-.expandable-image.close-button {
+.closeButton {
   padding: .5rem .75rem;
   margin: 1rem;
   position: fixed;
@@ -43,6 +43,6 @@
   background: var(--black-color);
 }
 
-.expandable-image.credit:not(:last-child) {
+.credit:not(:last-child) {
   margin-bottom: .25rem;
 }

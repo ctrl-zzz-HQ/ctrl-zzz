@@ -1,4 +1,4 @@
-import './ExpandableImage.css';
+import styles from './ExpandableImage.module.css';
 import { useState, useCallback, TouchEvent } from 'react';
 import { JsonImage } from '@types';
 import { useKeyDown } from '@/hooks';
@@ -26,18 +26,18 @@ export default function ExpandableImage({ image }: Props) {
 
   return (
     <>
-      <button className="expandable-image image-button" onClick={open}>
+      <button className={styles.imageButton} onClick={open}>
         <img className="w-100 h-100" width={image.dimensions.width} height={image.dimensions.height} src={lqPath + image.path} alt="Small" />
       </button>
-      {expanded && <div className="expandable-image primary dialog" {...swipeHandlers}>
-        <div className="expandable-image image-container">
+      {expanded && <div className={`${styles.dialog} primary`} {...swipeHandlers}>
+        <div className={styles.imageContainer}>
           <img width={image.dimensions.width} height={image.dimensions.height} src={hqPath + image.path} alt="Large" />
         </div>
         {image.credits.map((credit, index) =>
-          <p className="expandable-image credit" key={index}>
+          <p className={styles.credit} key={index}>
             {credit[0]}: <span dangerouslySetInnerHTML={{__html: credit[1]}}></span>
           </p>)}
-        <button className="expandable-image close-button" onClick={close}>x</button>
+        <button className={styles.closeButton} onClick={close}>x</button>
       </div>}
     </>
   );
