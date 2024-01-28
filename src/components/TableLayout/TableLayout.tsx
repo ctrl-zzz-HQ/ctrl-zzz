@@ -36,7 +36,7 @@ export default function TableLayout({ data }: Props) {
     <div className={styles.tableContainer} {...swipeHandlers}>
       <div className={styles.table}>
         <div className={`${styles.row} ${styles.fillHeight}`}>
-          <div className={`${styles.cell} ${styles.fitWidth} wide`}>
+          <div className={`${styles.cell} ${styles.fitWidth} wide`} style={{width: '213px'}}>
             <DesktopLinks data={data} />
           </div>
           <div className={`${styles.cell} ${styles.fillWidth}`}>
