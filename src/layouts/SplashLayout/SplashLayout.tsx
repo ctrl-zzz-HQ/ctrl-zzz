@@ -64,7 +64,7 @@ export default function Splash() {
           <div className={styles.wrapper}>
             <LogoAnimation play={playLogo} onEnded={onSplashEnded} />
           </div>}
-        <button className={styles.skipButton} onClick={onSplashEnded}>Click here or 'Esc' to skip.</button>
+        <button className={`${styles.skipButton} secondary-text`} onClick={onSplashEnded}>Click here or 'Esc' to skip.</button>
       </div>}
     </>
   );
