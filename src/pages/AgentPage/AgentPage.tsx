@@ -10,12 +10,12 @@ const socialToAnchor = function(social: JsonSocial, key: string) {
   if (social.platform === 'x') {
     return <a className={styles.socialLink} key={key} href={`https://x.com/${social.handle}`}>
       <X />
-      <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
+      <span className={styles.socialHandle}>@{social.handle}</span>
     </a>;
   } else if (social.platform === 'yt') {
     return <a className={styles.socialLink} key={key} href={`https://youtube.com/@${social.handle}`}>
       <YouTube />
-      <span className={`${styles.socialHandle} wide`}>@{social.handle}</span>
+      <span className={styles.socialHandle}>@{social.handle}</span>
     </a>;
   }
 }
@@ -40,7 +40,8 @@ export default function Agent({ index }: Props) {
       </h2>
       <div className={styles.scrollBody}>
         <div className="section">
-          <p className="secondary-text">[status: {agent.status}]</p>
+          <h3>&gt; Socials</h3>
+          {agent.socials.map((social, index) => socialToAnchor(social, index.toString()))}
         </div>
         <div className="section">
           <h3>&gt; Roles</h3>
@@ -56,7 +57,7 @@ export default function Agent({ index }: Props) {
         </div>
       </div>
       <div className={`${styles.footer} secondary-text`}>
-        {agent.socials.map((social, index) => socialToAnchor(social, index.toString()))}
+        <p className="secondary-text">[status: {agent.status}]</p>
       </div>
     </>
   );
