@@ -2,6 +2,7 @@ import styles from './ExpandableImage.module.css';
 import { useState, useCallback } from 'react';
 import { JsonImage } from '@types';
 import { useKeyDown, useSwipe } from '@/hooks';
+import Loader from '@components/Loader';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
@@ -39,12 +40,13 @@ export default function ExpandableImage({ image }: Props) {
       </button>
       {expanded && <div className={`${styles.dialog} primary`} {...swipeHandlers}>
         <div className={styles.imageContainer}>
-          <img className={loadedBig ? 'loaded' : 'loading'}
-            width={image.dimensions.width}
-            height={image.dimensions.height}
-            src={hqPath + image.path}
-            alt="Large"
-            onLoad={() => setLoadedBig(true)} />
+          <Loader loaded={loadedBig}>
+            <img width={image.dimensions.width}
+              height={image.dimensions.height}
+              src={hqPath + image.path}
+              alt="Large"
+              onLoad={() => setLoadedBig(true)} />
+          </Loader>
         </div>
         {image.credits.map((credit, index) =>
           <p className={styles.credit} key={index}>
