@@ -90,7 +90,7 @@ a {
   }
 }
 
-a:active, a:focus-visible, a:focus {
+a:active, a:focus-visible {
   background: var(--red-color);
   color: var(--white-color);
   outline: none;
