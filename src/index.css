@@ -96,10 +96,3 @@ td.fit-width {
 button {
   cursor: pointer;
 }
-
-iframe {
-  aspect-ratio: 16/9;
-  max-width: 560px;
-  width: 100%;
-  height: auto;
-}
