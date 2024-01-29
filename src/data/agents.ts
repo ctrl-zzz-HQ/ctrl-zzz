@@ -307,7 +307,7 @@ const agents: Agent[] = [{
 }, {
   "code": "XII",
   "alias": "Ash",
-  "status": "RETIRED",
+  "status": "INACTIVE",
   roles: ['animator'],
   socials: [
     { platform: 'x', handle: 'ashking109' },
