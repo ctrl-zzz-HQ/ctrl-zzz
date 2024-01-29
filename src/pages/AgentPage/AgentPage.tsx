@@ -49,7 +49,11 @@ export default function Agent({ index }: Props) {
         </div>
         <div className="section">
           <h3>&gt; Gallery</h3>
-          <p className="secondary-text">[click to enlarge]</p>
+          <p className="secondary-text">[
+            <span className="no-touch">click </span>
+            <span className="touch">tap </span>
+            to enlarge]
+          </p>
           <div className="agent image-container">
             {agent.art.map(image =>
               <ExpandableImage image={image} key={image.path}/>)}
