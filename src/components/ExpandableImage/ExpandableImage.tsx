@@ -1,17 +1,10 @@
 import styles from './ExpandableImage.module.css';
-import { useState, useCallback, TouchEvent } from 'react';
+import { useState, useCallback } from 'react';
 import { JsonImage } from '@types';
-import { useKeyDown } from '@/hooks';
+import { useKeyDown, useSwipe } from '@/hooks';
 
 const lqPath = '/character art/LQ/';
 const hqPath = '/character art/HQ/';
-const stopPropagation = (e: TouchEvent) => e.stopPropagation();
-const swipeHandlers = {
-  onTouchStart: stopPropagation,
-  onTouchMove: stopPropagation,
-  onTouchEnd: stopPropagation,
-  onTouchCancel: stopPropagation,
-}
 
 export default function ExpandableImage({ image }: Props) {
 
@@ -25,10 +18,13 @@ export default function ExpandableImage({ image }: Props) {
     setLoadedBig(false);
   }, []);
 
+  const swipeHandlers = useSwipe(useCallback((_swipeDir, e) => {
+    close();
+    e.stopPropagation(); // Prevent swipe from bubbling and causing a navigation
+  }, [close]));
+
   useKeyDown(useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      close();
-    }
+    if (e.key === 'Escape') close();
   }, [close]));
 
   return (

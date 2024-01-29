@@ -23,7 +23,7 @@ export const useKeyDown = function(callback: (event: KeyboardEvent) => void) {
 
 // Swipe logic adapted from: https://stackoverflow.com/a/70612770
 export const useSwipe = function(
-  callback: (swipeDir: direction) => void,
+  callback: (swipeDir: direction, e: TouchEvent) => void,
   options?: { swipeDistance?: number }) {
 
   const swipeDistance = options?.swipeDistance || 25;
@@ -34,19 +34,18 @@ export const useSwipe = function(
     setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY })
   }, [])
 
-  const onTouchMove = useCallback((e: TouchEvent) => {
-    // If the gesture involves more than one touch,
-    // reset touchStart until there's only one touch.
-    // That way, we won't detect pinches/zooms as swipes.
-    if (e.touches.length > 1) {
-      setTouchStart({ x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY });
-    }
-  }, [])
-
   const onTouchEnd = useCallback((e: TouchEvent) => {
+    // If the event still contains a touch, that means it isn't over yet
+    // and must have involved more than one touch.
+    // In this case, reset touchStart until there are no touches left.
+    // That way, we won't detect pinches/zooms/multi-touch gestures as swipes.
+    if (e.touches.length > 0) {
+      setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+      return;
+    }
     if (!touchStart) return;
-    const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
 
+    const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
     const distance: Point = {x: touchStart.x - touchEnd.x, y: touchStart.y - touchEnd.y };
     let swipeDir: direction|undefined;
 
@@ -58,10 +57,10 @@ export const useSwipe = function(
       if (distance.y < -swipeDistance) swipeDir = 'down';
     }
 
-    if (swipeDir) callback(swipeDir);
+    if (swipeDir) callback(swipeDir, e);
   }, [touchStart, callback, swipeDistance]);
 
-  return { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel: onTouchEnd };
+  return { onTouchStart, onTouchEnd, onTouchCancel: onTouchEnd };
 }
 
 type direction = 'left' | 'right' | 'up' | 'down';
