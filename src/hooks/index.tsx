@@ -37,10 +37,10 @@ export const useSwipe = function(
   const onTouchEnd = useCallback((e: TouchEvent) => {
     // If the event still contains a touch, that means it isn't over yet
     // and must have involved more than one touch.
-    // In this case, reset touchStart until there are no touches left.
-    // That way, we won't detect pinches/zooms/multi-touch gestures as swipes.
+    // If that happens, nullify touchStart so we don't detect
+    // any multi-touch gestures as a swipe.
     if (e.touches.length > 0) {
-      setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+      setTouchStart(null);
       return;
     }
     if (!touchStart) return;
