@@ -10,15 +10,6 @@
   display: block;
 }
 
-img {
-  opacity: 0;
-}
-
-img.loaded {
-  opacity: 1;
-  transition: opacity .5s;
-}
-
 .dialog {
   position: fixed;
   top: 0;

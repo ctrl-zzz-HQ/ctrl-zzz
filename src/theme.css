@@ -100,3 +100,12 @@ a.active {
   background: var(--gray-color);
   color: var(--dark-gray-color);
 }
+
+.loading {
+  opacity: 0;
+}
+
+.loaded {
+  opacity: 1;
+  transition: opacity .5s;
+}

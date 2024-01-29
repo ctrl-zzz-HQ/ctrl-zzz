@@ -34,7 +34,7 @@ export default function ExpandableImage({ image }: Props) {
   return (
     <>
       <button className={styles.imageButton} onClick={open}>
-        <img className={`${loadedSmall ? styles.loaded : ''} w-100 h-100`}
+        <img className={`${loadedSmall ? 'loaded' : 'loading'} w-100 h-100`}
           width={image.dimensions.width}
           height={image.dimensions.height}
           src={lqPath + image.path}
@@ -43,7 +43,7 @@ export default function ExpandableImage({ image }: Props) {
       </button>
       {expanded && <div className={`${styles.dialog} primary`} {...swipeHandlers}>
         <div className={styles.imageContainer}>
-          <img className={loadedBig ? styles.loaded : ''}
+          <img className={loadedBig ? 'loaded' : 'loading'}
             width={image.dimensions.width}
             height={image.dimensions.height}
             src={hqPath + image.path}
