@@ -11,7 +11,7 @@ export interface Agent {
   status: string;
   roles: string[];
   socials: Array<JsonSocial>;
-  art: JsonImage[];
+  art?: JsonImage[];
   label?: string;
 }
 

@@ -47,7 +47,7 @@ export default function Agent({ index }: Props) {
           <h3>&gt; Roles</h3>
           <p>{agent.roles.join(', ')}</p>
         </div>
-        <div className="section">
+        {agent.art && <div className="section">
           <h3>&gt; Gallery</h3>
           <p className="secondary-text">[
             <span className="no-touch">click </span>
@@ -58,7 +58,7 @@ export default function Agent({ index }: Props) {
             {agent.art.map(image =>
               <ExpandableImage image={image} key={image.path}/>)}
           </div>
-        </div>
+        </div>}
       </div>
       <div className={`${styles.footer} secondary-text`}>
         <p className="secondary-text">[status: {agent.status}]</p>

@@ -321,7 +321,15 @@ const agents: Agent[] = [{
     "credits": [[
       "art", "Yan (<a href=\"https://twitter.com/damon3758\">@damon3758</a>)"
     ]]
-  }]
+  }],
+}, {
+  "code": "XIII",
+  "alias": "Sai Kiyoo",
+  "status": "ACTIVE",
+  roles: ['animator'],
+  socials: [
+    { platform: 'x', handle: 'saikiyoomv' },
+  ],
 }]
 
 export default agents;
