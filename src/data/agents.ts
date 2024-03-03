@@ -3,7 +3,7 @@ import { Agent } from '@types';
 const agents: Agent[] = [{
   "code": "I",
   "alias": "NekoNat",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['animator', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'nekonat_lie' },
@@ -46,7 +46,7 @@ const agents: Agent[] = [{
 }, {
   "code": "II",
   "alias": "Lyn 文文",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['timer', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'lynsings' },
@@ -98,7 +98,7 @@ const agents: Agent[] = [{
 }, {
   "code": "IV",
   "alias": "Aida",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['organizer', 'tuner', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'aidalyra' },
@@ -151,7 +151,7 @@ const agents: Agent[] = [{
 }, {
   "code": "VI",
   "alias": "Atel",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['lore writer', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'atelierFIVE' },
@@ -221,7 +221,7 @@ const agents: Agent[] = [{
 }, {
   "code": "IX",
   "alias": "Nezu",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['artist', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'nezuminvt' },
@@ -273,7 +273,7 @@ const agents: Agent[] = [{
 }, {
   "code": "XI",
   "alias": "Joy",
-  "status": "PROSPECTIVE",
+  "status": "ACTIVE",
   roles: ['guides', 'vocalist'],
   socials: [
     { platform: 'yt', handle: 'xXxAngelOfYouthxXx' },
@@ -329,6 +329,15 @@ const agents: Agent[] = [{
   roles: ['animator'],
   socials: [
     { platform: 'x', handle: 'saikiyoomv' },
+  ],
+}, {
+  code: 'XIV',
+  alias: 'Yobu',
+  status: 'ACTIVE',
+  roles: ['animator'],
+  socials: [
+    { platform: 'yt', handle: 'non_yobu' },
+    { platform: 'x', handle: 'non_yobu' },
   ],
 }]
 
