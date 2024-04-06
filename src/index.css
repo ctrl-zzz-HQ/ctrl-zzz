@@ -8,6 +8,10 @@ html, body, #root {
   height: 100%;
 }
 
+i {
+  font-style: italic;
+}
+
 * {
   box-sizing: border-box;
 }

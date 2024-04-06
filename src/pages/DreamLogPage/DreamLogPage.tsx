@@ -14,7 +14,7 @@ export default function DreamLog({ index }: Props) {
         DREAM LOG {dreamLog.code}
       </h2>
       <div className={styles.scrollBody} ref={bodyRef}>
-        <TypingAnimation text={dreamLog.text} playTrigger={1} />
+        <TypingAnimation html={dreamLog.html} text={dreamLog.text} playTrigger={1} />
       </div>
       <p className={`${styles.footer} secondary-text`}>
         [timestamp: {dreamLog.timestamp}]

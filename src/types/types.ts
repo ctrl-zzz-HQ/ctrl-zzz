@@ -2,6 +2,7 @@ export interface DreamLog {
   code: string;
   timestamp: string;
   text: string;
+  html: boolean;
   label?: string;
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function BootupAnimation({ className, speed=1, text, playTrigger, onEnded }: Props) {
+export default function BootupAnimation({ className, speed=1, html=false, text, playTrigger, onEnded }: Props) {
 
   const [bootupPos, setBootupPos] = useState(0);
 
@@ -25,7 +25,11 @@ export default function BootupAnimation({ className, speed=1, text, playTrigger,
         if (line.trim().length === 0) {
           return <br key={i}></br>;
         } else {
-          return <p key={i}>{line}</p>;
+          if (html) {
+            return <p key={i} dangerouslySetInnerHTML={{__html: line}}></p>;
+          } else {
+            return <p key={i}>{line}</p>;
+          }
         }
       })}
     </div>
@@ -35,6 +39,7 @@ export default function BootupAnimation({ className, speed=1, text, playTrigger,
 interface Props {
   className?: string;
   speed?: number;
+  html?: boolean;
   text: string;
   /**
    * When this prop changes, animation will be triggered from the beginning,
