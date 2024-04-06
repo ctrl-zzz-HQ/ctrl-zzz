@@ -48,7 +48,7 @@ export default function ExpandableImage({ image }: Props) {
               onLoad={() => setLoadedBig(true)} />
           </Loader>
         </div>
-        {image.credits.map((credit, index) =>
+        {image.credits?.map((credit, index) =>
           <p className={styles.credit} key={index}>
             {credit[0]}: <span dangerouslySetInnerHTML={{__html: credit[1]}}></span>
           </p>)}

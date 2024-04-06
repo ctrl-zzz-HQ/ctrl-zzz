@@ -163,7 +163,65 @@ With a loud buzz and spark, a portal flickers open in the center of the room. Al
 "Welcome back guys. That was a close call, you were just about out of time."
 
 
-Relieved to be back, the agents picked themselves off the cold ground one by one, some embarrassed and chuckling, others tremendously spent, with everyone in the room glad to have each other.`
+Relieved to be back, the agents picked themselves off the cold ground one by one, some embarrassed and chuckling, others tremendously spent, with everyone in the room glad to have each other.
+
+
+* * *
+
+
+ACT 2 EPILOGUE
+
+<i>[The agents have just catastrophically landed back at headquarters in a pile.]</i>
+
+"Man... I told you that because of Newton’s Third Law, equal forces must have equal reactions, but you said that because time and space run differently in the Supernova, you just <i>had</i> to swap the reactor with the force gauge! And now, I’ll never be able to get that secret mocktail at Nova that Kiyoo was boasting about!"
+
+"Woof!" Lilp barks with glee, and proceeds to call the marionette’s attention to the sore pile of humans on her left.
+
+"Oh. What a dramatic entrance."
+
+"You think..?" Aida grumbles in response from the bottom.
+
+"Wait, someone forgot a shoe back there."
+
+With the swish of her hand, Naya signals for the portal to be opened again, and it does, appearing briefly to chuck the remaining lost heel back.
+
+Aida lets out a yelp of dismay as she is hit in the head.
+
+"Well, that was <i>something</i> alright." Joy sighs out of exhaustion.
+
+"You can say that again," Peach yawns. "I don’t think I’ve ever felt this tired in my life, serving drinks and dancing..." She sinks deeper into the slouch she was already in, her spine curving like a shrimp.
+
+"Same here," Lyn notes.
+
+"Same for me," Yobu groggily chimes in.
+
+Kiyoo nods his head in agreement.
+
+"At least everyone had a great time, right?" Atel looks around and laughs, trying to look on the bright side of things.
+"I know I did, although things got a bit chaotic at the end..." Nezu chuckles sheepishly. "Sorry about all that Atel. Being possessed... is definitely a new experience for me." Everyone nods in agreement with his remark, taking a moment to appreciate that they made it out safely and were all back to normal.
+"Okay but honestly, that was one of the best parties I’ve ever been to in my life," Joy smiles. "This will be in my memories forever."
+"Wanna take a group photo to commemorate?" Yenii chimes in, holding a camera in hand.
+
+"Yeah!"
+
+"Gather ‘round everyone!" Aida calls out.
+
+With that, everyone pushes into the center of the headquarters and readies themselves for the shot. The flash of Yenii’s camera illuminates the room, capturing the memory of their first mission together.
+
+As the others proceed to rest up after the long mission, Nat picks up the camera and examines the polaroid, smiling at the image. Aida notices her and pats her on the shoulder.
+
+"We did a good job didn’t we?"
+
+"Yep. We did."
+
+Nat smiles as she places the photo onto the table beside her. The two look towards the other members bustling about headquarters and happily chatting amongst one another, as the clock turns from night to morning.`,
+    art: [{
+      "path": "misc/polaroid.png",
+      "dimensions": {
+        "width": 810,
+        "height": 579
+      }
+    }]
   }
 ]
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import TextToHtml from '@components/TextToHtml';
 
 export default function BootupAnimation({ className, speed=1, html=false, text, playTrigger, onEnded }: Props) {
 
@@ -21,17 +22,7 @@ export default function BootupAnimation({ className, speed=1, html=false, text, 
 
   return (
     <div className={className}>
-      {text.substr(0, bootupPos).split('\n').map((line, i) => {
-        if (line.trim().length === 0) {
-          return <br key={i}></br>;
-        } else {
-          if (html) {
-            return <p key={i} dangerouslySetInnerHTML={{__html: line}}></p>;
-          } else {
-            return <p key={i}>{line}</p>;
-          }
-        }
-      })}
+      <TextToHtml text={text.substr(0, bootupPos)} html={html} />
     </div>
   );
 }

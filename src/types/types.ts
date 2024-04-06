@@ -4,6 +4,7 @@ export interface DreamLog {
   text: string;
   html: boolean;
   label?: string;
+  art?: JsonImage[];
 }
 
 export interface Agent {
@@ -26,7 +27,7 @@ export interface Mission {
 
 export interface JsonImage {
   path: string;
-  credits: string[][];
+  credits?: string[][];
   dimensions: {
     width: number,
     height: number,
