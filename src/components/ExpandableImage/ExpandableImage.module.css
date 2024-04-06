@@ -8,6 +8,8 @@
 
 .imageButton img {
   display: block;
+  max-height: 250px;
+  object-fit: scale-down;
 }
 
 .dialog {
