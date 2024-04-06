@@ -4,8 +4,8 @@ import { JsonImage } from '@types';
 import { useKeyDown, useSwipe } from '@/hooks';
 import Loader from '@components/Loader';
 
-const lqPath = '/character art/LQ/';
-const hqPath = '/character art/HQ/';
+const lqPath = '/art/LQ/';
+const hqPath = '/art/HQ/';
 
 export default function ExpandableImage({ image }: Props) {
 
