@@ -12,8 +12,10 @@ const cookieName = 'booted';
 
 export default function Splash() {
 
-  const [cookies, setCookie, deleteCookie] = useCookies([cookieName]);
-  const [splashed, setSplashed] = useState<boolean>(cookies[cookieName]);
+  const [cookies, setCookie] = useCookies([cookieName]);
+  const [splashed, setSplashed] = useState<boolean>(
+    // Default to true if we don't have a cookie (the splash can get pretty obnoxious)
+    () => cookies[cookieName] === undefined ? true : cookies[cookieName]);
   const [bootupTrigger, setBootupTrigger] = useState(0);
   const [playLogo, setPlayLogo] = useState(false);
 
@@ -32,9 +34,9 @@ export default function Splash() {
     if (splashed) {
       setCookie(cookieName, true, { sameSite: 'strict', path: '/' });
     } else {
-      deleteCookie(cookieName, { sameSite: 'strict', path: '/' });
+      setCookie(cookieName, false, { sameSite: 'strict', path: '/' });
     }
-  }, [splashed, setCookie, deleteCookie]);
+  }, [splashed, setCookie]);
 
   useKeyDown(useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
