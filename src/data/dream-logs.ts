@@ -218,8 +218,8 @@ Nat smiles as she places the photo onto the table beside her. The two look towar
     art: [{
       "path": "misc/polaroid.png",
       "dimensions": {
-        "width": 810,
-        "height": 579
+        "width": 1661,
+        "height": 1271,
       }
     }]
   }
