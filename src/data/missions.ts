@@ -12,6 +12,12 @@ const missions: Mission[] = [
     "status": "SUCCESS",
     "brief": "Six individuals, in different places and seemingly unrelated to each other, begin to experience a string of strange dreams. Who is behind them, and why? Will they succeed - or will they fail, and doom every timeline with them?",
     videoId: '0AUOyHMuPOk',
+  },
+  {
+    "code": "II",
+    "status": "RESULT_PENDING",
+    "brief": "Drinks, dance fever, and discomania... How will they escape?!",
+    videoId: 'KUBKk03EDqQ',
   }
 ]
 
