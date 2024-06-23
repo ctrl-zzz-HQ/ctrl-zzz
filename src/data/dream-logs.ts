@@ -222,6 +222,115 @@ Nat smiles as she places the photo onto the table beside her. The two look towar
         "height": 1271,
       }
     }]
+  },
+  {
+    code: 'III',
+    timestamp: '2024-06-23',
+    html: true,
+    text: `It has been a couple months since the dance fever fiasco. The new ctrl*zzz members have since settled into their regular time-jumping routine and the fledgling team has done an excellent job streamlining its operation into a well-oiled machine.
+
+What they don’t know is that the gears of fate are turning in the wrong way. The meltdown at Nova Bar was just one stray wrinkle in time that had managed to snowball its way to the surface, a mere fraction of the cataclysm that lay in wait.
+
+The threads are fraying at an alarming rate... And members are finding it increasingly hard to return to the central timeline.
+
+Could this be the end?
+
+~
+
+<i>In 1850s England, Nat and Lyn sit for morning tea. They have been undercover at the Williams estate for a fortnight, searching for a hidden space-time rift.</i>
+
+"What say you that we stay a little longer?" Nat says while reaching for a crumpet. "The morning spreads are delightful here and the Williams have been more than good to us."
+
+Lyn sips her tea, held in a Foley cup adorned with forget-me-nots.
+
+"It has been rather delightful, hasn’t it... Like a dream within a dream."
+
+"This latest mission has been a real doozy in that—"
+
+"Nathania... Language..." Lyn chides her and looks around for any eavesdroppers.
+
+"Oh come on Lynette, you are such a worrywort! No one suspects a thing."
+
+In the two weeks that the both of them have been in this timeline, they haven’t found a single clue as to where the rift might be.
+
+"As I was saying, the last lead I had was from Elijah, Master Henry’s butler, who said that he was feeling under the weather. But I think, a head cold in spring doesn’t seem too out of the ordinary, does it?"
+
+"No, I suppose not..."
+
+Lyn leans in to whisper, "Nat... You don’t suppose the threads here have already broken? Naya mentioned that a rift will actually close and surge to a new line if the threads have been broken."
+
+"Mm... It can’t be that bad right? I think it’s just well-hidden, because by gosh, this manor is huge. And I saw some storm clouds the other day which can’t be a good sign."
+
+"Alright, let’s give it a couple more days."
+
+~
+
+Back at headquarters, the room is rather lonely and cold. Lilp and Yan have unknowingly fallen into a deep slumber, sharing the couch in the lounge area.
+
+All the other members are out on missions. Nat and Lyn in 1850s England. Peach and Yenii in the roaring 20s. Everyone else on reconnaissance in various locations in the local timeline. But they sure are taking longer than expected...
+
+Suddenly, the radio flicks on with nothing but static coming through the speakers.
+
+A voice breaks through the noise, choppy and urgent.
+
+"ZZZZKiyooZZ, can youZZZZ me?ZZZZZ"
+"I’m currentlyZZZZZZZZZZZZZZ. For some reason, Peach and Yenii areZZZZZZbutZZZZ"
+"Hold on I thinkZZZZZZZ"
+"ZZZZAhhZZZZwhat theZZZZZ"
+
+The transmission ends.
+
+~
+
+The morning light seeps through the curtains in Joy’s room as she lay asleep under her blankets. Her brows are tense and knitted in the moments leading up to her rousing. They soften a bit as she opens her eyes into a tired squint.
+
+"What a dream..." She sighs.
+
+Still laying there, she lets the details linger on for a moment before reaching for her phone on her bedside table. Something about a mission. Urgency. Needing to tell... someone? Something? She taps her phone twice to check the time... It’s 6:48am.
+
+What was she thinking about just now?
+
+Ah yes... Her dream.
+
+Just what happened in her dream?
+
+It was always like this.
+
+Because of this, Joy had started logging her dreams in a journal. Most days, if she doesn’t write the moment she comes to, the details are instantly lost and she can only manage to jot down the emotions she is left with.
+
+She reaches for her journal and writes the following.
+
+Searching. Nervous. Scared to be alone.
+
+~
+
+Standing at shore, Aida watches the tide come and go, erasing all kinds of little scratches in the wet sand.
+
+She hasn’t felt right for a couple of days. It’s as if there is something missing or that she has forgotten something important. And she cannot, for the life of her, figure out what it is.
+
+Bending over, she scoops up some sand with her hands.
+
+The day before yesterday, she had woken up with a fever from a delirious dream. The only details she could remember from the dream were a clock spinning backwards and the name Nezu. The rest had slipped away, just like how the sand was currently sifting through her fingers and into the sea.
+
+On her way home, Aida sees a white-haired youth walking in the opposing direction. They pass each other briefly. All the while, Aida’s mind is racing. This person seems oddly familiar, who are they?
+
+Mustering up her courage, she swings around and hurries to catch up to the boy.
+
+"Hey!" She exclaims. "I really don’t mean this in a weird way but... Have we met before? I feel like I know you even though... Even though I don’t know your name."
+
+"Oh uh... Hi."
+
+"Sorry this must be really weird."
+
+"Actually, I’m a bit taken aback... When you passed me, I thought I recognized you from somewhere. What’s your name?"
+
+"Aida. What’s yours?"
+
+"Nezu."
+
+"Nezu..." Aida repeats, in disbelief. "Nice to meet you, Nezu."
+
+"Nice to meet you, Aida."`,
   }
 ]
 
