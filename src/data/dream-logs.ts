@@ -331,7 +331,25 @@ Mustering up her courage, she swings around and hurries to catch up to the boy.
 "Nezu..." Aida repeats, in disbelief. "Nice to meet you, Nezu."
 
 "Nice to meet you, Aida."`,
-  }
+  art: [{
+    "path": "misc/joy_underwater.png",
+    "dimensions": {
+      "width": 2800,
+      "height": 1575,
+    },
+    "credits": [
+    [
+      "storyboard/line/base", "Yan (<a href=\"https://x.com/damon3758\">@damon3758</a>)"
+    ], [
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ], [
+      "base color assist", "Aida (<a href=\"https://x.com/aida_lyra\">@aida_lyra</a>)"
+    ]]
+  }]}
 ]
 
 export default data;
