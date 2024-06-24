@@ -2,6 +2,7 @@ import styles from './Page.module.css';
 import missions from '@data/missions';
 import { useMemo } from 'react';
 import YoutubeVideo from '@components/YoutubeVideo';
+import ScrollToTopContainer from '@/components/ScrollToTopContainer';
 
 export default function Mission({ index }: Props) {
 
@@ -12,7 +13,7 @@ export default function Mission({ index }: Props) {
       <h2>
         MISSION {mission.code}
       </h2>
-      <div className={styles.scrollBody}>
+      <ScrollToTopContainer>
         {mission.videoId && <div className="section">
           <YoutubeVideo videoId={mission.videoId} />
         </div>}
@@ -20,7 +21,7 @@ export default function Mission({ index }: Props) {
           <h3>&gt; Brief</h3>
           <p>{mission.brief}</p>
         </div>
-      </div>
+      </ScrollToTopContainer>
       <div className={styles.footer}>
         <p className="secondary-text">[status: {mission.status}]</p>
       </div>

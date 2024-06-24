@@ -5,6 +5,7 @@ import { useMemo, useEffect, useCallback } from 'react';
 import ExpandableImage from '@components/ExpandableImage';
 import { JsonSocial } from '@types';
 import { X, YouTube } from './SocialLogos';
+import ScrollToTopContainer from '@/components/ScrollToTopContainer';
 
 const socialToAnchor = function(social: JsonSocial, key: string) {
   if (social.platform === 'x') {
@@ -38,7 +39,7 @@ export default function Agent({ index }: Props) {
         <span className="wide">alias: </span>
         {agent.alias}]
       </h2>
-      <div className={styles.scrollBody}>
+      <ScrollToTopContainer>
         <div className="section">
           <h3>&gt; Socials</h3>
           {agent.socials.map((social, index) => socialToAnchor(social, index.toString()))}
@@ -59,7 +60,7 @@ export default function Agent({ index }: Props) {
               <ExpandableImage image={image} key={image.path}/>)}
           </div>
         </div>}
-      </div>
+      </ScrollToTopContainer>
       <div className={`${styles.footer} secondary-text`}>
         <p className="secondary-text">[status: {agent.status}]</p>
       </div>
