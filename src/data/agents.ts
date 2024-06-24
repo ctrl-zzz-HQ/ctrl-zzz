@@ -10,6 +10,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'nekonat_lie' },
   ],
   "art": [{
+    "path": "full/nat r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/neko r1.png",
     "dimensions": {
       "width": 2895,
@@ -62,6 +77,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'lynsings' },
   ],
   "art": [{
+    "path": "full/lyn r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/lyn r2.png",
     "dimensions": {
       "width": 2230,
@@ -110,6 +140,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'damon3758' },
   ],
   "art": [{
+    "path": "portrait/yan.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/yan.png",
     "dimensions": {
       "width": 1300,
@@ -138,6 +181,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'aida_lyra' },
   ],
   "art": [{
+    "path": "full/aida r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/aida r2.png",
     "dimensions": {
       "width": 2277,
@@ -187,6 +245,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'naya_yt' },
   ],
   "art": [{
+    "path": "portrait/naya.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/naya.png",
     "dimensions": {
       "width": 1300,
@@ -215,6 +286,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'atelierfiveyt' },
   ],
   "art": [{
+    "path": "full/atel r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/atel r2.png",
     "dimensions": {
       "width": 3279,
@@ -276,6 +362,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'lilpdono' },
   ],
   "art": [{
+    "path": "portrait/lilp.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/lilp.png",
     "dimensions": {
       "width": 1300,
@@ -303,6 +402,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'peach_pxl' },
   ],
   "art": [{
+    "path": "portrait/peach.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/peach.png",
     "dimensions": {
       "width": 1500,
@@ -331,6 +443,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'nezuminvt' },
   ],
   "art": [{
+    "path": "full/nezu r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/nezu r2.png",
     "dimensions": {
       "width": 2681,
@@ -392,6 +519,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'yeniihuenii' },
   ],
   "art": [{
+    "path": "portrait/Yenii.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/yenii.png",
     "dimensions": {
       "width": 1300,
@@ -420,6 +560,21 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'theangelofyouth' },
   ],
   "art": [{
+    "path": "full/joy r3.png",
+    "dimensions": {
+      "width": 2895,
+      "height": 4092
+    },
+    "credits": [[
+      "sketch", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)"
+    ], [
+      "line", "Lilp (<a href=\"https://x.com/lilpdono\">@lilpdono</a>)"
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "full/joy r2.png",
     "dimensions": {
       "width": 2321,
@@ -486,6 +641,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'saikiyoomv' },
   ],
   art: [{
+    "path": "portrait/kiyoo.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/kiyoo.png",
     "dimensions": {
       "width": 1500,
@@ -505,6 +673,19 @@ const agents: Agent[] = [{
     { platform: 'x', handle: 'non_yobu' },
   ],
   art: [{
+    "path": "portrait/yobu.png",
+    "dimensions": {
+      "width": 4000,
+      "height": 4000
+    },
+    "credits": [[
+      "sketch/line", "peach (<a href=\"https://x.com/peach_pxl\">@peach_pxl</a>)",
+    ], [
+      "base", "Nezu (<a href=\"https://x.com/nezuminvt\">@nezuminvt</a>)"
+    ], [
+      "color", "yenii (<a href=\"https://x.com/yeniihuenii\">@yeniihuenii</a>)"
+    ]]
+  }, {
     "path": "sticker/yobu.png",
     "dimensions": {
       "width": 1300,
