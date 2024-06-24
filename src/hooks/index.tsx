@@ -47,7 +47,7 @@ export const useSwipe = function(
 
     const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
     const distance: Point = {x: touchStart.x - touchEnd.x, y: touchStart.y - touchEnd.y };
-    let swipeDir: direction|undefined;
+    let swipeDir: direction = 'tap';
 
     if (Math.abs(distance.x) > Math.abs(distance.y)) {
       if (distance.x > swipeDistance) swipeDir = 'left';
@@ -57,13 +57,13 @@ export const useSwipe = function(
       if (distance.y < -swipeDistance) swipeDir = 'down';
     }
 
-    if (swipeDir) callback(swipeDir, e);
+    callback(swipeDir, e);
   }, [touchStart, callback, swipeDistance]);
 
   return { onTouchStart, onTouchEnd, onTouchCancel: onTouchEnd };
 }
 
-type direction = 'left' | 'right' | 'up' | 'down';
+type direction = 'left' | 'right' | 'up' | 'down' | 'tap';
 interface Point {
   x: number,
   y: number,
