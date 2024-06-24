@@ -242,7 +242,7 @@ const agents: Agent[] = [{
   roles: ['mixer'],
   socials: [
     { platform: 'yt', handle: 'naya_ree' },
-    { platform: 'x', handle: 'naya_yt' },
+    { platform: 'x', handle: 'naya_audio' },
   ],
   "art": [{
     "path": "portrait/naya.png",
