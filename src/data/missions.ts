@@ -15,9 +15,15 @@ const missions: Mission[] = [
   },
   {
     "code": "II",
-    "status": "RESULT_PENDING",
+    "status": "SUCCESS",
     "brief": "Drinks, dance fever, and discomania... How will they escape?!",
     videoId: 'KUBKk03EDqQ',
+  },
+  {
+    "code": "III",
+    "status": "SUCCESS",
+    "brief": "The threads are fraying at an alarming rate... Could this be the end?",
+    videoId: 'eTiPtS7KOzM',
   }
 ]
 
